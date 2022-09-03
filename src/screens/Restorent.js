@@ -153,26 +153,30 @@ function check(name) {
                     </div>
 
                      }
-                    {localStorage.getItem("item")?
+                     
          <div className='mb-5'>
-              <NavLink to="/Payment"
+           {local_variable.length>0? 
            
-           state={{
-            AdminId:AdminId,
-            User:User,
-            ShopName:ShopName
-           }}
-           >
-             <div className='row text-center' style={{marginBottom:'10%'}}>
-              <p className='col-1'>Next</p>
-              <button className='col-11 btn btn-danger'>Continue</button>
-             </div>
-            </NavLink>:null
+                    <NavLink to="/Payment"
+                
+                        state={{
+                            AdminId:AdminId,
+                            User:User,
+                            ShopName:ShopName
+                        }}
+                        >
+                            <div className='row text-center'>
+                            <p className='col-1'>Next</p>
+                            <button className='col-11 btn btn-danger'>Continue</button>
+                            </div>
+                    </NavLink>
+                    :
+                    null
             
-         
-         </div>:null
+           }
+         </div> 
 
-         }
+         
                 </div>
             </div>
 
