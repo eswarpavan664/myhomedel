@@ -155,7 +155,7 @@ function check(name) {
                      }
                     {localStorage.getItem("item")?
          <div className='mb-5'>
-           {local_variable.length>0?  <NavLink to="/Payment"
+              <NavLink to="/Payment"
            
            state={{
             AdminId:AdminId,
@@ -169,7 +169,7 @@ function check(name) {
              </div>
             </NavLink>:null
             
-           }
+         
          </div>:null
 
          }
