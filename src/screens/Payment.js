@@ -91,6 +91,7 @@ console.log(local_variable)
         
         
       </div>
+      
   <div className='col-md-7'  style={{borderLeft:"1px solid lightgray"}}>
 
        <div className='container' style={{width:'80%'}}>
@@ -115,6 +116,7 @@ console.log(local_variable)
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+
         <form>
           <input type={"radio"} value="Cash On Delivery" /> Cash On Delivery
           <br />

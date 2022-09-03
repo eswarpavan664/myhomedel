@@ -11,6 +11,10 @@ import {
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
+  TableOutlined,
+  AppstoreAddOutlined,
+  ShoppingCartOutlined,
+  FileTextOutlined,
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu } from 'antd';
 import AddItems from '../../components/AddItems';  
@@ -28,7 +32,7 @@ function getItem(label, key, icon, children) {
     label,
   };
 }
-
+const { SubMenu } = Menu;
 
 const items = [
   getItem('Option 1', '1', <PieChartOutlined />),
@@ -81,6 +85,7 @@ useEffect(()=>{
   GetData();
 
 },[])
+const [Ordertype,setOrdertype] = useState("Pending");
   return (
     <> 
      {UserData.Role==="Admin"?
@@ -104,22 +109,36 @@ useEffect(()=>{
                 DashBoard
             </Menu.Item>
 
-            <Menu.Item key="2" onClick={()=>setscreen("Profile")} icon={ <PieChartOutlined />}>
+            <Menu.Item key="2" onClick={()=>setscreen("Profile")} icon={ <UserOutlined />}>
                     Profile
             </Menu.Item>
 
-            <Menu.Item key="5" onClick={()=>setscreen("MyItems")} icon={ <PieChartOutlined />}>
+            <Menu.Item key="5" onClick={()=>setscreen("MyItems")} icon={ <TableOutlined />}>
                      My Items
             </Menu.Item>
 
-            <Menu.Item key="3" onClick={()=>setscreen("Add Items")} icon={ <PieChartOutlined />}>
+            <Menu.Item key="3" onClick={()=>setscreen("Add Items")} icon={<AppstoreAddOutlined />}>
                     Add Items
             </Menu.Item>
-
-            <Menu.Item key="4" onClick={()=>setscreen("Orders")} icon={ <PieChartOutlined />}>
-                 Orders
+ 
+            <SubMenu key="sub2" icon={<FileTextOutlined />} title="Orders" onClick={()=>setscreen("Orders")} icon={<ShoppingCartOutlined />}>
+           
+          
+            <Menu.Item key="4" onClick={()=>setOrdertype("Pending")}  >
+            Pending
+            </Menu.Item>
+            
+            <Menu.Item key="6" onClick={()=>setOrdertype("Delivered")}  >
+            Delivered
+            </Menu.Item>
+            <Menu.Item key="7" onClick={()=>setOrdertype("Accepted")}  >
+            Accepted
+            </Menu.Item>
+            <Menu.Item key="8" onClick={()=>setOrdertype("Declain")} >
+            Declined
             </Menu.Item>
 
+           </SubMenu>
            
           </Menu>
 
@@ -137,24 +156,28 @@ useEffect(()=>{
           }}
         >
           
-          <ConTent page={screen} data={UserData}/>
+          <ConTent page={screen} data={UserData} Ordertype={Ordertype}/>
         </Content>
         <Footer
           style={{
             textAlign: 'center',
           }}
         >
-          Ant Design ©2018 Created by Ant UED
+          copyright ©2023 Created by TRIGOVEX
         </Footer>
       </Layout>
     </Layout>
     
      :
-             <div>
+      <>
+      {UserData.Role==="SuperAdmin"?<h1>k</h1>: <div>
 
-                <h1>Admin error:- your are not an admin and you don't have any credential in this website . Please contact our Admins to get Access (eswarpavan5237@gmail.com)</h1>
-                <button onClick={logout}>go back</button>
-          </div>
+      <h1>Admin error:- your are not an admin and you don't have any credential in this website . Please contact our Admins to get Access (eswarpavan5237@gmail.com)</h1>
+      <button onClick={logout}>go back</button>
+      </div>
+
+            }
+      </>
 
 
 }  
@@ -211,7 +234,7 @@ function ConTent(props)
   if(props.page==="Orders")
   {
     return(
-      <Orders id={props.data.AdminId}/>
+      <Orders id={props.data.AdminId} Ordertype={props.Ordertype}/>
     )
   }
   if(props.page==="MyItems")

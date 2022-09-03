@@ -13,6 +13,8 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Ip } from './../constants/Ip';
+import OrderByItem from '../components/OrderByItem';
+import Baners from '../components/Baners';
 
 function MainPage(props) {
 
@@ -105,6 +107,9 @@ GetData();
 </div>
 
 </header>
+
+    <OrderByItem/>
+    <Baners/>
     <RestaurentCard User={user.phoneNumber} Place={Place} user={Data} />
      
      <Recomendations User={user.phoneNumber}  />  

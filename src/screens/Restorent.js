@@ -91,12 +91,12 @@ function check(name) {
                 <p className='font-weight-light m-0'><span className='text-danger'>Open now</span> - 9am - 11pm (Today)</p>
             </div>
             
-            <div className='buttonGroup'>
+            {/*<div className='buttonGroup'>
                 <button className='btn btn-danger m-2'><i class="fa-regular fa-star"></i> Add Review</button>
                 <button className='btn btn-outline-danger m-2'>Direction</button> 
                 <button className='btn btn-outline-danger m-2'>Bookmark</button> 
                 <button className='btn btn-outline-danger m-2'>Share</button> 
-            </div>
+            </div>*/}
             <hr/>
             <div className='row'>
                 <div className='col-md-3'>

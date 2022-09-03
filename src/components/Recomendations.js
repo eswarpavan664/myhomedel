@@ -74,34 +74,7 @@ function Recomendations() {
       </div>
     </section>
 
-    <section>
-      <div className='container mt-5'>
-        <h1 className='font-weight-light'>Explore options near me</h1>
-        <div className='row'>
-
-          <div className='col-12 mb-3'>
-            <div className='card'>
-              <details>
-                <summary>Click to open</summary>
-                <p>If your browser supports this element, it should allow you to expand and collapse these details.</p>
-              </details>
-            </div>
-          </div>
-
-          <div className='col-12 mb-3'>
-            <div className='card'>
-              <details>
-                <summary>Click to open</summary>
-                <p>If your browser supports this element, it should allow you to expand and collapse these details.</p>
-              </details>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-
-    </section>
+    
     </>
   )
 }

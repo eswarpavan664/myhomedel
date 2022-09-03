@@ -20,17 +20,15 @@ function Orders(props) {
         )
     }
     useEffect(()=>{
-      GetItems();
-    })
-    const [DisplayType,setDisplayType] =useState("Pending")
+      setInterval(() => {
+        GetItems();
+          }, 2000)
+    },[ ])
+    const [DisplayType,setDisplayType] =useState(props.Ordertype)
+    console.log(props.Ordertype)
   return (
      <>
-       <div style={{flexDirection:'row'}}>
-       <button style={{backgroundColor:DisplayType==="Delivered"?'green':null}}  onClick={()=>setDisplayType("Delivered")}>Delivered</button>
-       <button style={{backgroundColor:DisplayType==="Pending"?'green':null}}  onClick={()=>setDisplayType("Pending")}>Pending</button>
-       <button style={{backgroundColor:DisplayType==="Accepted"?'green':null}}  onClick={()=>setDisplayType("Accepted")}>Accepted</button>
-       <button style={{backgroundColor:DisplayType==="Declain"?'green':null}}  onClick={()=>setDisplayType("Declain")}>Declined</button>
-       </div>
+       
       {Items?  
       <div> 
       {Items.map((item)=>(
@@ -46,7 +44,7 @@ function Orders(props) {
             DeliveryManId={item.DeliveryManId}
             OrderStatus={item.OrderStatus}
             id={item._id}
-            displaytype={DisplayType}
+            displaytype={props.Ordertype}
 
                 /> 
        ))
@@ -84,6 +82,10 @@ function ItemCards(props){
   }
 
   const [statusupdate,setstatusupdate]=useState("");
+ var items=props.orderList[0].split("-")
+ items = items.filter(e=>e!=="")
+ console.log(items)
+
   return(
     <div>
 
@@ -99,14 +101,22 @@ function ItemCards(props){
                     <div class="col-md-3 col-6 ">
                         <div class="row">
                             <div class="col-12">
-                                <p>{props.CustomerName}</p>
-                                <p>{props.ContactNo}</p>
- 						<p>{props.Amount}</p>
+                                <p>Customer Name:- {props.CustomerName}</p>
+                                <p>Contact No:- {props.ContactNo}</p>
+ 						                    <p>Total Amount:- {props.Amount}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-3 col-6 ">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla sit ipsa, repellat quibusdam consequatur quam.</p>
+                        {items.map((item,i)=>(
+                           <div style={{flexDirection:'column'}}>
+                           <p>{item.split("_")[0]}</p>
+                           <p>Rs. {item.split("_")[1]}</p>
+                           <p>x{item.split("_")[2]}</p>
+                           </div>
+                        ))
+
+                        }
                     </div>
                     <div class="col-md-3 col-4 ">
                         <button class="btn btn-secondary">Order Status:- {props.OrderStatus}</button>

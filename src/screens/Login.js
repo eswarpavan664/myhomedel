@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React,{useState,useEffect} from 'react'
@@ -13,7 +14,7 @@ import { RecaptchaVerifier , signInWithPhoneNumber} from "firebase/auth";
 
 import {getDatabase, ref, set , onValue, child, get, push, update  } from "firebase/database";
 
-
+import Chef from '../images/WhatsApp Image 2022-08-26 at 3.18.28 PM (1).jpeg'
  
 
 
@@ -79,7 +80,7 @@ const requestOtp=(e)=>{
          body:JSON.stringify({
           "PhoneNumber":Number,
           "email":"",
-          "Name":"",
+          "Name":Name,
           "Role":"Customer",
           "Address":"",
           "Id":Number 
@@ -102,39 +103,44 @@ const requestOtp=(e)=>{
 
   }
   const [Screen,setScreen] =useState(0);
-
+ 
   return (
-    <div className='body_ '>
-      <div className='container'>
-      <div className='row'>
-          <div className='col-md-6 col-8 offset-md-3 offset-2 p-3 card'>
-            <form onSubmit={requestOtp}>
-              <h3 className='text-center text-danger mb-5'>Login/ Signup</h3>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="text" placeholder="Phone Number" required value={Number} onChange={(e)=>setNumber(e.target.value)} class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-
-              {ExpandForm===false?
-                  
-                  <button class="btn btn-success">request OTP</button>
-              : <>
-
-                <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Enter OTP" required value={Otp} onChange={(e)=>setOtp(e.target.value)}/>
-                
-
-                </>
-
-              }
-              
-              <div id="sign-in-button"></div>
-            </form>
-            <button class="btn btn-primary" style={{width:100,textAlign:'center',marginLeft:'40%',marginTop:10}} onClick={verifyotp}>Login</button>
-          </div>
+    <div className='login_page_back_'>
+        <div className='login_header_ row m-0'>
+            <div className='text-center col-12'>
+                <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
+            </div>
+            <div className='col-12 text-center mb-3'>
+                <p className='text-danger font-weight-bold login_signup_text' style={{textDecoration:"underline"}}>Login/Signup</p>
+            </div>
         </div>
-      </div>
-        
+        <div className='container text-center login_form_cont_ mt-5'>
+            <form onSubmit={requestOtp}>
+                <input type={"text"} placeholder="Enter your name" className='land_page_inputs' value={Name} onChange={(e)=>setName(e.target.value)}/><br /><br />
+                <input type="text" placeholder="Phone Number" required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br /><br />
+                 
+             
+    {ExpandForm===false?
+    
+      <button class="btn btn-success">request OTP</button>
+        : <>
+
+   
+      <input type={"number"} placeholder="Enter your OTP" className='land_page_inputs' value={Otp} onChange={(e)=>setOtp(e.target.value)}/><br /><br />
+
+      </>
+
+    }
+    <div id="sign-in-button"></div>
+      </form>
+
+
+             
+
+            <div className='row'>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+            </div>
+        </div>
     </div>
    
  
