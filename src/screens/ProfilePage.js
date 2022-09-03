@@ -76,11 +76,13 @@ const {local_variable,InAction,DeAction } =props;
   }
    
   console.log(Data[0])
+  const Address = Data[0].Address.split("_")
+  console.log(Address)
   const [Name,setName]=useState(Data[0].Name);
   const [email,setemail]=useState(Data[0].email);
-  const [CityName,setCityName]=useState();
-  const [Pincode,setPincode]=useState();
-  const [Lankmark,setLankmark]=useState();
+  const [CityName,setCityName]=useState(Address[0]);
+  const [Pincode,setPincode]=useState(Address[2]);
+  const [Lankmark,setLankmark]=useState(Address[1]);
   const [Setter,setSetter] =useState(0)
   return (
     <div className='page pt-md-5'>
@@ -88,7 +90,7 @@ const {local_variable,InAction,DeAction } =props;
         <div class="row text-center rounded_ r_">
             <div class="col-md-3 border text-center pro_details">
                 <img class=" pro_img mt-5 img-fluid" src="https://www.sukhii.group/assets/images/male-user.png" alt="" width="150" height="150"/>
-                <h4 class="mt-5">Name</h4>
+                <h4 class="mt-5">{Data[0].Name}</h4>
                 <h5 class="text-truncate">{Data[0].email}</h5>
                 <h5>{Data[0].PhoneNumber}</h5>
                 <p class="mb-5">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio consequuntur nihil aliquam autem! Quisquam, assumenda.</p>
