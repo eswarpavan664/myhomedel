@@ -163,7 +163,7 @@ function check(name) {
             ShopName:ShopName
            }}
            >
-             <div className='row text-center'>
+             <div className='row text-center' style={{marginBottom:'10%'}}>
               <p className='col-1'>Next</p>
               <button className='col-11 btn btn-danger'>Continue</button>
              </div>
