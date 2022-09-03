@@ -17,6 +17,7 @@ import AddItems from '../../components/AddItems';
 import Orders from '../../components/Orders';
 import MyItems from './MyItems';
 import { Ip } from './../../constants/Ip';
+import AdminProfile from './AdminProfile';
   
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -59,7 +60,7 @@ function Dashboard(){
   const  GetData = async ()=>{
      const token = await  localStorage.getItem("token")
      console.log("Dashboard = "+token)
-   fetch('http://'+Ip+':5000/GetAdmin',{
+   fetch(Ip+'/GetAdmin',{
    headers:new Headers({
      Authorization:"Bearer "+token
    })
@@ -197,34 +198,7 @@ function ConTent(props)
   if(props.page==="Profile")
   {
     return(
-      <div
-      className="site-layout-background"
-      style={{
-        padding: 24,
-        minHeight: 360,
-      }}
-    >
-
-      <img src={"http://"+Ip+":5000/"+props.data.ShopPhoto} />
-      <h1>
-        Name:- {props.data.Name}
-      </h1>
-      <h1>
-        Shop Name:- {props.data.ShopName}
-      </h1>
-      <h1>
-        Email:- {props.data.email}
-      </h1>
-      <h1>
-        Phone No :- {props.data.PhoneNumber}
-      </h1>
-      <h1>
-        Address :- {props.data.AdminId}
-      </h1>
-      <button onClick={logout}>logout</button>
-        
-       
-    </div>
+      <AdminProfile Data={props.data}/>
     )
   }
   if(props.page==="Add Items")

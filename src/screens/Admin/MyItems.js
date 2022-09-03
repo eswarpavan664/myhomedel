@@ -11,7 +11,7 @@ function MyItems(props) {
     const [Items,setItems] = useState([]);
     console.log(props.id)
     const GetItems=()=>{
-      fetch('http://'+Ip+':5000/GetAdminItem?id='+props.id,{
+      fetch(Ip+'/GetAdminItem?id='+props.id,{
         headers:new Headers({
           Authorization:"Bearer" 
         })
@@ -38,7 +38,7 @@ function MyItems(props) {
           
           <ItemCards 
                Name={item.ItemName} 
-               ProductImage={"http://"+Ip+":5000/"+item.ProductImage} 
+               ProductImage={Ip+"/"+item.ProductImage} 
                ItemPrice={item.ItemPrice}
                ItemDiscription={item.ItemDiscription}
                _id={item._id}

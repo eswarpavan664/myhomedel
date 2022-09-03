@@ -165,7 +165,7 @@ useEffect(()=>{
   return(
     <div className='row d-flex align-items-center mb-4 pb-2' style={{borderBottom:"1px solid gray"}}>
     <div className='col-2'>
-      <img className='img-fluid' src={"http://"+Ip+":5000/"+props.data.ProductImage} style={{borderRadius:"8px"}} />
+      <img className='img-fluid' src={Ip+"/"+props.data.ProductImage} style={{borderRadius:"8px"}} />
     </div>
     <div className='col-6'>
       <h5>{props.data.ItemName}</h5>

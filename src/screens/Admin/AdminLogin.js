@@ -36,7 +36,7 @@ const [password,setPassword]=useState('')
 
 
 const sendCred = async (props)=>{
-fetch("http://"+Ip+":5000/AdminSignin",{
+fetch(Ip+"/AdminSignin",{
   method:"POST",
   headers: {
    'Content-Type': 'application/json'
@@ -59,6 +59,7 @@ fetch("http://"+Ip+":5000/AdminSignin",{
        }
 })
 }
+console.log(Ip+"/AdminSignin")
 const [Screen,setScreen] = useState(1);
   return (
     <div   class="container-fluid d-flex justify-content-around align-items-center" style={{height:window.innerHeight,backgroundColor:'#208bad'}} >
