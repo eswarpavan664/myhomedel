@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import React,{useState,useEffect} from 'react';
 import './App.css';
+import {
+  useNavigate ,
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
+ 
+import Loading from './screens/Loading'
+ 
+import Home from './screens/Home';
+ 
+import PhoneLogin from './screens/Login';
+import Payment from './screens/Payment';
+import Restorent from './screens/Restorent';
+import ProfilePage from './screens/ProfilePage';
+import { Ip } from './constants/Ip';
+import MainPage from './screens/MainPage';
 function App() {
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      
+
+ 
+          
+          <Route path="/" element={<Loading />} />
+          <Route path="/Login" element={<PhoneLogin />} />
+          <Route path="/MainPage" element={<MainPage />} />
+          <Route path="/Restorent" element={<Restorent />} />
+          <Route path="/Payment" element={<Payment />} />
+          <Route path="/Profile" element={<ProfilePage />} />
+         
+    </Routes>
+  </BrowserRouter>
   );
 }
 
