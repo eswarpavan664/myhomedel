@@ -23,11 +23,11 @@ const {local_variable,InAction,DeAction } =props;
   let navigate = useNavigate();
   const Logout=()=>{
     signOut(authentication).then(() => {
-      navigate('Login');
+      navigate.replace('Login');
     }).catch((error) => {
       // An error happened.
     });
-    window.location.reload()
+     
   }
   var ob={
     "name":"pavan",
@@ -132,15 +132,15 @@ const {local_variable,InAction,DeAction } =props;
                                         :null
                                       }
                                       {item.OrderStatus==="Pending"?
-                                        <h4>Waiting </h4>:null
+                                        <p>Waiting </p>:null
 
                                       }
                                       {item.OrderStatus==="Accepted"?
 
-                                          <h4>Order Accepted</h4>:null
+                                          <p>Order Accepted</p>:null
 
                                       }
-                                      {item.OrderStatus===""?
+                                      {item.OrderStatus==="AcceptedByDeliveryBoy"?
 
                                       <div className='row'>
                                          <button className='col-10 offset-1 btn btn-secondary'>Track</button>
@@ -149,7 +149,7 @@ const {local_variable,InAction,DeAction } =props;
 
                                       }
                                       {item.OrderStatus==="Declain"?
-                                        <h4>Order Canceled by Restorent</h4>
+                                        <p>Order Canceled by Restorent</p>
                                         :null
                                       }
                                  </div>
