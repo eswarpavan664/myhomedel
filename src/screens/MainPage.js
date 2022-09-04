@@ -15,9 +15,12 @@ import { useEffect } from 'react';
 import { Ip } from './../constants/Ip';
 import OrderByItem from '../components/OrderByItem';
 import Baners from '../components/Baners';
+import { InAction,DeAction,RemoveAll } from './redux/actions';
+
+import { connect, Connect } from 'react-redux';
 
 function MainPage(props) {
-
+  const {local_variable,RemoveAll} =props;
 
   let user = authentication.currentUser;
  const [Place,setPlace] = useState("All");
@@ -38,13 +41,14 @@ const  GetData = async ()=>{
     
   setData(data)
    
-      
+  RemoveAll() 
   
  }
  )
 }
 useEffect(()=>{
 console.log(Data)
+ 
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
 
@@ -118,4 +122,7 @@ GetData();
   )
 }
 
-export default MainPage;
+const mapStateToProps = state =>({
+  local_variable :state.item
+})
+export default connect(mapStateToProps,{InAction,DeAction,RemoveAll})(MainPage);

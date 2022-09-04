@@ -142,7 +142,7 @@ console.log(AddressData)
           <br />
           <input type={"reset"} className="btn btn-outline-info mt-3" />
         </form>
-        <div className='row mt-3 text-center'>
+        <div className='row mt-3 text-center mb-5'>
           <button className='col-10 offset-1 btn btn-danger' onClick={PlaceOrder}>Place Order</button>
         </div>
 

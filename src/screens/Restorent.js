@@ -166,7 +166,7 @@ function check(name) {
 
         </div>
 
-        <div className='mb-5'>
+        <div  >
            {local_variable.length>0? 
 
 
@@ -180,7 +180,7 @@ function check(name) {
                             ShopName:ShopName
                         }}
                         >
-                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"0",width:"100%",backgroundColor:"white",zIndex:"5"}} className="p-2">
+                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"0",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
                                 <div className='container-fluid m-0 p-0'>
                                     <div className='row align-items-center text-center'>
                                         <div className='col-4 text-danger'>
