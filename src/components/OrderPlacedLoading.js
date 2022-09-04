@@ -18,7 +18,7 @@ function OrderPlacedLoading(props) {
 
 
             RemoveAll()
-          navigate('/MainPage');
+          navigate('/Profile',{Data:props.Data});
         }, 1500);
         return () => clearTimeout(timer);
       }, []);

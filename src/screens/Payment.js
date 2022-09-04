@@ -162,7 +162,7 @@ console.log(AddressData)
 
 }
 
-</div>:<OrderPlacedLoading/>
+</div>:<OrderPlacedLoading Data={User}/>
           
         }
     </div>

@@ -35,7 +35,7 @@ function RestaurentCard(props) {
       
     setRestaurents(data);
      
-          console.log(data);
+          console.log("ksjdajksdjkashdahkddlkaslk= ",data);
     
    }
    )
@@ -66,7 +66,8 @@ console.log("saduash",props.user)
           :
           <div className='row'>
                 {Restaurents.map((item)=>(
-                  <div className='col-md-4 mb-4'>
+                   <>
+                    {item.Role==="Admin"?<div className='col-md-4 mb-4'>
                     <NavLink to="/Restorent"
                        state={{
                         
@@ -90,7 +91,10 @@ console.log("saduash",props.user)
                         </div>
                       
                     </NavLink>
-                    </div>
+                    </div>:null
+                      
+                    }
+                   </>
                 )       
                 )}
                  
