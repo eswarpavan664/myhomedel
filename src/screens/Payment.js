@@ -43,7 +43,7 @@ const PlaceOrder =()=>{
     "ContactNo":User[0].PhoneNumber,
     "orderList":itemnames,
     "Amount":sum+tax,
-    "CustomerAddress":"vissakoderu",
+    "CustomerAddress":AddressData,
     "CurrentLocation":"16.66-81.464",
     "OrderStatus":"Pending",
     "AdminId":AdminId,
@@ -68,8 +68,10 @@ var val = Math.floor(1000 + Math.random() * 9000);
  
 var tax=29;
 const [orderstatus,setorderstatus] =useState(false)
-
-console.log(local_variable)
+const [AddressData,setAddressData] =useState();
+console.log(User)
+var address = User[0].Address.split("_")
+console.log(AddressData)
 
   return (
     <div>
@@ -110,6 +112,24 @@ console.log(local_variable)
        </div>
 
     <hr />
+    <div>
+        <div className='container'>
+            <form>
+                <div className='d-flex mt-1 mb-2' style={{justifyContent:"space-evenly"}}>
+                    <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} />
+                    <div style={{ border:"1px solid black",width:"430px",padding:"15px",borderRadius:"15px"}}>
+                        <h4>{address[0]}</h4>
+                        <p>{address[1]}</p>
+                        <p>{address[2]}</p>
+                    </div>
+                </div>
+
+               
+              
+            </form>
+            
+        </div>
+    </div>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>Welcome there,</strong> as of now, online payments are not working here.
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -7,22 +7,17 @@ function Footer() {
         <div className='row text-center'>
 
           <div className='col-md-6'>
-            <h1>Food Mart</h1>
+            <h1>My Homedel</h1>
           </div>
 
-          <div className='col-md-6'>
-            <div className='btn-group'>
-              <button className='btn'>India</button>
-              <button className='btn'>English</button>
-            </div>
-          </div>
+          
 
         </div>
 
         <div className='row text-center'>
 
           <div className='col-6 col-md-2 mb-4'>
-            <h6>ABOUT ZOMATO</h6>
+            <h6>ABOUT My Homedel</h6>
             <p className='m-0 text-weight-light'>Who We Are</p>
             <p className='m-0 text-weight-light'>Blog</p>
             <p className='m-0 text-weight-light'>Work With Us</p>
@@ -31,20 +26,13 @@ function Footer() {
             <p className='m-0 text-weight-light'>Contact Us</p>
           </div>
 
-          <div className='col-6 col-md-2 mb-4'>
-            <h6>ZOMAVERSE</h6>
-            <p className='m-0 text-weight-light'>Zomato</p>
-            <p className='m-0 text-weight-light'>Feeding India</p>
-            <p className='m-0 text-weight-light'>Hyperpure</p>
-            <p className='m-0 text-weight-light'>zomaland</p>
-          </div>
-
+           
           <div className='col-6 col-md-4 mb-4'>
             <h6>FOR RESTAURANTS</h6>
             <p className='m-0 text-weight-light'>Partner With Us</p>
             <p className='m-0 text-weight-light'>Apps For You</p>
             <h6 className='m-0 mt-4 text-weight-light'>FOR ENTERPRISES</h6>
-            <p className='m-0 text-weight-light'>Zomato For Work</p>
+            <p className='m-0 text-weight-light'>My Homedel For Work</p>
           </div>
 
           <div className='col-6 col-md-2 mb-4'>

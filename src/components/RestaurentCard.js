@@ -66,7 +66,7 @@ console.log("saduash",props.user)
           :
           <div className='row'>
                 {Restaurents.map((item)=>(
-                  <div className='col-6 col-md-4 mb-4'>
+                  <div className='col-md-4 mb-4'>
                     <NavLink to="/Restorent"
                        state={{
                         

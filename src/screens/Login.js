@@ -6,9 +6,9 @@ import React,{useState,useEffect} from 'react'
 import {Ip} from '../constants/Ip'
 import { useNavigate } from 'react-router-dom';
  
-import MainPage from './MainPage';
+ 
 
-import '../css/loginstyles.css'
+import  '../css/loginstyles.css'
 import { authentication ,database } from '../firebase';
 import { RecaptchaVerifier , signInWithPhoneNumber} from "firebase/auth";
 
@@ -116,8 +116,18 @@ const requestOtp=(e)=>{
         </div>
         <div className='container text-center login_form_cont_ mt-5'>
             <form onSubmit={requestOtp}>
-                <input type={"text"} placeholder="Enter your name" className='land_page_inputs' value={Name} onChange={(e)=>setName(e.target.value)}/><br /><br />
-                <input type="text" placeholder="Phone Number" required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br /><br />
+      
+                <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                      <input type={"text"} placeholder="Enter your name"   class="form-control" id="floatingInput" value={Name} onChange={(e)=>setName(e.target.value)}  />
+                      <label for="floatingInput" className='m-1'>Enter your name</label>
+                    </div>
+                    
+                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Number} onChange={(e)=>setNumber(e.target.value)} />
+                    <label for="floatingInput" className='m-1'>Phone Number</label>
+                  </div>
+          
+              
                  
              
     {ExpandForm===false?
@@ -125,8 +135,13 @@ const requestOtp=(e)=>{
       <button class="btn btn-success">request OTP</button>
         : <>
 
-   
-      <input type={"number"} placeholder="Enter your OTP" className='land_page_inputs' value={Otp} onChange={(e)=>setOtp(e.target.value)}/><br /><br />
+  
+        <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                    <input type={"number"} placeholder="Enter your OTP"    class="form-control" id="floatingInput" required value={Otp} onChange={(e)=>setOtp(e.target.value)} />
+                    <label for="floatingInput" className='m-1'>Enter OTP</label>
+                  </div>
+ 
+      
 
       </>
 

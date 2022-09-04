@@ -9,13 +9,17 @@
   border-bottom-right-radius: 10%;
   background-color: white;
 }
-.land_page_inputs{
+.land_page{
   background-color: inherit;
+ 
+  border:none;
   border-bottom: 1px solid black;
+  
 }
-.land_page_inputs:focus{
+.land_page:focus{
   background-color: lightgray;
   border-bottom: 1px solid black;
+  outline: none;
 }
 .login_button_{
   padding: 5px;
@@ -35,4 +39,22 @@
   display: inline;
   padding: 10px;
   border-radius: 20px;
+}
+.input_item input{
+  background-color: inherit;
+  border:none;
+  border-bottom: 1px solid  gray;
+}
+.input_item input:focus{
+  background-color: inherit;
+  outline: none;
+  border:none;
+  border-bottom: 1px solid  gray;
+  box-shadow: none;
+}
+.searchbar:focus{
+
+  border: none;
+  outline: none;
+  box-shadow: none;
 }

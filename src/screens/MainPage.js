@@ -23,7 +23,7 @@ function MainPage(props) {
  const [Place,setPlace] = useState("All");
  
   
-const [Data,setData] =useState();
+const [Data,setData] =useState([]);
 
 const  GetData = async ()=>{
    
@@ -44,7 +44,7 @@ const  GetData = async ()=>{
  )
 }
 useEffect(()=>{
-console.log(Ip+'/GetUser?id='+user.phoneNumber)
+console.log(Data)
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
 
@@ -67,9 +67,9 @@ GetData();
       </li>
        
       <li class="nav-item active">
-        <NavLink to="/Profile" state={{
+        {Data.length>0? <NavLink to="/Profile" state={{
           Data:Data
-        }}> <h5 class="nav-link">{user.phoneNumber}</h5></NavLink>
+        }}> <h5 class="nav-link">{Data[0].Name}</h5></NavLink>:null}
       </li>
     </ul>
   </div>
@@ -98,9 +98,9 @@ GetData();
             </div>
   </div>
 
-        <div className=''>
+        <div className='row'>
             
-                <input className='p-1' type={"text"} placeholder={"Search for restaurant, cuisine or a dish"} id="search_bar" value={Place} onChange={(e)=>setPlace(e.target.value)}/>   
+                <input style={{borderRadius:"15px"}} className="p-2 mt-2 col-8 offset-2 searchbar" type={"text"} placeholder={"Search for restaurant, cuisine or a dish"} id="search_bar" value={Place} onChange={(e)=>setPlace(e.target.value)}/>   
             
         </div>
     </div>
