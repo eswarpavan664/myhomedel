@@ -153,9 +153,24 @@ function check(name) {
                     </div>
 
                      }
-                     
-         <div className='mb-5'>
+          
+
+         
+                </div>
+            </div>
+
+
+
+                                        
+       
+
+        </div>
+
+        <div className='mb-5'>
            {local_variable.length>0? 
+
+
+           
            
                     <NavLink to="/Payment"
                 
@@ -165,9 +180,21 @@ function check(name) {
                             ShopName:ShopName
                         }}
                         >
-                            <div className='row text-center'>
-                            <p className='col-1'>Next</p>
-                            <button className='col-11 btn btn-danger'>Continue</button>
+                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"0",width:"100%",backgroundColor:"white",zIndex:"5"}} className="p-2">
+                                <div className='container-fluid m-0 p-0'>
+                                    <div className='row align-items-center text-center'>
+                                        <div className='col-4 text-danger'>
+                                            <p className='m-0'>{local_variable.length}</p>
+                                            <p className='m-0'>Added</p>
+                                        </div>
+                                        <div className='col-5'>
+
+                                        <button className='btn btn-danger' style={{width:"100%"}}>Continue</button>
+                                        </div>
+                                        
+                                    </div>
+
+                                     </div>
                             </div>
                     </NavLink>
                     :
@@ -175,14 +202,6 @@ function check(name) {
             
            }
          </div> 
-
-         
-                </div>
-            </div>
-
-        </div>
-
-        
     </div>
   )
 }
