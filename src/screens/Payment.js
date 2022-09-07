@@ -39,7 +39,7 @@ const PlaceOrder =()=>{
      'Content-Type': 'application/json'
    },
    body:JSON.stringify({
-    "CustomerName":"pavaneswar",
+    "CustomerName":User[0].Name,
     "ContactNo":User[0].PhoneNumber,
     "orderList":itemnames,
     "Amount":sum+tax,
@@ -71,7 +71,7 @@ const [orderstatus,setorderstatus] =useState(false)
 const [AddressData,setAddressData] =useState();
 console.log(User)
 var address = User[0].Address.split("_")
-console.log(AddressData)
+console.log(User[0].Name)
 
   return (
     <div>
@@ -194,7 +194,7 @@ useEffect(()=>{
       <p className='d-none d-md-block'>{props.data.ItemDiscription}</p>
     </div>
     <div className='col-2'>
-    <label> Floating Number: </label>
+    <label> Quantity </label>
             <input
                 type='number'
                 step="1"
