@@ -272,6 +272,7 @@ const  PhoneLogin=()=>{
          user
     )
     us=true;
+    localStorage.setItem('user', user.phoneNumber );
   
       }
       else{
@@ -279,6 +280,7 @@ const  PhoneLogin=()=>{
       }
       })
     },[])
+
      console.log(presentUser)
     return (
       <div>

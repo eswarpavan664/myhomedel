@@ -30,7 +30,10 @@ let itemnames = local_variable.reduce(function(prev, current) {
 const location = useLocation()
 const {AdminId,User,ShopName} = location.state
  
-
+const [orderstatus,setorderstatus] =useState(false)
+const [AddressData,setAddressData] =useState();
+console.log("dsjdskj",User)
+var address = User[0].Address.split("_")
 const PlaceOrder =()=>{
 
   fetch(Ip+"/Orders",{
@@ -67,10 +70,7 @@ useEffect(()=>{
 var val = Math.floor(1000 + Math.random() * 9000);
  
 var tax=29;
-const [orderstatus,setorderstatus] =useState(false)
-const [AddressData,setAddressData] =useState();
-console.log(User)
-var address = User[0].Address.split("_")
+ 
 console.log(User[0].Name)
 
   return (
@@ -143,11 +143,14 @@ console.log(User[0].Name)
           <input type={"reset"} className="btn btn-outline-info mt-3" />
         </form>
         <div className='row mt-3 text-center mb-5'>
-          <button className='col-10 offset-1 btn btn-danger' onClick={PlaceOrder}>Place Order</button>
+          {AddressData?<button className='col-10 offset-1 btn btn-danger' 
+           onClick={PlaceOrder}>Place Order</button>:
+           <button className='col-10 offset-1 btn btn-danger' disabled 
+           onClick={PlaceOrder}>Place Order</button>}
         </div>
 
   </div>
-</div>: <div style={{marginTop:'10%'}}>
+</div>: <div style={{marginTop:'20%'}}>
      <Player
                       autoplay
                       loop

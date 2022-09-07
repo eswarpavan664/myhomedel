@@ -22,15 +22,16 @@ import { connect, Connect } from 'react-redux';
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
-  let user = authentication.currentUser;
+  //let user = authentication.currentUser;
  const [Place,setPlace] = useState("All");
  
+ const userid =localStorage.getItem('user');
   
 const [Data,setData] =useState([]);
 
 const  GetData = async ()=>{
    
- fetch(Ip+'/GetUser?id='+user.phoneNumber,{
+ fetch(Ip+'/GetUser?id='+userid,{
  headers:new Headers({
    Authorization:"Bearer " 
  })
@@ -47,12 +48,13 @@ const  GetData = async ()=>{
  )
 }
 useEffect(()=>{
-console.log(Data)
+ 
  
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
 
 },)
+ 
 //console.log("hjdsjvfjhsbf  == ",user.phoneNumber)
   return (
     <div>
@@ -71,9 +73,7 @@ GetData();
       </li>
        
       <li class="nav-item active">
-        {Data.length>0? <NavLink to="/Profile" state={{
-          Data:Data
-        }}> <h5 class="nav-link">{Data[0].Name}</h5></NavLink>:null}
+        {Data.length>0? <NavLink to="/Profile" > <h5 class="nav-link">{Data[0].Name}</h5></NavLink>:null}
       </li>
     </ul>
   </div>
@@ -114,9 +114,9 @@ GetData();
 
     <OrderByItem/>
     <Baners/>
-    <RestaurentCard User={user.phoneNumber} Place={Place} user={Data} />
+    <RestaurentCard User={Data} Place={Place} user={Data} />
      
-     <Recomendations User={user.phoneNumber}  />  
+     <Recomendations User={userid}  />  
     <Footer/>
 </div>
   )
