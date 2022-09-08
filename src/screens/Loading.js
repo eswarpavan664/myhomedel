@@ -4,9 +4,9 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import {useNavigate} from "react-router-dom";
 
-import Lodi from '../lotties/105552-free-logo-animation-for-tasty-food.json'
+import Lodi from '../lotties/lf30_editor_t2lrbwbr.json'
  
-
+import logo from '../images/logo.jpeg'
 function Loading() {
 
     let navigate = useNavigate();
@@ -27,12 +27,13 @@ function Loading() {
                     autoplay
                     loop
                     src={Lodi}
-                    style={{ height: '300px', width: '300px' }}
+                    style={{ height: '500px', width: '500px' }}
                 >
                    
                 </Player>
 
-                <h1 style={{textAlign:'center'}}>Loading...</h1>
+                
+
                </div>
 
 

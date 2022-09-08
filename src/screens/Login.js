@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, Suspense} from 'react'
  
 import {Ip} from '../constants/Ip'
 import { useNavigate } from 'react-router-dom';
@@ -29,6 +29,7 @@ function Mainscreen() {
   const [Otp,setOtp] = useState("");
   const [Name,setName] =useState("");
   const [LastName,setLastName] =useState("");
+  const [Email,setEmail] =useState("");
 
   const generateRecaptcha = ()=>{
     window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
@@ -79,7 +80,7 @@ const requestOtp=(e)=>{
          },
          body:JSON.stringify({
           "PhoneNumber":Number,
-          "email":"",
+          "email":Email,
           "Name":Name,
           "Role":"Customer",
           "Address":"",
@@ -103,24 +104,61 @@ const requestOtp=(e)=>{
 
   }
   const [Screen,setScreen] =useState(0);
- 
+  const [ChangeForm,setForm]=useState(true);
   return (
     <div className='login_page_back_'>
         <div className='login_header_ row m-0'>
             <div className='text-center col-12'>
                 <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
             </div>
-            <div className='col-12 text-center mb-3'>
-                <p className='text-danger font-weight-bold login_signup_text' style={{textDecoration:"underline"}}>Login/Signup</p>
+            <div className='container col-12 text-center mb-3 d-flex justify-content-evenly'>
+                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"underline",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Signup</p>
+                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"underline",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Login</p>
+
             </div>
         </div>
         <div className='container text-center login_form_cont_ mt-5'>
-            <form onSubmit={requestOtp}>
+            {ChangeForm?<form onSubmit={requestOtp}>
       
                 <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
                       <input type={"text"} placeholder="Enter your name"   class="form-control" id="floatingInput" value={Name} onChange={(e)=>setName(e.target.value)}  />
                       <label for="floatingInput" className='m-1'>Enter your name</label>
                     </div>
+                    
+                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Email} onChange={(e)=>setEmail(e.target.value)} />
+                    <label for="floatingInput" className='m-1'>Enter Email</label>
+                  </div>
+
+                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Number} onChange={(e)=>setNumber(e.target.value)} />
+                    <label for="floatingInput" className='m-1'>Phone Number</label>
+                  </div>
+          
+              
+                 
+             
+    {ExpandForm===false?
+    
+      <button class="btn btn-success">request OTP</button>
+        : <>
+
+  
+        <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
+                    <input type={"number"} placeholder="Enter your OTP"    class="form-control" id="floatingInput" required value={Otp} onChange={(e)=>setOtp(e.target.value)} />
+                    <label for="floatingInput" className='m-1'>Enter OTP</label>
+                  </div>
+ 
+      
+
+      </>
+
+    }
+    <div id="sign-in-button"></div>
+      </form>:
+      <form onSubmit={requestOtp}>
+      
+              
                     
                   <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
                     <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Number} onChange={(e)=>setNumber(e.target.value)} />
@@ -148,6 +186,7 @@ const requestOtp=(e)=>{
     }
     <div id="sign-in-button"></div>
       </form>
+      }
 
 
              
