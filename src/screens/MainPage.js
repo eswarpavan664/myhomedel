@@ -26,7 +26,7 @@ function MainPage(props) {
  const [Place,setPlace] = useState("All");
  
  const userid =localStorage.getItem('user');
-  
+  console.log("number  = ",userid)
 const [Data,setData] =useState([]);
 
 const  GetData = async ()=>{
@@ -41,6 +41,7 @@ const  GetData = async ()=>{
  
     
   setData(data)
+  console.log("Data = ",data)
    
   RemoveAll() 
   
@@ -49,7 +50,7 @@ const  GetData = async ()=>{
 }
 useEffect(()=>{
  
- 
+  
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
 
