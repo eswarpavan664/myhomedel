@@ -26,7 +26,7 @@ let user =[]
   let navigate = useNavigate();
   const Logout=()=>{
     signOut(authentication).then(() => {
-      navigate.replace('Login');
+      navigate('/Login');
     }).catch((error) => {
       // An error happened.
     });

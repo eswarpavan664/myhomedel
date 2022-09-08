@@ -118,7 +118,7 @@ const requestOtp=(e)=>{
             </div>
         </div>
         <div className='container text-center login_form_cont_ mt-5'>
-            {ChangeForm?<form onSubmit={requestOtp}>
+            {!ChangeForm?<form onSubmit={requestOtp}>
       
                 <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
                       <input type={"text"} placeholder="Enter your name"   class="form-control" id="floatingInput" value={Name} onChange={(e)=>setName(e.target.value)}  />
