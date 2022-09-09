@@ -16,9 +16,9 @@ import { Ip } from './../constants/Ip';
 import OrderByItem from '../components/OrderByItem';
 import Baners from '../components/Baners';
 import { InAction,DeAction,RemoveAll } from './redux/actions';
-
 import { connect, Connect } from 'react-redux';
-
+import Cat from './../components/Cat';
+import '../css/Cat.css'
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -112,7 +112,7 @@ GetData();
 </div>
 
 </header>
-
+<Cat/>
     <OrderByItem/>
     <Baners/>
     <RestaurentCard User={Data} Place={Place} user={Data} />

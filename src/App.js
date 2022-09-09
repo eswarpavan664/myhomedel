@@ -18,6 +18,7 @@ import Restorent from './screens/Restorent';
 import ProfilePage from './screens/ProfilePage';
 import { Ip } from './constants/Ip';
 import MainPage from './screens/MainPage';
+import Comp_for_home from './components/Comp_for_home';
 function App() {
  
 
@@ -36,6 +37,7 @@ function App() {
           <Route path="/Profile" element={<ProfilePage />} />
          
     </Routes>
+    <Comp_for_home/>
   </BrowserRouter>
   );
 }

@@ -9,6 +9,9 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import Dashboard from './screens/Admin/Dashboard';
 import AdminNavigation from './screens/Admin/AdminNavigation';
 
+import Comp_for_home from './components/Comp_for_home';
+import Cat from './components/Cat';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
  
 root.render(

@@ -4,7 +4,7 @@ import React,{useEffect,useState} from 'react'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import {useNavigate} from "react-router-dom";
-import Lodi from '../lotties/100858-success.json'
+import Lodi from '../lotties/116385-order-confirmation.json'
 import { RemoveAll } from './../screens/redux/actions';
 import { connect } from 'react-redux';
 
