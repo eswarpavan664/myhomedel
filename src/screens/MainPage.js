@@ -19,6 +19,7 @@ import { InAction,DeAction,RemoveAll } from './redux/actions';
 import { connect, Connect } from 'react-redux';
 import Cat from './../components/Cat';
 import '../css/Cat.css'
+import Comp_for_home from './../components/Comp_for_home';
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -119,6 +120,7 @@ GetData();
      
      <Recomendations User={userid}  />  
     <Footer/>
+    <Comp_for_home/>
 </div>
   )
 }

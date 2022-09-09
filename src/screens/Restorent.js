@@ -11,6 +11,7 @@ import { connect, Connect } from 'react-redux';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import Load from '../lotties/112087-empty.json'
+import Comp_for_home from '../components/Comp_for_home';
 
 function Restorent(props) {
     const {local_variable} =props;
@@ -202,6 +203,7 @@ function check(name) {
             
            }
          </div> 
+         <Comp_for_home/>
     </div>
   )
 }

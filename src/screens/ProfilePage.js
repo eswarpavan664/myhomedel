@@ -15,6 +15,7 @@ import { Ip } from './../constants/Ip';
 import Orders from './../components/Orders';
 import Restorent from './Restorent';
 import { async } from '@firebase/util';
+import Comp_for_home from '../components/Comp_for_home';
 
 
 function ProfilePage(props) {
@@ -242,6 +243,7 @@ let user =[]
               </div>
           </div>
       </div>
+      <Comp_for_home/>
       </div>)
  
   

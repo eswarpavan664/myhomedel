@@ -9,6 +9,7 @@ import { NavLink, useLocation } from 'react-router-dom';
 import OrderPlacedLoading from './../components/OrderPlacedLoading';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Comp_for_home from '../components/Comp_for_home';
 
 
 
@@ -168,6 +169,7 @@ console.log(User[0].Name)
 </div>:<OrderPlacedLoading Data={User}/>
           
         }
+        <Comp_for_home/>
     </div>
   )
 }

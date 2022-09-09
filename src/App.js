@@ -37,7 +37,7 @@ function App() {
           <Route path="/Profile" element={<ProfilePage />} />
          
     </Routes>
-    <Comp_for_home/>
+    
   </BrowserRouter>
   );
 }
