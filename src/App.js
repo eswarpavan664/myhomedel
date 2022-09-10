@@ -19,6 +19,11 @@ import ProfilePage from './screens/ProfilePage';
 import { Ip } from './constants/Ip';
 import MainPage from './screens/MainPage';
 import Comp_for_home from './components/Comp_for_home';
+import DisplayByItemScreen from './screens/DisplayByItemScreen';
+import ShopTypeScreen from './screens/ShopTypeScreen';
+import MyOrders from './components/MyOrders';
+import PresentOrdres from './components/PresentOrdres';
+
 function App() {
  
 
@@ -35,7 +40,10 @@ function App() {
           <Route path="/Restorent" element={<Restorent />} />
           <Route path="/Payment" element={<Payment />} />
           <Route path="/Profile" element={<ProfilePage />} />
-         
+          <Route path="/DisplayByItem" element={<DisplayByItemScreen />} />
+          <Route path="/ShopType" element={<ShopTypeScreen />} />
+          <Route path="/MyOrders" element={<MyOrders />} />
+          <Route path="/PresentOrders" element={<PresentOrdres />} />
     </Routes>
     
   </BrowserRouter>

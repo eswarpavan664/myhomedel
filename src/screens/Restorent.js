@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-undef */
 import React,{useState,useEffect} from 'react'
@@ -12,6 +13,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import Load from '../lotties/112087-empty.json'
 import Comp_for_home from '../components/Comp_for_home';
+import Nav from './../components/Nav';
 
 function Restorent(props) {
     const {local_variable} =props;
@@ -67,7 +69,8 @@ function check(name) {
 
   return (
     <div>
-        <div className='container'>
+    <Nav/>
+        <div className='container mt-2'>
             <img src={ShopPhoto?ShopPhoto:'https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2927%2Ftrend20200831092220.jpg'} style={{width:"100%",height:"60vh"}} />
 
             <div className='row mt-5'>
