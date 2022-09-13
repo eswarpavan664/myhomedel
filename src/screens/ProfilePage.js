@@ -27,6 +27,7 @@ let user =[]
   let navigate = useNavigate();
   const Logout=()=>{
     signOut(authentication).then(() => {
+      localStorage.removeItem('user');
       navigate('/Login');
     }).catch((error) => {
       // An error happened.
@@ -133,8 +134,7 @@ let user =[]
    
   const [Setter,setSetter] =useState(0)
     
-    
-
+   if(userid){
     return (
       <div className='page pt-md-5'>
           <div class="container">
@@ -245,6 +245,16 @@ let user =[]
       </div>
       <Comp_for_home/>
       </div>)
+   } 
+
+   else{
+    return(
+      <div>
+        <h3>404 Error Login First</h3>
+      </div>
+    )
+   }
+    
  
   
 }

@@ -58,6 +58,8 @@ GetData();
 },)
  
 //console.log("hjdsjvfjhsbf  == ",user.phoneNumber)
+
+if(userid){
   return (
     <div>
     
@@ -123,6 +125,15 @@ GetData();
     <Comp_for_home/>
 </div>
   )
+}
+else{
+  return(
+    <div>
+      <h3>404 Error Login First</h3>
+    </div>
+  )
+}
+  
 }
 
 const mapStateToProps = state =>({
