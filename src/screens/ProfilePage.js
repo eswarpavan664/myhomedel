@@ -136,7 +136,7 @@ let user =[]
     
    if(userid){
     return (
-      <div className='page pt-md-5'>
+     /* <div className='page pt-md-5'>
           <div class="container">
           <div class="row text-center rounded_ r_">
               <div class="col-md-3 border text-center pro_details">
@@ -244,7 +244,100 @@ let user =[]
           </div>
       </div>
       <Comp_for_home/>
-      </div>)
+      </div>
+      */
+      <div className='mobile_cover_back pt-3'>
+
+    
+    <div className='d-block d-sm-none '>
+        <div className='row first_con align-items-center p-2 mx-1 '>
+            <div className='col-6'>
+                <img className='img-fluid' src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' width={"90"} />
+            </div>
+            <div className='col-6 m-0'>
+            {Data.length>0?<h5 class="mt-5">{Data[0].Name} </h5>:null} 
+                            <p className='text-danger m-0'>View activity</p>
+            </div>
+        </div>
+        <div className='mt-3 row text-center align-items-center m-0 p-1'>
+            <div className='col-3 m-0 p-0'>
+                <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0' >
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0'>
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0'>
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+        </div>
+        <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Choose Language</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Your rating</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='mx-1 text-center mt-3' style={{borderRadius:"8px"}}>
+            <div className='bg-light py-2'>
+            <div className='row'>
+                <div className='col-12 text-left'>
+                    <p className='m-0 ' style={{borderLeft:"5px solid tomato"}}>Food Orders</p>
+                </div>
+            </div>
+            <div>
+            <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Address Book</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+      )
    } 
 
    else{
@@ -259,6 +352,103 @@ let user =[]
   
 }
 
+
+function Temp(){
+  return(
+    <div className='mobile_cover_back pt-3'>
+
+    
+    <div className='d-block d-sm-none '>
+        <div className='row first_con align-items-center p-2 mx-1 '>
+            <div className='col-6'>
+                <img className='img-fluid' src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' width={"90"} />
+            </div>
+            <div className='col-6 m-0'>
+                <h5>Name</h5>
+                <p className='text-danger m-0'>View activity</p>
+            </div>
+        </div>
+        <div className='mt-3 row text-center align-items-center m-0 p-1'>
+            <div className='col-3 m-0 p-0'>
+                <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0' >
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0'>
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+            <div className='col-3  m-0 p-0'>
+            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
+                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
+                    <p className='m-0'>Likes</p>
+                </div>
+            </div>
+        </div>
+        <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Choose Language</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Your rating</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div className='mx-1 text-center mt-3' style={{borderRadius:"8px"}}>
+            <div className='bg-light py-2'>
+            <div className='row'>
+                <div className='col-12 text-left'>
+                    <p className='m-0 ' style={{borderLeft:"5px solid tomato"}}>Food Orders</p>
+                </div>
+            </div>
+            <div>
+            <div className='mt-3 text-center'>
+            <div className='' style={{display:"inline-block",width:"100%"}}>
+                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
+                <div className='col-9 text-left' >
+                    <p className='m-0'>Address Book</p>
+                </div>
+                <div className='col-3'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
+                </div>
+                </div>
+            </div>
+        </div>
+            </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+
+  )
+}
 const mapStateToProps = state =>({
   local_variable :state
 })

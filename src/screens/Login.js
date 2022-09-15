@@ -112,8 +112,8 @@ const requestOtp=(e)=>{
                 <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
             </div>
             <div className='container col-12 text-center mb-3 d-flex justify-content-evenly'>
-                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"underline",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
-                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"underline",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
+                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
+                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
 
             </div>
         </div>

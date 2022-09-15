@@ -55,3 +55,12 @@ background: rgba(255, 166, 0, 0.5);
   outline: none;
   border-bottom: 1px solid rgba(255, 166, 0, 0.5);
 }
+
+.mobile_cover_back{
+  height: 100vh;
+  background-color: rgba(211, 211, 211, 0.5);
+}
+.first_con{
+  background-color: white;
+  border-radius: 20px;
+}
