@@ -45,6 +45,7 @@ const  GetData = async ()=>{
 useEffect(()=>{
   GetData();
 })
+
   return (
     <>
     <section >
