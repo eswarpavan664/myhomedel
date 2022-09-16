@@ -18,6 +18,7 @@ import {
 import Load from '../images/101961-non-data-found.json'
 import Comp_for_home from './../components/Comp_for_home';
 import Nav from './../components/Nav';
+import Loader from './../components/Loader';
 
 function ShopTypeScreen(props) {
   const location = useLocation()
@@ -38,6 +39,12 @@ const  GetData = async ()=>{
    setRestaurents(data);
     
          console.log("shoptype Data= ",data);
+    if(data.length>0){
+      setse(1)
+    }
+    if(data.length===0){
+      setse(2)
+    }
    
   }
   )
@@ -45,66 +52,74 @@ const  GetData = async ()=>{
 useEffect(()=>{
   GetData();
 })
-
+const [se,setse] =useState(0);
   return (
     <>
     <section >
      <Nav/>
-    <div className='container mt-5'  >
-    {Restaurents.length===0?
-            <div>
-            <Player
-                autoplay
-                loop
-                src={Load}
-                style={{ height: '300px', width: '300px' }}
-            >
-               
-            </Player>
+     <div className='container mt-5'>
+        {se===0?
+             <Loader/>
 
-              <h1>No Restaurants{props.Place}</h1>
-            </div>
-      :
-      <div className='row'>
-            {Restaurents.map((item)=>(
-               <>
-                {item.Role==="Admin"?<div className='col-md-4 mb-5'>
-                <NavLink to="/Restorent"
-                   state={{
-                    
-                     ShopId: item.AdminId,
-                     ShopName:item.ShopName,
-                     Address:item.Address,
-                     ShopPhoto:item.ShopPhoto,
-                     PhoneNumber:item.PhoneNumber,
-                     AdminId:item.AdminId,
-                      User:props.user
-                     }}
-                >
-                     
-                    <div class="card sec_one_card">
-                      <img class="card-img-top img-fluid" src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
-                      <div class="card-body">
-                        <h5 class="card-title">{item.ShopName}</h5>
-                        <p class="card-text text-truncate">Enjoy the food</p>
-                        <p style={{color:'black',fontSize:25}}>{item.Address}</p>
-                      </div>
-                    </div>
-                  
-                </NavLink>
-                </div>:null
-                  
-                }
-               </>
-            )       
-            )}
+          :
+          
+          null
+        }
+       {se===1?
+          <div className='row'>
+                {Restaurents.map((item)=>(
+                   <>
+                    {item.Role==="Admin"?<div className='col-md-4 mb-4'>
+                    <NavLink to="/Restorent"
+                       state={{
+                        
+                         ShopId: item.AdminId,
+                         ShopName:item.ShopName,
+                         Address:item.Address,
+                         ShopPhoto:item.ShopPhoto,
+                         PhoneNumber:item.PhoneNumber,
+                         AdminId:item.AdminId,
+                          User:props.user
+                         }}
+                    >
+                         
+                        <div class="card sec_one_card">
+                          <img class="card-img-top img-fluid" src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
+                          <div class="card-body">
+                            <h5 class="card-title">{item.ShopName}</h5>
+                            <p class="card-text text-truncate">Enjoy the food</p>
+                            <p style={{color:'black',fontSize:25}}>{item.Address}</p>
+                          </div>
+                        </div>
+                      
+                    </NavLink>
+                    </div>:null
+                      
+                    }
+                   </>
+                )       
+                )}
+                 
+            </div>:null
+
+
+          }
+          {se===2?<h1>
+          
+            <Player
+                                    autoplay
+                                    loop
+                                    src={Load}
+                                    style={{ height: '300px', width: '300px' }}
+                                    
+                                >
+                                </Player>
+                                
+          No Shops Found....</h1>:null
+
+          }
              
         </div>
-
-
-      }
-         
-    </div>
 </section>
  <Comp_for_home/>
  </>

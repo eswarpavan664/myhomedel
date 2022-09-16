@@ -16,6 +16,7 @@ import Orders from './../components/Orders';
 import Restorent from './Restorent';
 import { async } from '@firebase/util';
 import Comp_for_home from '../components/Comp_for_home';
+import Nav from '../components/Nav';
 
 
 function ProfilePage(props) {
@@ -133,7 +134,8 @@ let user =[]
  
    
   const [Setter,setSetter] =useState(0)
-    
+  const [rw,setrw] = useState([1])
+  const [setter,Setsetter] =useState(false);
    if(userid){
     return (
      /* <div className='page pt-md-5'>
@@ -246,105 +248,91 @@ let user =[]
       <Comp_for_home/>
       </div>
       */
-      <div className='mobile_cover_back pt-3'>
-
-    
-    <div className='d-block d-sm-none '>
-        <div className='row first_con align-items-center p-2 mx-1 '>
-            <div className='col-6'>
-                <img className='img-fluid' src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' width={"90"} />
-            </div>
-            <div className='col-6 m-0'>
-            {Data.length>0?<h5 class="mt-5">{Data[0].Name} </h5>:null} 
-                            <p className='text-danger m-0'>View activity</p>
-            </div>
-        </div>
-        <div className='mt-3 row text-center align-items-center m-0 p-1'>
-            <div className='col-3 m-0 p-0'>
-                <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-            <div className='col-3  m-0 p-0' >
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-            <div className='col-3  m-0 p-0'>
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-            <div className='col-3  m-0 p-0'>
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-        </div>
-        <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Choose Language</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Your rating</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div className='mx-1 text-center mt-3' style={{borderRadius:"8px"}}>
-            <div className='bg-light py-2'>
-            <div className='row'>
-                <div className='col-12 text-left'>
-                    <p className='m-0 ' style={{borderLeft:"5px solid tomato"}}>Food Orders</p>
-                </div>
-            </div>
-            <div>
-            <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Address Book</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-            </div>
-            </div>
-            
-        </div>
-    </div>
-    </div>
-      )
-   } 
-
-   else{
-    return(
+     
       <div>
-        <h3>404 Error Login First</h3>
+       <Nav/>
+      <div className='container ' >
+          <div className='row mt-3 text-center'>
+              <div className='col-12'>
+                  <img src='https://cdn-icons-png.flaticon.com/512/428/428933.png' className='img-fluid' width={"100"} />
+              </div>
+              <div className='col-12 mt-1'>
+              {Data.length>0?<h4 class="mt-5">{Data[0].Name} </h4>:null} 
+              
+              </div>
+          </div>
+
+          
+          {Data.length>0?<h5 class="mt-5">Email Id:- {Data[0].email} </h5>:null} 
+          {Data.length>0?<h5 class="mt-5">Mobile no:- {Data[0].PhoneNumber} </h5>:null} 
+          
+          
+          <div onClick={()=>Setsetter(!setter)}>
+            <div className='row mt-3 align-items-center'>
+                <div className='col-6'>
+                    <div className='row'>
+                        <div className='col-12 hover_names' >
+                            <p className='font-weight-bold m-0'>Update Details</p>
+                            <p className='m-0 font-weight-light'>You Can Update User Details </p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div className='col-6 text-right'>
+                    <div className='col-12'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                    </div>
+                </div>
+            </div><hr />
+        </div>
+
+         {setter?
+            <div className='pt-md-4 pt-3 m_' style={{backgroundColor:"rgb(255,255,2555)"}}>
+                            <div className='container text-center mt-md-5 mt-4' style={{width:"80%"}}>
+                                <input placeholder='Enter new name' class="profile_edit_"        value={Name}  onChange={(e)=>setName(e.target.value)}/><br />
+                                <input placeholder='Enter new email' class="profile_edit_ mt-4"  value={email}  onChange={(e)=>setemail(e.target.value)}/><br />
+                                
+                                <div className='row justify-content-center'>
+                                    <div class="form-group col-md-6 mt-4">
+                                        <input type="text" class=" profile_edit_" id="inputEmail4" placeholder="City Name" value={CityName}  onChange={(e)=>setCityName(e.target.value)}/>
+                                    </div>  
+                                    <div class="form-group col-md-6 mt-4">
+                                        <input type="number" class=" profile_edit_" id="inputEmail4" placeholder="Pin no" value={Pincode}  onChange={(e)=>setPincode(e.target.value)}/>
+                                    </div> 
+                                    <div class="form-group col-12 mt-3">
+                                        <input type="text" class=" profile_edit_" id="inputEmail4" placeholder="Land Mark" value={Lankmark}  onChange={(e)=>setLankmark(e.target.value)}/>
+                                    </div>               
+                                </div>
+                                <div className='row'>
+                                    <div className='col-12 text-right mt-4'>
+                                        <button className='btn btn-success' onClick={UpdateDetails}>Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>:null
+
+         }
+   
+
+
+          <div className='row mt-3 align-items-center' onClick={Logout}>
+              <div className='col-6'>
+                  <div className='row'>
+                      <div className='col-12 hover_names'>
+                          <p className='font-weight-bold m-0 text-danger'>Logout</p>
+                      </div>
+                      
+                  </div>
+              </div>
+              <div className='col-6 text-right'>
+                  <div className='col-12'>
+                      <img src='https://cdn-icons-png.flaticon.com/512/1286/1286853.png' className='img-fluid hover_names' width={"15"} />
+                  </div>
+              </div>
+          </div>
       </div>
+      <Comp_for_home/>
+  </div>
     )
    }
     
@@ -354,97 +342,25 @@ let user =[]
 
 
 function Temp(){
+
   return(
-    <div className='mobile_cover_back pt-3'>
-
-    
-    <div className='d-block d-sm-none '>
-        <div className='row first_con align-items-center p-2 mx-1 '>
-            <div className='col-6'>
-                <img className='img-fluid' src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png' width={"90"} />
-            </div>
-            <div className='col-6 m-0'>
-                <h5>Name</h5>
-                <p className='text-danger m-0'>View activity</p>
-            </div>
-        </div>
-        <div className='mt-3 row text-center align-items-center m-0 p-1'>
-            <div className='col-3 m-0 p-0'>
-                <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
+    <div>
+        <div className='row mt-3 align-items-center'>
+                <div className='col-6'>
+                    <div className='row'>
+                        <div className='col-12 hover_names' >
+                            <p className='font-weight-bold m-0'>Update Details</p>
+                            <p className='m-0 font-weight-light'>You Can Update User Details </p>
+                        </div>
+                        
+                    </div>
                 </div>
-            </div>
-            <div className='col-3  m-0 p-0' >
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
+                <div className='col-6 text-right'>
+                    <div className='col-12'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                    </div>
                 </div>
-            </div>
-            <div className='col-3  m-0 p-0'>
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-            <div className='col-3  m-0 p-0'>
-            <div className='' style={{backgroundColor:"white",display:"inline-block",padding:"15px",borderRadius:"8px"}}>
-                    <img src='https://cdn-icons-png.flaticon.com/512/707/707680.png' className='img-fluid' width={"50"} />
-                    <p className='m-0'>Likes</p>
-                </div>
-            </div>
-        </div>
-        <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Choose Language</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Your rating</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-
-        <div className='mx-1 text-center mt-3' style={{borderRadius:"8px"}}>
-            <div className='bg-light py-2'>
-            <div className='row'>
-                <div className='col-12 text-left'>
-                    <p className='m-0 ' style={{borderLeft:"5px solid tomato"}}>Food Orders</p>
-                </div>
-            </div>
-            <div>
-            <div className='mt-3 text-center'>
-            <div className='' style={{display:"inline-block",width:"100%"}}>
-                <div className='row mx-1 py-2' style={{backgroundColor:"white",borderRadius:"8px"}}>
-                <div className='col-9 text-left' >
-                    <p className='m-0'>Address Book</p>
-                </div>
-                <div className='col-3'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid' width={"15"} />
-                </div>
-                </div>
-            </div>
-        </div>
-            </div>
-            </div>
-            
-        </div>
-    </div>
+            </div><hr />
     </div>
 
   )

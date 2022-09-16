@@ -2,6 +2,10 @@
 import React,{useState,useEffect} from 'react'
 import '../css/Cat.css'
 import { NavLink } from 'react-router-dom';
+
+import groceryicon from '../images/Groceries.png';
+import meaticon from '../images/Meat.png';
+import food from '../images/Food.png'
 function Cat(props) {
     const [Temp,setTemp] =useState("Food");
   return (
@@ -19,7 +23,7 @@ function Cat(props) {
                              shoptype:"Restaurant"
                         }}
                          >
-                         <img className='img-fluidx' src='https://cdn-icons-png.flaticon.com/512/562/562678.png' width={"50"} />
+                         <img className='img-fluidx' src={food} width={"50"} />
                         <p className='m-0' style={{textDecoration:'none',color:'black'}}>Food</p>
                          </NavLink>
                     </div>
@@ -36,7 +40,7 @@ function Cat(props) {
                         }}
                         
                         >
-                        <img className='img-fluidx' src='https://cdn-icons-png.flaticon.com/512/562/562678.png' width={"50"} />
+                        <img className='img-fluidx' src={groceryicon} width={"50"} />
                         <p className='m-0' style={{textDecoration:'none',color:'black'}}>Grocery</p>
                         </NavLink>
                     </div>
@@ -54,7 +58,7 @@ function Cat(props) {
                         }}
                         >
                             
-                        <img className='img-fluidx' src='https://cdn-icons-png.flaticon.com/512/562/562678.png' width={"50"} />
+                        <img className='img-fluidx' src={meaticon} width={"50"} />
                                                 <p className='m-0' style={{textDecoration:'none',color:'black'}}>Meat</p>
                         </NavLink>
                     </div>
