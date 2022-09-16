@@ -20,6 +20,7 @@ import { connect, Connect } from 'react-redux';
 import Cat from './../components/Cat';
 import '../css/Cat.css'
 import Comp_for_home from './../components/Comp_for_home';
+import Loader from './../components/Loader';
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -99,7 +100,7 @@ if(userid){
               Locations
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"  onClick={()=>setPlace("bhimavaram")}>Bhimavaram</a>
+            <a class="dropdown-item"  onClick={()=>setPlace("Bhimavaram")}>Bhimavaram</a>
               <a class="dropdown-item"  onClick={()=>setPlace("Narspur")}>Narspur</a>
               <a class="dropdown-item"  onClick={()=>setPlace("Palakolu")}>Palakolu</a>
               <a class="dropdown-item"  onClick={()=>setPlace("Seetharampuram")}>Seetharampuram</a>
@@ -116,9 +117,10 @@ if(userid){
 
 </header>
 <Cat/>
+
     <OrderByItem/>
     <Baners/>
-    <RestaurentCard User={Data} Place={Place} user={Data} />
+  <RestaurentCard User={Data} Place={Place} user={Data} /> 
      
      <Recomendations User={userid}  />  
     <Footer/>

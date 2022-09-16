@@ -19,7 +19,7 @@ function OrderPlacedLoading(props) {
 
             RemoveAll()
           navigate('/Profile');
-        }, 1500);
+        }, 5000);
         return () => clearTimeout(timer);
       }, []);
 

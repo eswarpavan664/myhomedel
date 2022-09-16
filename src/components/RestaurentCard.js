@@ -14,7 +14,9 @@ import {
 import { Ip } from './../constants/Ip';
 
 
-import Load from '../images/101961-non-data-found.json'
+import Load from '../lotties/96526-search-not-found.json'
+import Loader from './Loader';
+import Restorent from './../screens/Restorent';
 
 function RestaurentCard(props) {
   const [Restaurents,setRestaurents] = useState([]);
@@ -35,8 +37,12 @@ function RestaurentCard(props) {
       
     setRestaurents(data);
      
-          console.log("ksjdajksdjkashdahkddlkaslk= ",data);
-    
+    console.log("ksjdajksdjkashdahkddlkaslk= ",data);
+     if(data.length>0){
+      setse(1)
+     }
+    if(data.length===0)
+    setse(2)
    }
    )
   }
@@ -46,24 +52,19 @@ useEffect(()=>{
 },[props.Place])
 
 console.log("saduash",props.user)
+const [se,setse] =useState(0);
     return (
     <section>
-     
+          
         <div className='container mt-5'>
-        {Restaurents.length===0?
-                <div>
-                <Player
-                    autoplay
-                    loop
-                    src={Load}
-                    style={{ height: '300px', width: '300px' }}
-                >
-                   
-                </Player>
+        {se===0?
+             <Loader/>
 
-                  <h1>No Restaurants in {props.Place}</h1>
-                </div>
           :
+          
+          null
+        }
+       {se===1?
           <div className='row'>
                 {Restaurents.map((item)=>(
                    <>
@@ -98,8 +99,22 @@ console.log("saduash",props.user)
                 )       
                 )}
                  
-            </div>
+            </div>:null
 
+
+          }
+          {se===2?<h1>
+          
+            <Player
+                                    autoplay
+                                    loop
+                                    src={Load}
+                                    style={{ height: '300px', width: '300px' }}
+                                    
+                                >
+                                </Player>
+                                
+          No Shops Found....</h1>:null
 
           }
              

@@ -8,7 +8,7 @@ function Cat(props) {
     <div className='container-fluid m-0 p-2'>
         <div className='container bg-light p-4 rounded'>
             <div className='row text-center'>
-                <div className=' col-md-2 col-4' >
+                <div className=' col-md-3 col-4' >
                     <div className='cat_card_hov' style={{boxShadow:"0 0 5px gray",display:"inline-block",padding:"15px",borderRadius:"8px",backgroundColor:Temp==="Food"?"orange":"white",cursor:"pointer"}}
                             onClick={()=>setTemp("Food")}
                     >

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Nav from './Nav';
 import Comp_for_home from './Comp_for_home';
 import { Ip } from './../constants/Ip';
+import { NavLink } from 'react-router-dom';
 
 function PresentOrdres() {
     const userid =localStorage.getItem('user');
@@ -68,7 +69,7 @@ function PresentOrdres() {
                                           {item.OrderStatus==="AcceptedByDeliveryBoy"?
     
                                           <div className='row'>
-                                             <button className='col-10 offset-1 btn btn-secondary'>Track</button>
+                                             <NavLink to="/Tracking"> <button className='col-10 offset-1 btn btn-secondary'>Track</button></NavLink>
                                              <button className='col-10 offset-1 btn btn-danger mt-1'>Cancel</button>
                                          </div>:null
     
