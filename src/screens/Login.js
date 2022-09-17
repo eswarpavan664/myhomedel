@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-concat */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
@@ -44,20 +45,47 @@ function Mainscreen() {
 
 const requestOtp=(e)=>{
     e.preventDefault();
-    if(Number.length>=10){
-      setExpandForm(true);
-      generateRecaptcha()
-      let appVerifier = window.recaptchaVerifier;
- 
-      signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
-          .then((confirmationResult) => {
+
+
+            
+      fetch(Ip+'/GetUserNewOrOld?id='+Number,{
+        headers:new Headers({
+          Authorization:"Bearer " 
+        })
+        }).then(res=>res.json())
         
-            window.confirmationResult = confirmationResult;
-            // ...
-          }).catch((error) => {
-           console.log(error)
-          });
-    }
+        .then(data=>{ 
+        
+          
+     
+        console.log("Data = ",data.Status);
+          
+              if(data.Status==="Yes"){
+                if(Number.length>=10){
+                  setExpandForm(true);
+                  generateRecaptcha()
+                  let appVerifier = window.recaptchaVerifier;
+             
+                  signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
+                      .then((confirmationResult) => {
+                    
+                        window.confirmationResult = confirmationResult;
+                        // ...
+                      }).catch((error) => {
+                       console.log(error)
+                      });
+                }
+              }
+              else{
+                alert("Resister first....!");
+                setForm(false);
+              }
+        
+        }
+        )
+
+
+  
 }
 
   const verifyotp=(e)=>{
@@ -166,10 +194,11 @@ const requestOtp=(e)=>{
                                     </div>
                                                       
                                     <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                          
+                                    <button class="btn btn-success">request OTP</button>  
                                     </>
                                 }
               <div id="sign-in-button"></div>
+               
       </form>
       <div className='row'>
                 <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
@@ -179,8 +208,7 @@ const requestOtp=(e)=>{
       :
       <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
               
-
-<h1>{ Number}</h1>
+ 
 
               <div className='row'>
   
@@ -211,10 +239,11 @@ const requestOtp=(e)=>{
                                       </div>
                                                         
                                       <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                            
+                                      <button class="btn btn-success">Resend OTP</button>     
                                     </>
                                 }
               <div id="sign-in-button"></div>
+               
       </form>
       <div className='row'>
                 <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>

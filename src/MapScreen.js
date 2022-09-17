@@ -3,24 +3,59 @@ import React,{useState,useEffect} from 'react'
 import Map, {Marker} from 'react-map-gl';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Nav from './components/Nav';
+import Comp_for_home from './components/Comp_for_home';
+import { Ip } from './constants/Ip';
+import { useLocation } from 'react-router-dom';
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoicGF2YW5lc3dhciIsImEiOiJja3RvbGJrZG4wZHNsMnVtdXo2dnczMTlsIn0.YCdQ-ukTTHqEkUc5RlZ1Dg'; // Set your mapbox token here
 
- 
+
 function MapScreen(props) {
+
+
+  const location = useLocation()
+  const { DeliveryManId } = location.state
+  const [Data,setData] =useState([]);
+
+  const GetData=()=>{
+
+              
+      fetch(Ip+'/GetDeliveryLocation?id='+DeliveryManId,{
+          headers:new Headers({
+          Authorization:"Bearer " 
+          })
+          }).then(res=>res.json())
+          
+          .then(data=>{ 
+          
+          
+          setData(data)
+          console.log("Data = ",data)
+          
+   
+          
+          }
+          )
+  }
+      
   return(
+    <> 
+    <Nav/>
     <Map
       initialViewState={{
-        latitude: 37.8,
-        longitude: -122.4,
+        latitude: 16.432983,
+        longitude: 81.696617,
         zoom: 14
       }}
       style={{width: 1550, height: 700}}
       mapStyle="mapbox://styles/mapbox/streets-v9"
       mapboxAccessToken={MAPBOX_TOKEN}
     >
-      <Marker longitude={-122.4} latitude={37.8} color="red" />
+      <Marker longitude={81.696617} latitude={16.432983} color="red" />
     </Map>
+    <Comp_for_home/>
+    </>
   )
 }
 

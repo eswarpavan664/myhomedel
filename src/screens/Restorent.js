@@ -47,9 +47,15 @@ useEffect(()=>{
  
   GetData();
  //console.log(check("Adminchandrika@gmail.comFired Rice"))
- 
+ if(!done){
+    console.log("done")
+    
+ }
 },[itemname])
 
+ 
+     
+const [done,setdone] =useState(false);
   //console.log(local_variable)
 
 function check(name) {

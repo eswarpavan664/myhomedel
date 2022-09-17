@@ -36,6 +36,7 @@ function PresentOrdres() {
     useEffect(()=>{
       GetItems();
     })
+    console.log("Orders = ",Myorders)
   
 const [se,setse] =useState(0);
 
@@ -71,39 +72,74 @@ const [se,setse] =useState(0);
                              <div className='text-center' >
                                  {item.OrderStatus!=="Delivered"?
   
-                                 <div className='row align-items-center justify-content-center pb-2 my-2 mx-1' style={{backgroundColor:"white",borderRadius:"15px"}}>
+                                      <NavLink to="/OrderStatusDetails"
+                                      
+                                      state={{
+                                          
+                                          ShopName:item.ShopName,
+                                          orderList:item.orderList,
+                                          Amount:item.Amount,
+                                          DeliveryManId:item.DeliveryManId,
+                                          OrderOtp:item.OrderOtp,
+                                          OrderStatus:item.OrderStatus,
+                                          OrderTime:item.OrderTime
+
+
+
+
+
+                                          }}
+                                      
+                                      
+                                      
+                                      >
+                                      <div className='row align-items-center justify-content-center pb-2 my-2 mx-1' style={{backgroundColor:"white",borderRadius:"15px"}}>
                                      <div className='col-md-2  col-3 py-3 m-0 '>
                                          <img className='img-fluid rounded' src='https://b.zmtcdn.com/data/dish_photos/8d1/6df584834e5252fa5663c4e4d86618d1.jpg?fit=around|130:130&crop=130:130;*,*' />
                                      </div>
                                      
                                      
                                      <div className='col-6'>
-                                          {item.OrderStatus==="Delivered"?<h4>Done</h4>
+                                          {item.OrderStatus==="Delivered"?<h4 style={{color:'black'}}>Done</h4>
                                             :null
                                           }
                                           {item.OrderStatus==="Pending"?
-                                            <p>Waiting </p>:null
+                                          <>   <p style={{color:'black'}}>Waiting </p><button className='col-5 offset-1 btn btn-secondary m-0'>Cancel</button></>
+                                          :null
     
                                           }
                                           {item.OrderStatus==="Accepted"?
-    
-                                              <p>Order Accepted</p>:null
+                                            <>
+                                            <p style={{color:'black'}}>Order Accepted</p>
+                                            <button className='col-5 offset-1 btn btn-secondary m-0'>Cancel</button>
+                                            </>
+                                              :null
     
                                           }
                                           {item.OrderStatus==="AcceptedByDeliveryBoy"?
     
                                           <div className='row'>
-                                             <NavLink to="/Tracking"> <button className='col-10 offset-1 btn btn-secondary m-0'>Track</button></NavLink>
+                                             <NavLink to="/Tracking"
+                                          
+                                             state={{
+                                              DeliveryManId:"dahj",
+                                              }}
+                              
+                                             > <button className='col-5 offset-1 btn btn-secondary m-0'>Track</button></NavLink>
                                              
                                          </div>:null
     
                                           }
                                           {item.OrderStatus==="Declain"?
-                                            <p>Order Canceled by Restorent</p>
+                                          <> <p style={{color:'black'}}>Order Canceled by Restorent</p><button className='col-5 offset-1 btn btn-secondary m-0'>Cancel</button></>
+                                            
                                             :null
                                           }
                                      </div>
-                                 </div>: null
+                                 </div>
+                                      </NavLink>
+                                 
+                                 : null
   
                                  }
                             </div>

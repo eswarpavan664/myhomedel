@@ -24,6 +24,7 @@ import ShopTypeScreen from './screens/ShopTypeScreen';
 import MyOrders from './components/MyOrders';
 import PresentOrdres from './components/PresentOrdres';
 import MapScreen from './MapScreen';
+import OrderStatusDetails from './screens/OrderStatusDetails';
 
 function App() {
  
@@ -46,6 +47,7 @@ function App() {
           <Route path="/MyOrders" element={<MyOrders />} />
           <Route path="/PresentOrders" element={<PresentOrdres />} />
           <Route path="/Tracking" element={<MapScreen />} />
+          <Route path="/OrderStatusDetails" element={<OrderStatusDetails />} />
     </Routes>
     
   </BrowserRouter>

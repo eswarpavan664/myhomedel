@@ -23,7 +23,7 @@ function Comp_for_home() {
                     </NavLink>
                 </div>
                 <div className='col-3'
-                 style={{backgroundColor:window.location.pathname==="/PresentOrders"?"orange":'white'}}
+                 style={{backgroundColor:window.location.pathname==="/PresentOrders" || window.location.pathname==="/OrderStatusDetails" || window.location.pathname==="/Tracking"?"orange":'white'}}
                 onClick={()=>setSelected("Orders")}
                 >
                 <NavLink to="/PresentOrders">
@@ -32,7 +32,7 @@ function Comp_for_home() {
                     </NavLink>
                 </div>
                 <div className='col-3'
-                style={{backgroundColor:window.location.pathname==="/MyOrders"?"orange":'white'}}
+                style={{backgroundColor:window.location.pathname==="/MyOrders" ?"orange":'white'}}
                 onClick={()=>setSelected("History")}
                 >
                     <NavLink to="/MyOrders"> 

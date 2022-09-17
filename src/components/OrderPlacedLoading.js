@@ -18,7 +18,7 @@ function OrderPlacedLoading(props) {
 
 
             RemoveAll()
-          navigate('/Profile');
+          navigate('/PresentOrders');
         }, 5000);
         return () => clearTimeout(timer);
       }, []);
