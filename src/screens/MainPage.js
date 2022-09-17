@@ -116,10 +116,14 @@ if(userid){
 </div>
 
 </header>
-<Cat/>
+ 
 
-    <OrderByItem/>
+   {/* <OrderByItem/>*/}
     <Baners/>
+     <div className='container'>
+     <h1>Category</h1>
+     <Cat/>
+     </div>
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
      
      <Recomendations User={userid}  />  
