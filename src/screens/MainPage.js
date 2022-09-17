@@ -123,7 +123,10 @@ if(userid){
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
      
      <Recomendations User={userid}  />  
+  
+    <div className='mb-5'>
     <Footer/>
+    </div>
     <Comp_for_home/>
 </div>
   )

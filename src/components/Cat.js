@@ -93,7 +93,7 @@ function Cat(props) {
                         }}
                        >
                        <img className='img-fluidx' src='https://cdn-icons-png.flaticon.com/512/562/562678.png' width={"50"} />
-                        <p className='m-0' style={{textDecoration:'none',color:'black'}}>Vegetables</p>
+                        <p className='m-0' style={{textDecoration:'none',color:'black'}}>Veggies</p>
                        </NavLink>
                     </div>
                 </div>

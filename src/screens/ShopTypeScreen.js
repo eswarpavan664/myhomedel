@@ -66,7 +66,7 @@ const [se,setse] =useState(0);
           null
         }
        {se===1?
-          <div className='row'>
+          <div className='row pb-5'>
                 {Restaurents.map((item)=>(
                    <>
                     {item.Role==="Admin"?<div className='col-md-4 mb-4'>

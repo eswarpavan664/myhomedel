@@ -8,7 +8,10 @@ function Comp_for_home() {
 
     console.log( );
   return (
-    <div className='d-block d-md-none p-1 rounded' style={{position:"fixed",bottom:"0",width:"100%",backgroundColor:"white",borderTop:"1px solid black",zIndex:"2"}} >
+    <div>
+
+    
+    <div className='d-block d-md-none p-1 rounded' style={{position:"fixed",bottom:0,width:"100%",backgroundColor:"white",borderTop:"1px solid black",zIndex:"2"}} >
         <div className=' container-fluid m-0'>
             <div className='row text-center'>
                 <div className='col-3' style={{backgroundColor:window.location.pathname==="/MainPage"?"orange":'white'}}
@@ -49,6 +52,7 @@ function Comp_for_home() {
                 </div>
             </div>
         </div>
+    </div>
     </div>
   )
 }

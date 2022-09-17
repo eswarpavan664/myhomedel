@@ -95,7 +95,7 @@ console.log(User[0].Name)
         
       </div>
       
-  <div className='col-md-7'  style={{borderLeft:"1px solid lightgray"}}>
+  <div className='col-md-7'  style={{borderLeft:"1px solid lightgray",paddingBottom:"120px"}}>
 
        <div className='container' style={{width:'80%'}}>
        <div className='d-flex justify-content-between'>
@@ -116,12 +116,14 @@ console.log(User[0].Name)
     <div>
         <div className='container'>
             <form>
-                <div className='d-flex mt-1 mb-2' style={{justifyContent:"space-evenly"}}>
-                    <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} />
-                    <div style={{ border:"1px solid black",width:"430px",padding:"15px",borderRadius:"15px"}}>
+                <div className=' mt-1 mb-2'>
+                    
+                    <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
+                    <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} style={{display:"inline"}} />
                         <h4>{address[0]}</h4>
-                        <p>{address[1]}</p>
-                        <p>{address[2]}</p>
+                        <p className='m-0'>{address[1]}</p>
+                        <p className='m-0'>{address[2]}</p>
+                        
                     </div>
                 </div>
 
@@ -151,7 +153,8 @@ console.log(User[0].Name)
         </div>
 
   </div>
-</div>: <div style={{marginTop:'20%'}}>
+</div>: 
+<div style={{}}>
      <Player
                       autoplay
                       loop
@@ -190,16 +193,16 @@ useEffect(()=>{
 },[Value])
 
   return(
-    <div className='row d-flex align-items-center mb-4 pb-2' style={{borderBottom:"1px solid gray"}}>
-    <div className='col-2'>
-      <img className='img-fluid' src={Ip+"/"+props.data.ProductImage} style={{borderRadius:"8px"}} />
+    <div className='row align-items-center mb-4 pb-2' style={{borderBottom:"1px solid gray"}}>
+    <div className='col-3 col-md-2'>
+      <img className='img-fluid' src={'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
     </div>
-    <div className='col-6'>
+    <div className='col-5 col-md-4'>
       <h5>{props.data.ItemName}</h5>
       <p className='d-none d-md-block'>{props.data.ItemDiscription}</p>
     </div>
-    <div className='col-2'>
-    <label> Quantity </label>
+    <div className='col-4 col-md-3'>
+            <label>Quant</label><br />
             <input
                 type='number'
                 step="1"
@@ -208,7 +211,10 @@ useEffect(()=>{
                 value={Value}
                 onChange= {(e) => QuantityUpdate(e)}
               />
-      <button className='btn btn-outline-danger' onClick={()=>DeAction(props.data)}>Remove</button>
+      
+    </div>
+    <div className='col-md-3 col-12 mt-md-0  mt-2  text-right'>
+      <button className='btn btn-outline-danger mr-md-0 mr-3 ' onClick={()=>DeAction(props.data)}>Remove</button>
     </div>
   </div>
   )

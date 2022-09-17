@@ -33,19 +33,19 @@ function ItemCard(props) {
   return (
     <>
            
-             <div className='col-2' style={{marginBottom:20}}>
-            <img className='img-fluid' src={Ip+"/"+props.ProductImage} style={{borderRadius:"8px"}} />
+        <div className='col-md-2 col-4' style={{marginBottom:20}}>
+            <img className='img-fluid' src={'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
         </div>
-        <div className='col-8'>
+        <div className='col-md-8 col-8'>
             <h5>{props.ItemName}</h5>
-            <p className='bg-info d-inline text-light' style={{borderRadius:"8px",padding:"1px"}}>Must Try</p>
+              
             <p className='mt-1 m-0' style={{color:"gold"}}><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> <span style={{color:"black"}} className="font-weight-light">3626 votes</span> </p>
             <p className='m-0'>₹{props.ItemPrice}</p>
             <p>{props.ItemDiscription}</p>
             
         </div>
-        <div className='col-2'>
-         {props.Cart?<button onClick={()=>DeAction(ob)} className='btn btn-danger'>Remove</button>:<button onClick={()=>InAction(ob)} className='btn btn-danger'>Add</button> } 
+        <div className='col-md-2 col-12 text-right'>
+         {props.Cart?<button onClick={()=>DeAction(ob)} className='btn btn-danger mr-md-0 mr-3'>Remove</button>:<button onClick={()=>InAction(ob)} className='btn btn-danger mr-md-0 mr-3'>Add</button> } 
         </div>
            
         

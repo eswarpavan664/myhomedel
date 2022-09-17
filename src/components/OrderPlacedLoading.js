@@ -25,8 +25,8 @@ function OrderPlacedLoading(props) {
 
   return (
     <>
-    
-               <div style={{marginTop:'10%'}}>
+    <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}> 
+               <div  >
 
 
                <Player
@@ -41,7 +41,7 @@ function OrderPlacedLoading(props) {
                 <h1 style={{textAlign:'center'}}>Placing Your Order...</h1>
                </div>
 
-
+</div>
     </>
   )
 }

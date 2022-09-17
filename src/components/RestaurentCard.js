@@ -51,7 +51,8 @@ useEffect(()=>{
    
 },[props.Place])
 
-console.log("saduash",props.user)
+//console.log("saduash",props.user)
+console.log("data = ",Restaurents)
 const [se,setse] =useState(0);
     return (
     <section>
@@ -78,7 +79,9 @@ const [se,setse] =useState(0);
                          ShopPhoto:item.ShopPhoto,
                          PhoneNumber:item.PhoneNumber,
                          AdminId:item.AdminId,
-                          User:props.user
+                          User:props.user,
+                          ShopType:item.ShopType
+
                          }}
                     >
                          

@@ -24,7 +24,7 @@ import Chef from '../images/WhatsApp Image 2022-08-26 at 3.18.28 PM (1).jpeg'
 function Mainscreen() {
 
   const contrycode = "+91";
-  const [Number,setNumber] =useState('+91');
+  const [Number,setNumber] =useState('');
   const [ExpandForm,setExpandForm] = useState(false);
   const [Otp,setOtp] = useState("");
   const [Name,setName] =useState("");
@@ -49,7 +49,7 @@ const requestOtp=(e)=>{
       generateRecaptcha()
       let appVerifier = window.recaptchaVerifier;
  
-      signInWithPhoneNumber(authentication, Number, appVerifier)
+      signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
           .then((confirmationResult) => {
         
             window.confirmationResult = confirmationResult;
@@ -79,12 +79,12 @@ const requestOtp=(e)=>{
            'Content-Type': 'application/json'
          },
          body:JSON.stringify({
-          "PhoneNumber":Number,
+          "PhoneNumber":"+91"+Number,
           "email":Email,
           "Name":Name,
           "Role":"Customer",
           "Address":"",
-          "Id":Number 
+          "Id":"+91"+Number
   
          })
         })
@@ -105,6 +105,7 @@ const requestOtp=(e)=>{
   }
   const [Screen,setScreen] =useState(0);
   const [ChangeForm,setForm]=useState(true);
+  console.log("+91")
   return (
     <div className='login_page_back_'>
         <div className='login_header_ row m-0'>
@@ -117,83 +118,114 @@ const requestOtp=(e)=>{
 
             </div>
         </div>
+
+
+
         <div className='container text-center login_form_cont_ mt-5'>
-            {!ChangeForm?<form onSubmit={requestOtp}>
+            {!ChangeForm?
+            
+              <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
+              
+
+
+
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Signup</h4>
+                            </div>
+            <form onSubmit={requestOtp}>
       
-                <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                      <input type={"text"} placeholder="Enter your name"   class="form-control" id="floatingInput" value={Name} onChange={(e)=>setName(e.target.value)}  />
-                      <label for="floatingInput" className='m-1'>Enter your name</label>
+            <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Name</label>
                     </div>
-                    
-                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Email} onChange={(e)=>setEmail(e.target.value)} />
-                    <label for="floatingInput" className='m-1'>Enter Email</label>
-                  </div>
+                    <input type={"text"} placeholder="Enter Name" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} value={Name} onChange={(e)=>setName(e.target.value)}/><br />
+                  
 
-                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Number} onChange={(e)=>setNumber(e.target.value)} />
-                    <label for="floatingInput" className='m-1'>Phone Number</label>
-                  </div>
-          
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Email Address</label>
+                    </div>
+                    <input type={"text"} placeholder="Enter your email" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Email} onChange={(e)=>setEmail(e.target.value)} /><br />
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    
+
               
                  
              
-    {ExpandForm===false?
-    
-      <button class="btn btn-success">request OTP</button>
-        : <>
+                              {ExpandForm===false?
+                        
+                                      <button class="btn btn-success">request OTP</button>
+                                  :
+                                    <>
 
-  
-        <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                    <input type={"number"} placeholder="Enter your OTP"    class="form-control" id="floatingInput" required value={Otp} onChange={(e)=>setOtp(e.target.value)} />
-                    <label for="floatingInput" className='m-1'>Enter OTP</label>
-                  </div>
- 
-      
-
-      </>
-
-    }
-    <div id="sign-in-button"></div>
-      </form>:
-      <form onSubmit={requestOtp}>
-      
-              
-                    
-                  <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                    <input type={"text"} placeholder="Phone Number"   class="form-control" id="floatingInput" required value={Number} onChange={(e)=>setNumber(e.target.value)} />
-                    <label for="floatingInput" className='m-1'>Phone Number</label>
-                  </div>
-          
-              
-                 
-             
-    {ExpandForm===false?
-    
-      <button class="btn btn-success">request OTP</button>
-        : <>
-
-  
-        <div class="form-floating mb-3 col-md-4 offset-md-4 col-8 offset-2 input_item">
-                    <input type={"number"} placeholder="Enter your OTP"    class="form-control" id="floatingInput" required value={Otp} onChange={(e)=>setOtp(e.target.value)} />
-                    <label for="floatingInput" className='m-1'>Enter OTP</label>
-                  </div>
- 
-      
-
-      </>
-
-    }
-    <div id="sign-in-button"></div>
+                      
+                                    <div className='row'>
+                                            <label className='col-12' style={{textAlign:"left"}}>OTP</label>
+                                    </div>
+                                                      
+                                    <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
+                                          
+                                    </>
+                                }
+              <div id="sign-in-button"></div>
       </form>
+      <div className='row'>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+            </div>
+      </div>
+      
+      :
+      <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
+              
+
+<h1>{ Number}</h1>
+
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Login</h4>
+                            </div>
+            <form onSubmit={requestOtp}>
+      
+           
+                    
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    
+
+              
+                 
+             
+                              {ExpandForm===false?
+                        
+                                      <button class="btn btn-success">request OTP</button>
+                                  :
+                                    <>
+
+                      
+                                    <div className='row'>
+                                              <label className='col-12' style={{textAlign:"left"}}>OTP</label>
+                                      </div>
+                                                        
+                                      <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
+                                            
+                                    </>
+                                }
+              <div id="sign-in-button"></div>
+      </form>
+      <div className='row'>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+            </div>
+      </div>
       }
 
 
              
 
-            <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
-            </div>
+             
         </div>
     </div>
    
@@ -235,7 +267,7 @@ const requestOtp=(e)=>{
       generateRecaptcha()
       let appVerifier = window.recaptchaVerifier;
  
-      signInWithPhoneNumber(authentication, Number, appVerifier)
+      signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
           .then((confirmationResult) => {
         
             window.confirmationResult = confirmationResult;
@@ -271,7 +303,7 @@ const requestOtp=(e)=>{
     }
 
   }
-
+console.log("number = ",Number)
   return(
     <div class="form_div">
     <form onSubmit={requestOtp}>

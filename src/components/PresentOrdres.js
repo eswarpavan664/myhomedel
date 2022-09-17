@@ -3,7 +3,10 @@ import Nav from './Nav';
 import Comp_for_home from './Comp_for_home';
 import { Ip } from './../constants/Ip';
 import { NavLink } from 'react-router-dom';
-
+import Loader from './Loader';
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import Load from '../lotties/20779-skeleton-loading-card.json'
+import Load2 from '../lotties/93483-order.json'
 function PresentOrdres() {
     const userid =localStorage.getItem('user');
   
@@ -19,7 +22,12 @@ function PresentOrdres() {
          
           setMyordres(data);
           
-           
+           if(data.length>0){
+            setse(1);
+           }
+           if(data.length===0){
+            setse(2);
+           }
            
         }
         )
@@ -29,31 +37,47 @@ function PresentOrdres() {
       GetItems();
     })
   
+const [se,setse] =useState(0);
+
     return (
       <div> 
       <Nav/>
-      <div class="m_ pt-md-4 pt-3" style={{background:"rgb(255,255,255)"}}>
+        <>
+        {se===0?
+          <Lode/>
+
+          :
+          
+          null
+        }
+        </>
+
+
+
+      <>
+        {se===1?
+
+          <div class="m_ pt-md-4 pt-3 container" style={{backgroundColor:"rgba(211,211,211,0.2)",minHeight:"100vh",maxHeight:"auto"}}>
                          
     
-                         {Myorders.length>0?
-     
-                         <>
+
+
+
+
+
+                        
                            {Myorders.map((item)=>(
      
-                             <div>
+                             <div className='text-center' >
                                  {item.OrderStatus!=="Delivered"?
   
-                                 <div className='row align-items-center justify-content-center pb-2' style={{borderBottom:"1px solid lightgray"}}>
-                                     <div className='col-3'>
+                                 <div className='row align-items-center justify-content-center pb-2 my-2 mx-1' style={{backgroundColor:"white",borderRadius:"15px"}}>
+                                     <div className='col-md-2  col-3 py-3 m-0 '>
                                          <img className='img-fluid rounded' src='https://b.zmtcdn.com/data/dish_photos/8d1/6df584834e5252fa5663c4e4d86618d1.jpg?fit=around|130:130&crop=130:130;*,*' />
                                      </div>
-                                     <div className='col-3'>
-                                         <p className='font-weight-bold'>{item.OrderStatus}</p>
-                                     </div>
-                                     <div className='col-2'>
-                                         <p className='text-danger'>₹{item.Amount}</p>
-                                     </div>
-                                     <div className='col-4'>
+                                     
+                                     
+                                     <div className='col-6'>
                                           {item.OrderStatus==="Delivered"?<h4>Done</h4>
                                             :null
                                           }
@@ -69,8 +93,8 @@ function PresentOrdres() {
                                           {item.OrderStatus==="AcceptedByDeliveryBoy"?
     
                                           <div className='row'>
-                                             <NavLink to="/Tracking"> <button className='col-10 offset-1 btn btn-secondary'>Track</button></NavLink>
-                                             <button className='col-10 offset-1 btn btn-danger mt-1'>Cancel</button>
+                                             <NavLink to="/Tracking"> <button className='col-10 offset-1 btn btn-secondary m-0'>Track</button></NavLink>
+                                             
                                          </div>:null
     
                                           }
@@ -86,13 +110,64 @@ function PresentOrdres() {
                            ))
      
                            }
-                         </>:<h1>No Orders</h1>
-                         }
-     
-                     </div>
+                         
+                     </div>:null
+
+        }
+      </>
+      <>
+      {se===2?
+          
+          <Player
+                                  autoplay
+                                  loop
+                                  src={Load2}
+                                  style={{ height: '300px', width: '300px' }}
+                                  
+                              >
+                              </Player>
+                              
+        :null
+
+        }
+        </>
   <Comp_for_home/>
       </div>
     )
+}
+
+function Lode(){
+  return(
+    <>
+      <Player
+                                  autoplay
+                                  loop
+                                  src={Load}
+                                  style={{ height: '300px', width: '300px' }}
+                                  
+                              >
+                              </Player>
+
+                              <Player
+                                  autoplay
+                                  loop
+                                  src={Load}
+                                  style={{ height: '300px', width: '300px' }}
+                                  
+                              >
+                              </Player>
+
+                              <Player
+                                  autoplay
+                                  loop
+                                  src={Load}
+                                  style={{ height: '300px', width: '300px' }}
+                                  
+                              >
+                              </Player>
+
+    </>
+  )
 }
 
 export default PresentOrdres;

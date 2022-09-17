@@ -18,7 +18,7 @@ import Nav from './../components/Nav';
 function Restorent(props) {
     const {local_variable} =props;
     const location = useLocation()
-  const { AdminId ,ShopName,Address,ShopPhoto,PhoneNumber,User} = location.state
+  const { AdminId ,ShopName,Address,ShopPhoto,PhoneNumber,User,ShopType} = location.state
   
   const [Items,setItems] = useState([]);
 
@@ -65,7 +65,7 @@ function check(name) {
     } 
   }
 
-
+console.log("data")
 
   return (
     <div>
@@ -90,7 +90,11 @@ function check(name) {
             </div>
 
             <div>
-                <p className='font-weight-light m-0'>Bakery, Fast Food, Pizza, Burger</p>
+                 {ShopType==="Restaurant"?<p className='font-weight-light m-0'>Biryani, Fast Food, Pizza,Curry,Chicken</p>:null}
+                 {ShopType==="Meet Shop"?<p className='font-weight-light m-0'>Chicken, Fish, Prawns, Crabs</p>:null}
+                 {ShopType==="Medical"?<p className='font-weight-light m-0'>All Medical Tablets</p>:null}
+                 {ShopType==="Vegetable Shop"?<p className='font-weight-light m-0'>All Vegetables</p>:null}
+                 {ShopType==="Grocery"?<p className='font-weight-light m-0'>Oils,Soaps,and etc</p>:null}
                 <p className='font-weight-light m-0'>{Address}</p>
                 <p className='font-weight-light m-0'><span className='text-danger'>Open now</span> - 9am - 11pm (Today)</p>
             </div>
@@ -103,13 +107,13 @@ function check(name) {
             </div>*/}
             <hr/>
             <div className='row'>
-                <div className='col-md-3'>
+               {/* <div className='col-md-3'>
                     <ul>
                         <li>Recommended</li>
                         <li>Rice And Biryani</li>
                         <li>Desert</li>
                     </ul>
-                </div>
+                </div>*/}
                 <div className='col-md-9'>
                     <div className='row'>
                         <div className='col-12 col-md-6'>
@@ -170,7 +174,7 @@ function check(name) {
 
         </div>
 
-        <div  >
+        <div style={{paddingBottom:"120px"}}>
            {local_variable.length>0? 
 
 
@@ -184,7 +188,7 @@ function check(name) {
                             ShopName:ShopName
                         }}
                         >
-                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"0",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
+                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"55px",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
                                 <div className='container-fluid m-0 p-0'>
                                     <div className='row align-items-center text-center'>
                                         <div className='col-4 text-danger'>
