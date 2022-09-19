@@ -70,6 +70,7 @@ const requestOtp=(e)=>{
                       .then((confirmationResult) => {
                     
                         window.confirmationResult = confirmationResult;
+                        console.log("")
                         // ...
                       }).catch((error) => {
                        console.log(error)
