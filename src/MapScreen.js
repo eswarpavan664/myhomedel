@@ -17,7 +17,7 @@ function MapScreen(props) {
   const location = useLocation()
   const { DeliveryManId } = location.state
   const [Data,setData] =useState([]);
-
+console.log(DeliveryManId)
   const GetData=()=>{
 
               
@@ -38,14 +38,18 @@ function MapScreen(props) {
           }
           )
   }
+
+  useEffect(()=>{
+    GetData();
+  })
       
   return(
     <> 
     <Nav/>
-    <Map
+     {Data?<Map
       initialViewState={{
-        latitude: 16.432983,
-        longitude: 81.696617,
+        latitude: Data.Latitude,
+        longitude:  Data.Longitude,
         zoom: 14
       }}
       style={{width: 1550, height: 700}}
@@ -53,7 +57,9 @@ function MapScreen(props) {
       mapboxAccessToken={MAPBOX_TOKEN}
     >
       <Marker longitude={81.696617} latitude={16.432983} color="red" />
-    </Map>
+    </Map>:null
+
+     }
     <Comp_for_home/>
     </>
   )

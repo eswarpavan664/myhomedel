@@ -147,7 +147,7 @@ const [se,setse] =useState(0);
                                              <NavLink to="/Tracking"
                                           
                                              state={{
-                                              DeliveryManId:"dahj",
+                                              DeliveryManId:item.DeliveryManId,
                                               }}
                               
                                              > <button className='col-5 offset-1 btn btn-secondary m-0'>Track</button></NavLink>
