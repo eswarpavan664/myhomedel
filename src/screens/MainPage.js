@@ -78,7 +78,7 @@ if(userid){
       </li>
        
       <li class="nav-item active">
-        {Data.length>0? <NavLink to="/Profile" > <h5 class="nav-link">{Data[0].Name}</h5></NavLink>:null}
+        {Data.length>0? <NavLink to="/Profile" > <h5 class="nav-link">{Data[0].email}</h5></NavLink>:null}
       </li>
     </ul>
   </div>
