@@ -61,6 +61,7 @@ const requestOtp=(e)=>{
         console.log("Data = ",data.Status);
           
               if(data.Status==="Yes"){
+                
                 if(Number.length>=10){
                   setExpandForm(true);
                   generateRecaptcha()
@@ -88,6 +89,54 @@ const requestOtp=(e)=>{
 
   
 }
+
+
+
+
+const SignuprequestOtp=(e)=>{
+  e.preventDefault();
+
+
+          
+    fetch(Ip+'/GetUserNewOrOld?id='+Number,{
+      headers:new Headers({
+        Authorization:"Bearer " 
+      })
+      }).then(res=>res.json())
+      
+      .then(data=>{ 
+      
+        
+   
+      console.log("Data = ",data.Status);
+        
+             
+              
+              if(Number.length>=10){
+                setExpandForm(true);
+                generateRecaptcha()
+                let appVerifier = window.recaptchaVerifier;
+           
+                signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
+                    .then((confirmationResult) => {
+                  
+                      window.confirmationResult = confirmationResult;
+                      console.log("")
+                      // ...
+                    }).catch((error) => {
+                     console.log(error)
+                    });
+              }
+           
+      }
+      )
+
+
+
+}
+
+
+
 
   const verifyotp=(e)=>{
     
@@ -162,7 +211,7 @@ const requestOtp=(e)=>{
   
                                 <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Signup</h4>
                             </div>
-            <form onSubmit={requestOtp}>
+            <form onSubmit={SignuprequestOtp}>
       
             <div className='row'>
                         <label className='col-12' style={{textAlign:"left"}}>Name</label>
