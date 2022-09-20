@@ -11,6 +11,7 @@ import OrderPlacedLoading from './../components/OrderPlacedLoading';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Comp_for_home from '../components/Comp_for_home';
+import TransLoader from '../components/TransLoader';
  
 
 
@@ -49,7 +50,7 @@ function Payment(props) {
           "CustomerName":User[0].Name,
           "ContactNo":User[0].PhoneNumber,
           "orderList":itemnames,
-          "Amount":sum+tax,
+          "Amount":total+tax,
           "CustomerAddress":AddressData,
           "CurrentLocation":"16.66-81.464",
           "OrderStatus":"Pending",
@@ -60,7 +61,7 @@ function Payment(props) {
           "OrderId":AdminId+val,
           "ShopName":ShopName,
           "OrderTime":new Date().toLocaleString(),
-          "CouponCode":""
+          "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
          })
         })
         .then(res=> setorderstatus(true))
@@ -79,7 +80,7 @@ console.log(AddressData)
  const [street,setstreet] =useState();
 
     const  AddAddress =()=>{
-      
+      setTemp(true)
         fetch(Ip+"/AddUserAddresses",{
           method:"POST",
           headers: {
@@ -98,6 +99,7 @@ console.log(AddressData)
         .then(res=>{
           GetAddress();
           console.log("done");
+          setTemp(false);
         })
       
       }
@@ -136,9 +138,10 @@ console.log(AddressData)
 
       const [Field,setField] =useState(false);
 
+        const [CouponGot,setCouponGot] =useState([]);
 
     const CheckCoupon=()=>{
-      fetch(Ip+'/CheckCouponCode?id='+User[0]._id,{
+      fetch(Ip+'/CheckCouponCode?id='+User[0]._id+"&coupon="+coupon+"&shopid="+ShopName,{
         headers:new Headers({
           Authorization:"Bearer " 
         })
@@ -147,15 +150,23 @@ console.log(AddressData)
         .then(async data=>{ 
         
         
-        await setuseraddress(data)
-        
-        
-        
+           if(data.Status==="user error"){
+            alert("Coupon Code Already Used....")
+           }
+           else if(data.Status==="error"){
+                 alert("Invalid Coupon Code...")
+           }
+           else{
+            setCouponGot(data)
+            console.log("coupon = ",data)
+            setTotal(parseInt(sum)-parseInt(data[0].Amount))
+           }
         }
         )
     }
-
+const [total,setTotal] =useState(sum);
 const [coupon,setcoupon] =useState("");
+const [Temp,setTemp]= useState(false);
   return (
     <div>
         {!orderstatus?
@@ -176,13 +187,16 @@ const [coupon,setcoupon] =useState("");
         
         
       </div>
+      {Temp?<TransLoader/>:null
+
+      }
       
   <div className='col-md-7'  style={{borderLeft:"1px solid lightgray",paddingBottom:"120px"}}>
 
        <div className='container' style={{width:'80%'}}>
        <div className='d-flex justify-content-between'>
         <p>Item Amount: </p>
-        <p>₹{sum}</p>
+        <p>₹{total}</p>
       </div>
       <div className='d-flex justify-content-between'>
         <p>Tax: </p>

@@ -52,7 +52,7 @@ useEffect(()=>{
 },[props.Place])
 
 //console.log("saduash",props.user)
-console.log("data = ",Restaurents)
+//console.log("data = ",Restaurents)
 const [se,setse] =useState(0);
     return (
     <section>

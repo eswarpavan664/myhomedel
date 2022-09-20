@@ -70,8 +70,8 @@ function check(name) {
         return true;
     } 
   }
-
-console.log("data")
+ 
+console.log("Item == ",local_variable);
 
   return (
     <div>

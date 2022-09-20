@@ -21,6 +21,7 @@ import Cat from './../components/Cat';
 import '../css/Cat.css'
 import Comp_for_home from './../components/Comp_for_home';
 import Loader from './../components/Loader';
+import TransLoader from './../components/TransLoader';
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -28,7 +29,7 @@ function MainPage(props) {
  const [Place,setPlace] = useState("All");
  
  const userid =localStorage.getItem('user');
-  console.log("number  = ",userid)
+  //console.log("number  = ",userid)
 const [Data,setData] =useState([]);
 
 const  GetData = async ()=>{
@@ -117,7 +118,7 @@ if(userid){
 
 </header>
  
-
+ 
    {/* <OrderByItem/>*/}
     <Baners/>
      <div className='container'>

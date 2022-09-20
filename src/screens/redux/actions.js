@@ -1,12 +1,12 @@
 export const InAction =(value)=> async dispatch =>{
-    dispatch({
+   dispatch({
         type:"Add",
         payload:value
     })
 }
 
 export const DeAction =(value)=> async dispatch =>{
-    dispatch({
+     dispatch({
         type:"remove",
         payload:value
     })
