@@ -45,12 +45,14 @@ function ItemCard(props) {
             
         </div>
         <div className='col-md-2 col-2 text-right mt-3'>
-         {props.Cart?<button onClick={()=>DeAction(ob)} className='btn btn-danger mr-md-0 mr-3'>Remove</button>:<button onClick={()=>InAction(ob)} className='btn btn-danger mr-md-0 mr-3'>Add</button> } 
+         {props.Cart?<div className='btn btn-outline-success remove' onClick={()=>DeAction(ob)}>Remove</div>: <div className='btn btn-outline-success add' onClick={()=>InAction(ob)}>Add</div> } 
         </div>
            
         
 
+     
         
+   
           
     </>
   )

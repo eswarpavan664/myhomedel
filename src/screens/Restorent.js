@@ -194,16 +194,16 @@ console.log("data")
                             ShopName:ShopName
                         }}
                         >
-                              <div style={{borderTop:"1px solid orange",position:"fixed",bottom:"55px",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
+                              <div style={{borderTop:"1px solid lightgreen",position:"fixed",bottom:"55px",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
                                 <div className='container-fluid m-0 p-0'>
                                     <div className='row align-items-center text-center'>
-                                        <div className='col-4 text-danger'>
+                                        <div className='col-4 text-success'>
                                             <p className='m-0'>{local_variable.length}</p>
                                             <p className='m-0'>Added</p>
                                         </div>
                                         <div className='col-5'>
 
-                                        <button className='btn btn-danger' style={{width:"100%"}}>Continue</button>
+                                        <button className='btn btn-success' style={{width:"100%"}}>Continue</button>
                                         </div>
                                         
                                     </div>
