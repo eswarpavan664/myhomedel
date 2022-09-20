@@ -202,8 +202,8 @@ console.log("data")
                                             <p className='m-0'>Added</p>
                                         </div>
                                         <div className='col-5'>
-
-                                        <button className='btn btn-success' style={{width:"100%"}}>Continue</button>
+                                        <div className='btn btn-outline-success remove'  >Continue</div>
+                                         
                                         </div>
                                         
                                     </div>
