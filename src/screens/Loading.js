@@ -4,7 +4,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import {useNavigate} from "react-router-dom";
 
-import Lodi from '../lotties/72168-loading-food.json'
+import Lodi from '../lotties/Starting Page (1).json'
  
 import logo from '../images/logo.jpeg'
 function Loading() {
@@ -20,7 +20,7 @@ function Loading() {
   return (
     <>
     
-               <div style={{marginTop:'10%'}}>
+               <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
 
 
                <Player

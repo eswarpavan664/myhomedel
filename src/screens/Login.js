@@ -469,7 +469,7 @@ const  PhoneLogin=()=>{
          user
     )
     us=true;
-    localStorage.setItem('user', user.email );
+    localStorage.setItem('user', user.phoneNumber );
   
       }
       else{

@@ -36,6 +36,7 @@ function Payment(props) {
       const [orderstatus,setorderstatus] =useState(false)
       const [AddressData,setAddressData] =useState();
       console.log("dsjdskj",User)
+      const [CouponCode,setCouponCode]=useState("");
       var address = User[0].Address.split("_")
       const PlaceOrder =()=>{
       
@@ -58,8 +59,8 @@ function Payment(props) {
           "OrderOtp":val,
           "OrderId":AdminId+val,
           "ShopName":ShopName,
-          "OrderTime":new Date().toLocaleString()
-        
+          "OrderTime":new Date().toLocaleString(),
+          "CouponCode":""
          })
         })
         .then(res=> setorderstatus(true))
@@ -135,6 +136,26 @@ console.log(AddressData)
 
       const [Field,setField] =useState(false);
 
+
+    const CheckCoupon=()=>{
+      fetch(Ip+'/CheckCouponCode?id='+User[0]._id,{
+        headers:new Headers({
+          Authorization:"Bearer " 
+        })
+        }).then(res=>res.json())
+
+        .then(async data=>{ 
+        
+        
+        await setuseraddress(data)
+        
+        
+        
+        }
+        )
+    }
+
+const [coupon,setcoupon] =useState("");
   return (
     <div>
         {!orderstatus?
@@ -165,7 +186,7 @@ console.log(AddressData)
       </div>
       <div className='d-flex justify-content-between'>
         <p>Tax: </p>
-        <p>₹{tax}</p>
+        <p>₹{local_variable?tax:0}</p>
       </div>
       <div className='d-flex justify-content-between'>
         <p>Total Amount: </p>
@@ -175,7 +196,9 @@ console.log(AddressData)
 
     <hr />
 
-
+    <div class="form-group"> <label>Have coupon?</label>
+<div class="input-group"> <input type="text" class="form-control coupon" name="" placeholder="Coupon code" value={coupon} onChange={(e)=>setcoupon(e.target.value)}/> <span class="input-group-append"> <button class="btn btn-primary btn-apply coupon" onClick={CheckCoupon}>Apply</button> </span> </div>
+</div>
         {address[0]?
           <div>
                 <div className='container'>
