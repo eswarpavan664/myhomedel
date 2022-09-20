@@ -95,6 +95,7 @@ let user =[]
       const Add = Data[0].Address.split("_");
       setName(Data[0].Name)
       setemail(Data[0].email)
+      setNumber(Data[0].PhoneNumber)
       setCityName(Add[0])
       setLankmark(Add[1])
       setPincode(Add[2])
@@ -115,7 +116,7 @@ let user =[]
        'Content-Type': 'application/json'
      },
      body:JSON.stringify({
-      "email": email,
+      "PhoneNumber":Number,
       "Name":Name,
       "Address":CityName+"_"+Lankmark+"_"+Pincode,
       "Id":Data[0]._id
@@ -131,7 +132,7 @@ let user =[]
   const [Lankmark,setLankmark]=useState();
    
 
- 
+ const [Number,setNumber] = useState();
    
   const [Setter,setSetter] =useState(0)
   const [rw,setrw] = useState([1])
@@ -290,7 +291,7 @@ let user =[]
             <div className='pt-md-4 pt-3 m_' style={{backgroundColor:"rgb(255,255,2555)"}}>
                             <div className='container text-center mt-md-5 mt-4' style={{width:"80%"}}>
                                 <input placeholder='Enter new name' class="profile_edit_"        value={Name}  onChange={(e)=>setName(e.target.value)}/><br />
-                                <input placeholder='Enter new email' class="profile_edit_ mt-4"  value={email}  onChange={(e)=>setemail(e.target.value)}/><br />
+                                <input placeholder='Enter new Number' class="profile_edit_ mt-4"  value={Number}  onChange={(e)=>setNumber(e.target.value)}/><br />
                                 
                                 <div className='row justify-content-center'>
                                     <div class="form-group col-md-6 mt-4">

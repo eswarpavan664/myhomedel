@@ -237,7 +237,7 @@ signInWithPopup(auth, provider)
                 <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
             </div>
             <div className='container col-12 text-center mb-3 d-flex justify-content-evenly'>
-                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Signup</p>
+                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
                 <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
 
             </div>
@@ -246,23 +246,105 @@ signInWithPopup(auth, provider)
 
 
         <div className='container text-center login_form_cont_ mt-5'>
-            {ChangeForm?
+            {!ChangeForm?
             
               <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
               
 
 
 
-            
-              
-              <Button onClick={sign}>google</Button>
-             
-       
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Signup</h4>
+                            </div>
+            <form onSubmit={SignuprequestOtp}>
       
+            <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Name</label>
+                    </div>
+                    <input type={"text"} placeholder="Enter Name" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} value={Name} onChange={(e)=>setName(e.target.value)}/><br />
+                  
+
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Email Address</label>
+                    </div>
+                    <input type={"text"} placeholder="Enter your email" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Email} onChange={(e)=>setEmail(e.target.value)} /><br />
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    
+
+              
+                 
+             
+                              {ExpandForm===false?
+                        
+                                      <button class="btn btn-success">request OTP</button>
+                                  :
+                                    <>
+
+                      
+                                    <div className='row'>
+                                            <label className='col-12' style={{textAlign:"left"}}>OTP</label>
+                                    </div>
+                                                      
+                                    <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
+                                    <button class="btn btn-success">request OTP</button>  
+                                    </>
+                                }
+              <div id="sign-in-button"></div>
+               
+      </form>
+      <div className='row'>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+            </div>
+      </div>
+      
+      :
+      <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
+              
+ 
+
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Login</h4>
+                            </div>
+            <form onSubmit={requestOtp}>
       
            
+                    
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    
+
               
-       </div>:null
+                 
+             
+                              {ExpandForm===false?
+                        
+                                      <button class="btn btn-success">request OTP</button>
+                                  :
+                                    <>
+
+                      
+                                    <div className='row'>
+                                              <label className='col-12' style={{textAlign:"left"}}>OTP</label>
+                                      </div>
+                                                        
+                                      <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
+                                      <button class="btn btn-success">Resend OTP</button>     
+                                    </>
+                                }
+              <div id="sign-in-button"></div>
+               
+      </form>
+      <div className='row'>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+            </div>
+      </div>
       }
 
 
@@ -270,7 +352,7 @@ signInWithPopup(auth, provider)
 
              
         </div>
-         
+        <Button onClick={sign}>google</Button>
     </div>
    
  

@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import { InAction,DeAction ,RemoveAll,QuantityAdd} from './../screens/redux/actions';
@@ -10,69 +11,129 @@ import OrderPlacedLoading from './../components/OrderPlacedLoading';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import Comp_for_home from '../components/Comp_for_home';
+ 
 
 
 
 function Payment(props) {
-  const {local_variable,DeAction,RemoveAll,QuantityAdd} =props;
-
-  
+      const {local_variable,DeAction,RemoveAll,QuantityAdd} =props;
 
 
-let sum = local_variable.reduce(function(prev, current) {
-  return prev +parseInt(current.ItemPrice)*current.Quantity;
-}, 0);
- 
-var quantity=1;
-let itemnames = local_variable.reduce(function(prev, current) {
-  return prev +current.ItemName+"_"+current.ItemPrice+"_"+current.Quantity+"-";
-}, "");
 
-const location = useLocation()
-const {AdminId,User,ShopName} = location.state
- 
-const [orderstatus,setorderstatus] =useState(false)
-const [AddressData,setAddressData] =useState();
-console.log("dsjdskj",User)
-var address = User[0].Address.split("_")
-const PlaceOrder =()=>{
 
-  fetch(Ip+"/Orders",{
-    method:"POST",
-    headers: {
-     'Content-Type': 'application/json'
-   },
-   body:JSON.stringify({
-    "CustomerName":User[0].Name,
-    "ContactNo":User[0].PhoneNumber,
-    "orderList":itemnames,
-    "Amount":sum+tax,
-    "CustomerAddress":AddressData,
-    "CurrentLocation":"16.66-81.464",
-    "OrderStatus":"Pending",
-    "AdminId":AdminId,
-    "CustomerId":User[0]._id,
-    "DeliveryManId":"",
-    "OrderOtp":val,
-    "OrderId":AdminId+val,
-    "ShopName":ShopName,
-    "OrderTime":new Date().toLocaleString()
+      let sum = local_variable.reduce(function(prev, current) {
+        return prev +parseInt(current.ItemPrice)*current.Quantity;
+      }, 0);
 
-   })
-  })
-  .then(res=> setorderstatus(true))
- 
-}
+      var quantity=1;
+      let itemnames = local_variable.reduce(function(prev, current) {
+        return prev +current.ItemName+"_"+current.ItemPrice+"_"+current.Quantity+"-";
+      }, "");
 
-useEffect(()=>{
+      const location = useLocation()
+      const {AdminId,User,ShopName} = location.state
 
-},[local_variable])
- 
-var val = Math.floor(1000 + Math.random() * 9000);
- 
-var tax=29;
- 
-console.log(User[0].Name)
+      const [orderstatus,setorderstatus] =useState(false)
+      const [AddressData,setAddressData] =useState();
+      console.log("dsjdskj",User)
+      var address = User[0].Address.split("_")
+      const PlaceOrder =()=>{
+      
+        fetch(Ip+"/Orders",{
+          method:"POST",
+          headers: {
+           'Content-Type': 'application/json'
+         },
+         body:JSON.stringify({
+          "CustomerName":User[0].Name,
+          "ContactNo":User[0].PhoneNumber,
+          "orderList":itemnames,
+          "Amount":sum+tax,
+          "CustomerAddress":AddressData,
+          "CurrentLocation":"16.66-81.464",
+          "OrderStatus":"Pending",
+          "AdminId":AdminId,
+          "CustomerId":User[0]._id,
+          "DeliveryManId":"",
+          "OrderOtp":val,
+          "OrderId":AdminId+val,
+          "ShopName":ShopName,
+          "OrderTime":new Date().toLocaleString()
+        
+         })
+        })
+        .then(res=> setorderstatus(true))
+      
+      }
+
+
+
+console.log(AddressData)
+//Id,VillageName,PinCode,DoorNo,Landmark,Street
+
+ const [village,setvillage] =useState();
+ const [pincode,setpincode] = useState();
+ const [doorno,setdoorno] =useState();
+ const [landmark,setlandmark] =useState();
+ const [street,setstreet] =useState();
+
+    const  AddAddress =()=>{
+      
+        fetch(Ip+"/AddUserAddresses",{
+          method:"POST",
+          headers: {
+           'Content-Type': 'application/json'
+         },
+         body:JSON.stringify({
+          "Id":User[0]._id,
+          "VillageName":village,
+          "PinCode":pincode,
+          "DoorNo":doorno,
+          "Landmark":landmark,
+          "Street":street
+          
+         })
+        })
+        .then(res=>{
+          GetAddress();
+          console.log("done");
+        })
+      
+      }
+
+     const [useraddress,setuseraddress] = useState([]);
+
+      const GetAddress=async()=>{
+          
+        fetch(Ip+'/GetUserAddresses?id='+User[0]._id,{
+          headers:new Headers({
+            Authorization:"Bearer " 
+          })
+          }).then(res=>res.json())
+          
+          .then(async data=>{ 
+          
+        
+          await setuseraddress(data)
+          
+        
+      
+          }
+          )
+      }
+
+
+      useEffect(()=>{
+      GetAddress()
+      },[local_variable])
+
+      var val = Math.floor(1000 + Math.random() * 9000);
+
+      var tax=29;
+
+      console.log(User[0].Name)
+
+      const [Field,setField] =useState(false);
 
   return (
     <div>
@@ -113,26 +174,129 @@ console.log(User[0].Name)
        </div>
 
     <hr />
-    <div>
-        <div className='container'>
-            <form>
-                <div className=' mt-1 mb-2'>
-                    
-                    <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
-                    <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} style={{display:"inline"}} />
-                        <h4>{address[0]}</h4>
-                        <p className='m-0'>{address[1]}</p>
-                        <p className='m-0'>{address[2]}</p>
-                        
-                    </div>
-                </div>
 
-               
-              
-            </form>
-            
-        </div>
-    </div>
+
+        {address[0]?
+          <div>
+                <div className='container'>
+                    <form>
+                        <div className=' mt-1 mb-2'>
+                            
+                            <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
+                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} style={{display:"inline"}} />
+                                <h4>{address[0]}</h4>
+                                <p className='m-0'>{address[1]}</p>
+                                <p className='m-0'>{address[2]}</p>
+                                
+                            </div>
+                        </div>
+
+                      
+                      
+                    </form>
+                    
+                </div>
+            </div>:null
+
+        }
+        
+
+        {useraddress.length>0?
+
+           <>
+            {useraddress.map((ad,i)=>(
+
+
+              <div>
+                <div className='container'>
+                    <form>
+                        <div className=' mt-1 mb-2'>
+                            
+                            <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
+                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData(ad.VillageName+"_"+ad.DoorNo+"_"+ad.Street+"_"+ad.Landmark+"_"+ad.PinCode)} style={{display:"inline"}} />
+                                <h4>{ad.VillageName}</h4>
+                                <p className='m-0'>{ad.DoorNo}</p>
+                                <p className='m-0'>{ad.Street}-{ad.Landmark}</p>
+                                <p className='m-0'>{ad.PinCode}</p>  
+                            </div>
+                        </div>
+
+                      
+                      
+                    </form>
+                    
+                </div>
+            </div>
+            ))
+
+            }
+
+
+           </>:null
+
+        }
+    
+        <button onClick={()=>setField(true)}>Add New Address</button>
+     
+
+
+          {Field?<>
+            <div class="container">
+                    <form  >
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="fname">Village Name:- </label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="fname" name="firstname" placeholder="Village Name" value={village} onChange={(e)=>setvillage(e.target.value)}/>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Door no:- </label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="Door no" placeholder="Door no" value={doorno} onChange={(e)=>setdoorno(e.target.value)}/>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Street:- </label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="Street no" placeholder="Street no" value={street} onChange={(e)=>setstreet(e.target.value)}/>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Landmark:- </label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="Landmark no" placeholder="Landmark no" value={landmark} onChange={(e)=>setlandmark(e.target.value)}/>
+                        </div>
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-25">
+                          <label for="lname">Pin code:- </label>
+                        </div>
+                        <div class="col-75">
+                          <input type="text" id="lname" name="Pin no" placeholder="Pin no" value={pincode} onChange={(e)=>setpincode(e.target.value)}/>
+                        </div>
+                        
+                      </div>
+                     
+                      
+                     
+                    </form>
+                    <button onClick={AddAddress}>Submit</button>
+                  </div>
+          </>:null
+
+          }
+
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <strong>Welcome there,</strong> as of now, online payments are not working here.
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
