@@ -7,6 +7,7 @@ import Loader from './Loader';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import Load from '../lotties/20779-skeleton-loading-card.json'
 import Load2 from '../lotties/93483-order.json'
+import Footer from './Footer';
 function PresentOrdres() {
     const userid =localStorage.getItem('user');
   
@@ -192,6 +193,9 @@ const [se,setse] =useState(0);
 
         }
         </>
+        <div className='mb-5'>
+     <Footer/>
+    </div>
   <Comp_for_home/>
       </div>
     )
