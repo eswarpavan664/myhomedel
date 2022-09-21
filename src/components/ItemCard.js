@@ -29,7 +29,7 @@ function ItemCard(props) {
         "Quantity":1
        }
      
-      console.log(Ip+"/"+props.ProductImage)
+      
 
 
         

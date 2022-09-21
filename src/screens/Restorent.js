@@ -51,7 +51,7 @@ useEffect(()=>{
     console.log("done")
     
  }
-},[itemname])
+},[])
 
  
      

@@ -56,10 +56,37 @@ useEffect(()=>{
   
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
-
-},)
+console.log("ca = ",local_variable)
+},[Place])
  
+
+useEffect(()=>{
+ 
+  
+  GetData();
+  //console.log(check("Adminchandrika@gmail.comFired Rice"))
+  console.log("ca = ",local_variable)
+},[])
+   
+  
+
 //console.log("hjdsjvfjhsbf  == ",user.phoneNumber)
+
+
+var ob={
+  "ItemName": "rt",
+  "ItemPrice": "ert",
+  "ProductImage":"props.ProductImage",
+  "ShopId":"props.ShopId",
+  "ShopName":"props.ShopName,",
+  "id":"props.id",
+  "ItemDiscription":"props.ItemDiscription",
+  "ItemId":"props.ItemId",
+  "Quantity":1
+ }
+
+ 
+
 
 if(userid){
   return (
@@ -128,10 +155,11 @@ if(userid){
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
      
      <Recomendations User={userid}  />  
-  
+    
     <div className='mb-5'>
     <Footer/>
     </div>
+   
     <Comp_for_home/>
 </div>
   )

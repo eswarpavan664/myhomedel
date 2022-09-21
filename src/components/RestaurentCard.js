@@ -37,7 +37,7 @@ function RestaurentCard(props) {
       
     setRestaurents(data);
      
-    console.log("ksjdajksdjkashdahkddlkaslk= ",data);
+    //console.log("ksjdajksdjkashdahkddlkaslk= ",data);
      if(data.length>0){
       setse(1)
      }
@@ -46,9 +46,16 @@ function RestaurentCard(props) {
    }
    )
   }
+
 useEffect(()=>{
    GetData();
    
+},[])
+
+
+useEffect(()=>{
+  GetData();
+  
 },[props.Place])
 
 //console.log("saduash",props.user)

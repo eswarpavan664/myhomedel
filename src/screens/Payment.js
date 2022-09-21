@@ -27,9 +27,11 @@ function Payment(props) {
       }, 0);
 
       var quantity=1;
+      
       let itemnames = local_variable.reduce(function(prev, current) {
         return prev +current.ItemName+"_"+current.ItemPrice+"_"+current.Quantity+"-";
       }, "");
+
 
       const location = useLocation()
       const {AdminId,User,ShopName} = location.state
