@@ -36,7 +36,7 @@ function Payment(props) {
 
 
       const location = useLocation()
-      const {AdminId,User,ShopName} = location.state
+      const {AdminId,ShopName} = location.state
 
        
 
@@ -44,7 +44,7 @@ function Payment(props) {
       const [AddressData,setAddressData] =useState();
       //console.log("dsjdskj",User)
       const [CouponCode,setCouponCode]=useState("");
-      var address = User[0].Address.split("_")
+      var address =  ["jdhflk","dsfgd","dfhkds"]
       const PlaceOrder =()=>{
       
         fetch(Ip+"/Orders",{
@@ -53,15 +53,15 @@ function Payment(props) {
            'Content-Type': 'application/json'
          },
          body:JSON.stringify({
-          "CustomerName":User[0].Name,
-          "ContactNo":User[0].PhoneNumber,
+          "CustomerName":"User[0].Name",
+          "ContactNo":"User[0].PhoneNumber",
           "orderList":itemnames,
           "Amount":total+tax,
           "CustomerAddress":AddressData,
           "CurrentLocation":"16.66-81.464",
           "OrderStatus":"Pending",
           "AdminId":AdminId,
-          "CustomerId":User[0]._id,
+          "CustomerId":"User[0]._id",
           "DeliveryManId":"",
           "OrderOtp":val,
           "OrderId":AdminId+val,
@@ -93,7 +93,7 @@ function Payment(props) {
            'Content-Type': 'application/json'
          },
          body:JSON.stringify({
-          "Id":User[0]._id,
+          "Id":"User[0]._id",
           "VillageName":village,
           "PinCode":pincode,
           "DoorNo":doorno,
@@ -114,7 +114,7 @@ function Payment(props) {
 
       const GetAddress=async()=>{
           
-        fetch(Ip+'/GetUserAddresses?id='+User[0]._id,{
+        fetch(Ip+'/GetUserAddresses?id='+"User[0]._id",{
           headers:new Headers({
             Authorization:"Bearer " 
           })
@@ -153,7 +153,7 @@ function Payment(props) {
         const [CouponGot,setCouponGot] =useState([]);
 
     const CheckCoupon=()=>{ 
-      fetch(Ip+'/CheckCouponCode?id='+User[0]._id+"&coupon="+coupon+"&shopid="+ShopName,{
+      fetch(Ip+'/CheckCouponCode?id='+"User[0]._id"+"&coupon="+coupon+"&shopid="+ShopName,{
         headers:new Headers({
           Authorization:"Bearer " 
         })
@@ -180,9 +180,9 @@ const [total,setTotal] =useState(sum);
 const [coupon,setcoupon] =useState("");
 const [Temp,setTemp]= useState(false);
 
-const {Name,PhoneNumber,Address,email,_id} =User;
+//const {Name,PhoneNumber,Address,email,_id} =User;
  
-if(User.length>0){
+ 
   return (
     <div>
         {!orderstatus?
@@ -236,7 +236,7 @@ if(User.length>0){
                         <div className=' mt-1 mb-2'>
                             
                             <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
-                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData(User[0].Address)} style={{display:"inline"}} />
+                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData("User[0].Address")} style={{display:"inline"}} />
                                 <h4>{address[0]}</h4>
                                 <p className='m-0'>{address[1]}</p>
                                 <p className='m-0'>{address[2]}</p>
@@ -386,15 +386,12 @@ if(User.length>0){
 
 }
 
-</div>:<OrderPlacedLoading Data={User}/>
+</div>:<OrderPlacedLoading Data={"User"}/>
           
         }
         <Comp_for_home/>
     </div>
-  )}
-  else{
-    return(<h1>Loadinng</h1>)
-  }
+  ) 
 }
 
 function MyCart(props){
