@@ -22,6 +22,35 @@ function Payment(props) {
       const {local_variable,DeAction,RemoveAll,QuantityAdd} =props;
 
 
+      const userid =localStorage.getItem('user');
+
+ 
+      //console.log("number  = ",userid)
+    const [Data,setData] =useState();
+    
+    const  GetData = async ()=>{
+       
+     fetch(Ip+'/GetUser?id='+userid,{
+     headers:new Headers({
+       Authorization:"Bearer " 
+     })
+     }).then(res=>res.json())
+     
+     .then(data=>{ 
+     
+        
+      setData(data[0])
+      
+       
+       console.log("DATA RA = ",Data.Name);
+      
+     }
+     )
+    }
+
+
+
+
 
 
       let sum = local_variable.reduce(function(prev, current) {
@@ -53,15 +82,15 @@ function Payment(props) {
            'Content-Type': 'application/json'
          },
          body:JSON.stringify({
-          "CustomerName":"User[0].Name",
-          "ContactNo":"User[0].PhoneNumber",
+          "CustomerName":Data.Name,
+          "ContactNo":Data.PhoneNumber,
           "orderList":itemnames,
           "Amount":total+tax,
           "CustomerAddress":AddressData,
           "CurrentLocation":"16.66-81.464",
           "OrderStatus":"Pending",
           "AdminId":AdminId,
-          "CustomerId":"User[0]._id",
+          "CustomerId":Data._id,
           "DeliveryManId":"",
           "OrderOtp":val,
           "OrderId":AdminId+val,
@@ -114,7 +143,7 @@ function Payment(props) {
 
       const GetAddress=async()=>{
           
-        fetch(Ip+'/GetUserAddresses?id='+"User[0]._id",{
+        fetch(Ip+'/GetUserAddresses?id='+Data._id,{
           headers:new Headers({
             Authorization:"Bearer " 
           })
@@ -136,7 +165,7 @@ function Payment(props) {
       GetAddress()
       setTotal(sum);
 
-       
+      GetData();
 
       },[local_variable])
 
@@ -153,7 +182,8 @@ function Payment(props) {
         const [CouponGot,setCouponGot] =useState([]);
 
     const CheckCoupon=()=>{ 
-      fetch(Ip+'/CheckCouponCode?id='+"User[0]._id"+"&coupon="+coupon+"&shopid="+ShopName,{
+      console.log("hii")
+      fetch(Ip+'/CheckCouponCode?id='+Data._id+"&coupon="+coupon+"&shopid="+ShopName,{
         headers:new Headers({
           Authorization:"Bearer " 
         })
@@ -169,8 +199,9 @@ function Payment(props) {
                  alert("Invalid Coupon Code...")
            }
            else{
+            alert("Coupon Code Successfully Worth Rs:-",data.Amount)
             setCouponGot(data)
-            //console.log("coupon = ",data)
+            console.log("coupon = ",data)
             setTotal(parseInt(sum)-parseInt(data[0].Amount))
            }
         }
@@ -182,6 +213,10 @@ const [Temp,setTemp]= useState(false);
 
 //const {Name,PhoneNumber,Address,email,_id} =User;
  
+
+
+
+
  
   return (
     <div>
@@ -236,7 +271,7 @@ const [Temp,setTemp]= useState(false);
                         <div className=' mt-1 mb-2'>
                             
                             <div style={{ border:"1px solid lightgray",padding:"15px",borderRadius:"15px",cursor:"pointer"}}>
-                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData("User[0].Address")} style={{display:"inline"}} />
+                            <input type={"radio"} name={"adder"} onClick={()=>setAddressData(Data.Address)} style={{display:"inline"}} />
                                 <h4>{address[0]}</h4>
                                 <p className='m-0'>{address[1]}</p>
                                 <p className='m-0'>{address[2]}</p>
