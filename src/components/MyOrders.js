@@ -12,7 +12,7 @@ function MyOrders(props) {
   
   const [Myorders,setMyordres] = useState([]);
  const GetItems=()=>{
-    fetch(Ip+'/GetUserOrders?id='+userid,{
+    fetch(Ip+'/GetUserHistoryOrders?id='+userid,{
       headers:new Headers({
         Authorization:"Bearer " 
       })
@@ -38,6 +38,7 @@ function MyOrders(props) {
     GetItems();
   })
   const [se,setse] =useState(0);
+  console.log("history orders = ",Myorders);
   return (
     <div> 
     <Nav/>

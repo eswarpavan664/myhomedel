@@ -128,6 +128,7 @@ console.log(AddressData)
 
       useEffect(()=>{
       GetAddress()
+      setTotal(sum);
       },[local_variable])
 
       var val = Math.floor(1000 + Math.random() * 9000);

@@ -12,7 +12,7 @@ function PresentOrdres() {
   
     const [Myorders,setMyordres] = useState([]);
    const GetItems=()=>{
-      fetch(Ip+'/GetUserOrders?id='+userid,{
+      fetch(Ip+'/GetUserPresentOrders?id='+userid,{
         headers:new Headers({
           Authorization:"Bearer " 
         })
@@ -37,7 +37,7 @@ function PresentOrdres() {
     useEffect(()=>{
       GetItems();
     })
-    console.log("Orders = ",Myorders)
+    console.log("present Orders = ",Myorders)
 
 
     const CancelOrder=(orderid)=>{
