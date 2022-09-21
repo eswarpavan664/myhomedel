@@ -31,7 +31,7 @@ console.log(DeliveryManId)
           
           
           setData(data)
-          console.log("Data = ",data)
+           
           
    
           
@@ -41,22 +41,24 @@ console.log(DeliveryManId)
 
   useEffect(()=>{
     GetData();
-  })
-      
+  },[Data])
+    const lon = "81.696617";
+    const lat="16.432983";
+    //console.log("sdaa= ",Data[0].Latitude )
   return(
     <> 
     <Nav/>
-     {Data?<Map
+     {Data.length>0?<Map
       initialViewState={{
-        latitude: Data.Latitude,
-        longitude:  Data.Longitude,
-        zoom: 14
+        latitude: Data[0].Latitude,
+        longitude:  Data[0].Longitude,
+        zoom: 12
       }}
       style={{width: 1550, height: 700}}
-      mapStyle="mapbox://styles/mapbox/streets-v9"
+      mapStyle="mapbox://styles/pavaneswar/ckuy6yadi23mc18mymdhmtfzy"
       mapboxAccessToken={MAPBOX_TOKEN}
     >
-      <Marker longitude={81.696617} latitude={16.432983} color="red" />
+      <Marker longitude={Data[0].Longitude} latitude={Data[0].Latitude} color="red" />
     </Map>:null
 
      }
