@@ -28,7 +28,7 @@ function Cat(props) {
                          </NavLink>
                     </div>
                 </div>
-                <div className='col-md-2 col-4'>
+                <div className='col-md-3 col-4'>
                     <div className='cat_card_hov' style={{boxShadow:"0 0 5px gray",display:"inline-block",padding:"15px",borderRadius:"8px",cursor:"pointer",backgroundColor:Temp==="Grocery"?"orange":"white"}}
                     onClick={()=>setTemp("Grocery")}
                     >
@@ -45,7 +45,7 @@ function Cat(props) {
                         </NavLink>
                     </div>
                 </div>
-                <div className='col-md-2 col-4'>
+                <div className='col-md-3 col-4'>
                     <div className='cat_card_hov' style={{boxShadow:"0 0 5px gray",display:"inline-block",padding:"15px",borderRadius:"8px",cursor:"pointer",backgroundColor:Temp==="Meat"?"orange":"white"}}
                     
                     onClick={()=>setTemp("Meat")}
@@ -64,7 +64,7 @@ function Cat(props) {
                     </div>
                 </div>
                 
-                <div className='col-md-2 col-4 mt-md-0 mt-5'>
+                <div className='col-md-3 col-4 mt-md-0 mt-5'>
                     <div className='cat_card_hov' style={{boxShadow:"0 0 5px gray",display:"inline-block",padding:"15px",borderRadius:"8px",cursor:"pointer",backgroundColor:Temp==="Vegetables"?"orange":"white"}}
                     onClick={()=>setTemp("Vegetable")}
                     >
