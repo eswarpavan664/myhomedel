@@ -39,10 +39,10 @@ function Payment(props) {
      .then(data=>{ 
      
         
-      setData(data[0])
+       setData(data[0])
       
        
-       console.log("DATA RA = ",Data.Name);
+       console.log("DATA RA = ",Data);
       
      }
      )
@@ -73,33 +73,35 @@ function Payment(props) {
       const [AddressData,setAddressData] =useState();
       //console.log("dsjdskj",User)
       const [CouponCode,setCouponCode]=useState("");
-      var address =  ["jdhflk","dsfgd","dfhkds"]
+      var address = Data?Data.Address.split("_"):"";
       const PlaceOrder =()=>{
       
-        fetch(Ip+"/Orders",{
-          method:"POST",
-          headers: {
-           'Content-Type': 'application/json'
-         },
-         body:JSON.stringify({
-          "CustomerName":Data.Name,
-          "ContactNo":Data.PhoneNumber,
-          "orderList":itemnames,
-          "Amount":total+tax,
-          "CustomerAddress":AddressData,
-          "CurrentLocation":"16.66-81.464",
-          "OrderStatus":"Pending",
-          "AdminId":AdminId,
-          "CustomerId":Data._id,
-          "DeliveryManId":"",
-          "OrderOtp":val,
-          "OrderId":AdminId+val,
-          "ShopName":ShopName,
-          "OrderTime":new Date().toLocaleString(),
-          "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
-         })
-        })
-        .then(res=> setorderstatus(true))
+        if(Data){
+          fetch(Ip+"/Orders",{
+            method:"POST",
+            headers: {
+             'Content-Type': 'application/json'
+           },
+           body:JSON.stringify({
+            "CustomerName": Data.Name,
+            "ContactNo": Data.PhoneNumber,
+            "orderList":itemnames,
+            "Amount":total+tax,
+            "CustomerAddress":AddressData,
+            "CurrentLocation":"16.66-81.464",
+            "OrderStatus":"Pending",
+            "AdminId":AdminId,
+            "CustomerId": Data._id,
+            "DeliveryManId":"",
+            "OrderOtp":val,
+            "OrderId":AdminId+val,
+            "ShopName":ShopName,
+            "OrderTime":new Date().toLocaleString(),
+            "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
+           })
+          })
+          .then(res=> setorderstatus(true))
+        }
       
       }
 
@@ -116,26 +118,28 @@ function Payment(props) {
 
     const  AddAddress =()=>{
       setTemp(true)
-        fetch(Ip+"/AddUserAddresses",{
-          method:"POST",
-          headers: {
-           'Content-Type': 'application/json'
-         },
-         body:JSON.stringify({
-          "Id":"User[0]._id",
-          "VillageName":village,
-          "PinCode":pincode,
-          "DoorNo":doorno,
-          "Landmark":landmark,
-          "Street":street
-          
-         })
-        })
-        .then(res=>{
-          GetAddress();
-          //console.log("done");
-          setTemp(false);
-        })
+        
+          fetch(Ip+"/AddUserAddresses",{
+            method:"POST",
+            headers: {
+             'Content-Type': 'application/json'
+           },
+           body:JSON.stringify({
+            "Id": Data._id,
+            "VillageName":village,
+            "PinCode":pincode,
+            "DoorNo":doorno,
+            "Landmark":landmark,
+            "Street":street
+            
+           })
+          })
+          .then(res=>{
+            GetAddress();
+            //console.log("done");
+            setTemp(false);
+          })
+        
       
       }
 
@@ -143,6 +147,7 @@ function Payment(props) {
 
       const GetAddress=async()=>{
           
+       if(Data){
         fetch(Ip+'/GetUserAddresses?id='+Data._id,{
           headers:new Headers({
             Authorization:"Bearer " 
@@ -158,16 +163,30 @@ function Payment(props) {
       
           }
           )
+       }
       }
 
 
       useEffect(()=>{
       GetAddress()
       setTotal(sum);
-
-      GetData();
+      console.log(Data)
+    
 
       },[local_variable])
+
+      useEffect(()=>{
+        GetAddress()
+      },[Data])
+      useEffect(()=>{
+        
+          Data?console.log("Got"): setTimeout(() => {
+           
+            GetData();
+            GetAddress()
+          }, 500);
+       
+      })
 
       var val = Math.floor(1000 + Math.random() * 9000);
 
