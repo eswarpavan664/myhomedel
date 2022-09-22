@@ -63,7 +63,7 @@ function MyOrders(props) {
                          {Myorders.map((item)=>(
    
                            <div>
-                               {item.OrderStatus==="Delivered" ||  item.OrderStatus==="CanceledByCustomer"?
+                               {item.OrderStatus==="Delivered" ||  item.OrderStatus==="CanceledByCustomer" ||item.OrderStatus==="Declain"?
 
                                <NavLink to="/OrderStatusDetails"
                                       
