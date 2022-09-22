@@ -38,7 +38,7 @@ function Restorent(props) {
       
     setItems(data);
      
-          
+     console.log("items in restaurants = ",data);     
     
    }
    )
