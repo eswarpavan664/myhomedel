@@ -39,7 +39,7 @@ function App() {
           <Route path="/" element={<Loading />} />
           <Route path="/Login" element={<PhoneLogin />} />
           <Route path="/MainPage" element={<MainPage />} />
-          <Route path="/Restorent" element={<Restorent />} />
+          <Route path="/Restaurants" element={<Restorent />} />
           <Route path="/Payment" element={<Payment />} />
           <Route path="/Profile" element={<ProfilePage />} />
           <Route path="/DisplayByItem" element={<DisplayByItemScreen />} />

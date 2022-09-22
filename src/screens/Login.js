@@ -81,7 +81,7 @@ const requestOtp=(e)=>{
                 }
               }
               else{
-                alert("Resister first....!");
+                alert("Register first....!");
                 setForm(false);
               }
         
