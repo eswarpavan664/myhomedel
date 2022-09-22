@@ -231,11 +231,14 @@ const [coupon,setcoupon] =useState("");
 const [Temp,setTemp]= useState(false);
 
 //const {Name,PhoneNumber,Address,email,_id} =User;
- 
+ const Reset=()=>{
+  setcashondelivery(false);
+  setAddressData();
+ }
 
 
 
-
+const [cashondelivery,setcashondelivery]=useState(false);
  
   return (
     <div>
@@ -306,11 +309,15 @@ const [Temp,setTemp]= useState(false);
             </div>:null
 
         }
-        
-
+         
         {useraddress.length>0?
-
+        
+           
            <>
+           <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Select Address
+            </button>
+           <div class="collapse" id="collapseExample"> 
             {useraddress.map((ad,i)=>(
 
 
@@ -338,12 +345,13 @@ const [Temp,setTemp]= useState(false);
 
             }
 
-
-           </>:null
+            </div>
+           </>
+            :null
 
         }
     
-        <button onClick={()=>setField(true)}>Add New Address</button>
+        <button onClick={()=>setField(!Field)}>Add New Address</button>
      
 
 
@@ -412,12 +420,12 @@ const [Temp,setTemp]= useState(false);
         </div>
 
         <form>
-          <input type={"radio"} value="Cash On Delivery" /> Cash On Delivery
+          <input type={"radio"} name={"adder"} value="Cash On Delivery" onClick={()=>setcashondelivery(!cashondelivery)} /> Cash On Delivery
           <br />
-          <input type={"reset"} className="btn btn-outline-info mt-3" />
+          <input type={"reset"} className="btn btn-outline-success mt-3" onClick={Reset} />
         </form>
         <div className='row mt-3 text-center mb-5'>
-          {AddressData?<button className='col-10 offset-1 btn btn-danger' 
+          {AddressData && cashondelivery?<button className='col-10 offset-1 btn btn-danger' 
            onClick={PlaceOrder}>Place Order</button>:
            <button className='col-10 offset-1 btn btn-danger' disabled 
            onClick={PlaceOrder}>Place Order</button>}

@@ -236,16 +236,18 @@ signInWithPopup(auth, provider)
             <div className='text-center col-12'>
                 <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
             </div>
-            <div className='container col-12 text-center mb-3 d-flex justify-content-evenly'>
-                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
-                <p className='text-danger font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
-
-            </div>
+             <p  style={{fontSize:25,fontWeight:'bold'}}>My HomeDel</p>
         </div>
 
+        <div className='row'>
+            <div className='container col-12 text-center mb-2 mt-5 d-flex justify-content-evenly'>
+                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
+                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
 
+                </div>
+        </div>
 
-        <div className='container text-center login_form_cont_ mt-5'>
+        <div className='container text-center login_form_cont_ mt-3'>
             {!ChangeForm?
             
               <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
@@ -297,18 +299,18 @@ signInWithPopup(auth, provider)
                
       </form>
       <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'   >Login</button>
             </div>
       </div>
       
       :
-      <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
+      <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",background:"white",boxShadow:'0 0 10px lightgray'}}>
               
  
 
               <div className='row'>
   
-                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Login</h4>
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray",color:'#65A765'}} >Login</h4>
                             </div>
             <form onSubmit={requestOtp}>
       
@@ -335,14 +337,17 @@ signInWithPopup(auth, provider)
                                       </div>
                                                         
                                       <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                      <button class="btn btn-success">Resend OTP</button>     
+                                      <div className='d-flex justify-content-between align-items-center ' >
+                                          <p className='m-0'>00:30</p>
+                                          <p className='m-0  text-secondary fs-6 btn-success'>Resend OTP</p>
+                                      </div>  
                                     </>
                                 }
               <div id="sign-in-button"></div>
                
       </form>
       <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'>Login</button>
+                <button onClick={verifyotp} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5'>Login</button>
             </div>
       </div>
       }
@@ -352,7 +357,7 @@ signInWithPopup(auth, provider)
 
              
         </div>
-        <Button onClick={sign}>google</Button>
+         
     </div>
    
  

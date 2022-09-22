@@ -122,7 +122,7 @@ let user =[]
       "Id":Data[0]._id
      })
     })
-    .then(res=>res.json())
+    .then(res=>alert("Updated."))
   }
  
   const [Name,setName]=useState("");
@@ -253,19 +253,28 @@ let user =[]
       <div>
        <Nav/>
       <div className='container ' style={{paddingBottom:"100px"}} >
-          <div className='row mt-3 text-center'>
-              <div className='col-12'>
-                  <img src='https://cdn-icons-png.flaticon.com/512/428/428933.png' className='img-fluid' width={"100"} />
-              </div>
-              <div className='col-12 mt-1'>
-              {Data.length>0?<h4 class="mt-5">{Data[0].Name} </h4>:null} 
-              
-              </div>
-          </div>
+            <div>
+            <div className='container mt-4'>
+                    <div className='row border align-items-center justify-content-center text-center'>
+                        <div className='col-4 text-center'>
+                            <img className='img-fluid' width={"100"} src='https://cdn-icons-png.flaticon.com/512/2202/2202112.png' /> 
+                        </div>
+                        <div className='col-8'>
+                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].Name} </p>:null} 
+                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].PhoneNumber} </p>:null}
+                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].email} </p>:null}  
+                        </div>
+                    </div>
+                </div>
+                <div className='parent'>
+                    <div className='img'>
 
+                    </div>
+                </div>
+            </div>
+                 
           
-          {Data.length>0?<h5 class="mt-5">Email Id:- {Data[0].email} </h5>:null} 
-          {Data.length>0?<h5 class="mt-5">Mobile no:- {Data[0].PhoneNumber} </h5>:null} 
+          
           
           
           <div onClick={()=>Setsetter(!setter)}>

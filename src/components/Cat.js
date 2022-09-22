@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import groceryicon from '../images/Groceries.png';
 import meaticon from '../images/Meat.png';
 import food from '../images/Food.png'
+import veg from '../images/fruits-and-vegetables.png'
 function Cat(props) {
     const [Temp,setTemp] =useState("Food");
   return (
@@ -76,7 +77,7 @@ function Cat(props) {
                              shoptype:"Vegetable Shop"
                         }}
                        >
-                       <img className='img-fluidx' src='https://cdn-icons-png.flaticon.com/512/562/562678.png' width={"50"} />
+                       <img className='img-fluidx' src={veg} width={"50"} />
                         <p className='m-0' style={{textDecoration:'none',color:'black'}}>Veggies</p>
                        </NavLink>
                     </div>
