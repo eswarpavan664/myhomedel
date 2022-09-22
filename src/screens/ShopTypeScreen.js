@@ -70,7 +70,7 @@ const [se,setse] =useState(0);
                 {Restaurents.map((item)=>(
                    <>
                     {item.Role==="Admin"?<div className='col-md-4 mb-4'>
-                    <NavLink to="/Restorent"
+                    <NavLink to="/Restaurants"
                        state={{
                         
                          ShopId: item.AdminId,
