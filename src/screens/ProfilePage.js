@@ -254,15 +254,14 @@ let user =[]
        <Nav/>
       <div className='container ' style={{paddingBottom:"100px"}} >
             <div>
-            <div className='container mt-4'>
-                    <div className='row border align-items-center justify-content-center text-center py-3'>
-                        <div className='col-4 text-center'>
+            <div className='container mt-2'>
+                    <div className='row      align-items-center justify-content-center text-center'>
+                        <div className='col-12 text-center'>
                             <img className='img-fluid' width={"100"} src='https://cdn-icons-png.flaticon.com/512/3311/3311746.png' /> 
                         </div>
-                        <div className='col-8 m-0 p-0'>
+                        <div className='col-12 m-0 p-0'>
                         {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].Name} </p>:null} 
-                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].PhoneNumber} </p>:null}
-                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].email} </p>:null}  
+                         
                         </div>
                     </div>
                 </div>
@@ -293,7 +292,7 @@ let user =[]
                         <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
                     </div>
                 </div>
-            </div><hr />
+            </div>
         </div>
 
          {setter?
@@ -323,15 +322,20 @@ let user =[]
 
          }
    
+            <div className='row'>
+                <div className='col-12 d-flex align-items-center justify-content-between' style={{width:"80%"}}>
+                    <p className='m-0 my-1 me-2'>About Us</p>
+                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
 
-
-          <div className='row mt-3 align-items-center' onClick={Logout}>
-              <div className='col-12 text-right mt-md-0 mt-3'>
-                  
-                     <button className='btn btn-outline-danger '>Logout <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                </div>
+            </div>
+          <div className='row mt-1 align-items-center' onClick={Logout}>
+              <div className='col-12 d-flex align-items-center justify-content-between mt-0'>
+                  <p>Logout</p>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
   <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-</svg></button>
+</svg>
               </div>
               
           </div>

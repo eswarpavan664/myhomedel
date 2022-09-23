@@ -149,11 +149,11 @@ if(userid){
             <div className='d-flex justify-content-between align-items-center mx-3 mb-3 pt-3'>
               <div>
                 <p className='m-0'>Delivery to,</p>
-                <p className='m-0 font-weight-bold font-size-large'>Name</p>
+                 {Data.length>0?<p className='m-0 font-weight-bold font-size-large'>{Data[0].Name}</p>:null}
               </div>
-              <div>
+               <NavLink to="/Profile"><div>
                 <img src='https://cdn-icons-png.flaticon.com/512/236/236831.png' className='img-fluid' width={"45"}/>
-              </div>
+              </div></NavLink>
             </div>
             <div className='row pb-4 m-0'>
               <div className='col-12 text-center m-0'>

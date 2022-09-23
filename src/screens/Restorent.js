@@ -18,7 +18,7 @@ import Nav from './../components/Nav';
 function Restorent(props) {
     const {local_variable} =props;
     const location = useLocation()
-  const { AdminId ,ShopName,Address,ShopPhoto,PhoneNumber,User,ShopType} = location.state
+  const { AdminId ,ShopName,Address,ShopPhoto,PhoneNumber,User,ShopType,Deliverycharges,DeliveryTime} = location.state
   
   const [Items,setItems] = useState([]);
 
@@ -77,7 +77,7 @@ console.log("Item == ",local_variable);
     <div>
     <Nav/>
         <div className='container mt-2'>
-            <img src={ShopPhoto?ShopPhoto:'https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2927%2Ftrend20200831092220.jpg'} style={{width:"100%",height:"60vh"}} />
+            <img src={ShopPhoto?Ip+"/"+ShopPhoto:'https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2927%2Ftrend20200831092220.jpg'} style={{width:"100%",height:"60vh"}} />
 
             <div className='row mt-5'>
                 <div className='col-6 col-md-3'>
@@ -102,7 +102,12 @@ console.log("Item == ",local_variable);
                  {ShopType==="Vegetable Shop"?<p className='font-weight-light m-0'>All Vegetables</p>:null}
                  {ShopType==="Grocery"?<p className='font-weight-light m-0'>Oils,Soaps,and etc</p>:null}
                 <p className='font-weight-light m-0'>{Address}</p>
-                <p className='font-weight-light m-0'><span className='text-danger'>Open now</span> - 9am - 11pm (Today)</p>
+                <div className='col-12 fw-bold'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4v1.06Z"/>
+                </svg>Delivery Charges:-  { Deliverycharges?Deliverycharges:10}
+                                    </div>
+                <p className='font-weight-light m-0'><span className='text-danger'>Delivery Time:-</span> {DeliveryTime?DeliveryTime:"30 min"} </p>
             </div>
             
             {/*<div className='buttonGroup'>
@@ -124,7 +129,7 @@ console.log("Item == ",local_variable);
                     <div className='row'>
                         <div className='col-12 col-md-6'>
                             <h3 className='font-weight-light'>Order Online</h3>
-                            <p className='m-0 text-danger'>Currently closed for online ordering</p>
+                           
                         </div>
                         <div className='col-md-6 ml-auto d-none d-md-block'>
                             <input className='form-group' value={itemname} onChange={(e)=>setitemname(e.target.value)} placeholder='Search' style={{border:"none",boxShadow:"0 0 10px 0 lightgray"}} />
@@ -159,6 +164,7 @@ console.log("Item == ",local_variable);
                                         id={item._id}
                                          ItemDiscription={item.ItemDiscription}
                                          ItemId={item.ItemId}  
+
                                          Cart={check(item.ItemId)}
                                          /> 
                          ))
