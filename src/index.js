@@ -12,12 +12,15 @@ import AdminNavigation from './screens/Admin/AdminNavigation';
 import Comp_for_home from './components/Comp_for_home';
 import Cat from './components/Cat';
 import MapScreen from './MapScreen';
-
+import {Helmet} from "react-helmet";
 const root = ReactDOM.createRoot(document.getElementById('root'));
  
 root.render(
   <React.StrictMode>
    <Provider store={store}>
+   <Helmet>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        </Helmet>
    <App />
    </Provider>
          

@@ -25,7 +25,7 @@ import TransLoader from './../components/TransLoader';
 
 import {Helmet} from "react-helmet";
 
-
+import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -94,6 +94,7 @@ var ob={
 
 if(userid){
   return (
+    
     <div>
          <Helmet>
               <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
