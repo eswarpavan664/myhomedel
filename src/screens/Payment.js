@@ -481,7 +481,7 @@ useEffect(()=>{
   return(
     <div className='row align-items-center mb-4 pb-2' style={{borderBottom:"1px solid gray"}}>
     <div className='col-3 col-md-2'>
-      <img className='img-fluid' src={props.data.ProductImage?Ip+"/"+props.data.ProductImage:'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
+      <img className='img-fluid' src={props.data.ProductImage?props.data.ProductImage:'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
     </div>
     <div className='col-5 col-md-4'>
       <h5>{props.data.ItemName}</h5>

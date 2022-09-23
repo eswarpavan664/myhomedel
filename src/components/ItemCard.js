@@ -38,7 +38,7 @@ function ItemCard(props) {
     <>
            
         <div className='col-md-2 col-4' style={{marginBottom:20}}>
-            <img className='img-fluid' src={props.ProductImage?Ip+"/"+props.ProductImage:'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
+            <img className='img-fluid' src={props.ProductImage?props.ProductImage:'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
         </div>
         <div className='col-md-8 col-5'>
             <h5>{props.ItemName}</h5>
