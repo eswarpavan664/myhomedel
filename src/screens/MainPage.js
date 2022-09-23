@@ -22,6 +22,10 @@ import '../css/Cat.css'
 import Comp_for_home from './../components/Comp_for_home';
 import Loader from './../components/Loader';
 import TransLoader from './../components/TransLoader';
+
+import {Helmet} from "react-helmet";
+
+
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
@@ -91,7 +95,9 @@ var ob={
 if(userid){
   return (
     <div>
-    
+         <Helmet>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        </Helmet>
     <header className='header_ d-lg-block d-none'>
 
 <nav class="container navbar navbar-expand-lg navbar-dark">
