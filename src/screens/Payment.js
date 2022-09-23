@@ -281,7 +281,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
       </div>
       <div className='d-flex justify-content-between'>
         <p>Total Amount: </p>
-        <p className='text-danger'>₹{sum+tax+charge}</p>
+        <p className='text-danger'>₹{sum+tax+parseInt(charge)}</p>
       </div>
        </div>
 
