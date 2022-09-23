@@ -92,7 +92,7 @@ if(userid){
   return (
     <div>
     
-    <header className='header_'>
+    <header className='header_ d-lg-block d-none'>
 
 <nav class="container navbar navbar-expand-lg navbar-dark">
   <a class="navbar-brand" href="#">My Homedel</a>
@@ -144,6 +144,23 @@ if(userid){
 </div>
 
 </header>
+
+<section className='d-lg-none d-block ' style={{position:"sticky",top:"0",zIndex:"30",width:"100%",height:"auto",background:"#B9FFF8",borderBottomLeftRadius:"15px",borderBottomRightRadius:"15px"}}>
+            <div className='d-flex justify-content-between align-items-center mx-3 mb-3 pt-3'>
+              <div>
+                <p className='m-0'>Delivery to,</p>
+                <p className='m-0 font-weight-bold font-size-large'>Name</p>
+              </div>
+              <div>
+                <img src='https://cdn-icons-png.flaticon.com/512/236/236831.png' className='img-fluid' width={"45"}/>
+              </div>
+            </div>
+            <div className='row pb-4 m-0'>
+              <div className='col-12 text-center m-0'>
+                <input className='p-1' style={{width:"95%",border:"1px solid lightgray",borderRadius:"25px"}} placeholder="Search reastaruents" />
+              </div>
+            </div>
+        </section>
  
  
    {/* <OrderByItem/>*/}
@@ -154,11 +171,9 @@ if(userid){
      </div>
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
      
-     <Recomendations User={userid}  />  
     
-    <div className='mb-5'>
-    <Footer/>
-    </div>
+    
+    
    
     <Comp_for_home/>
 </div>

@@ -250,19 +250,19 @@ let user =[]
       </div>
       */
      
-      <div>
+      <div >
        <Nav/>
       <div className='container ' style={{paddingBottom:"100px"}} >
             <div>
             <div className='container mt-4'>
-                    <div className='row border align-items-center justify-content-center text-center'>
+                    <div className='row border align-items-center justify-content-center text-center py-3'>
                         <div className='col-4 text-center'>
-                            <img className='img-fluid' width={"100"} src='https://cdn-icons-png.flaticon.com/512/2202/2202112.png' /> 
+                            <img className='img-fluid' width={"100"} src='https://cdn-icons-png.flaticon.com/512/3311/3311746.png' /> 
                         </div>
-                        <div className='col-8'>
-                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].Name} </p>:null} 
-                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].PhoneNumber} </p>:null}
-                        {Data.length>0?<p   className='font-weight-bold m-0 fs-6' class="mt-5">{Data[0].email} </p>:null}  
+                        <div className='col-8 m-0 p-0'>
+                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].Name} </p>:null} 
+                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].PhoneNumber} </p>:null}
+                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].email} </p>:null}  
                         </div>
                     </div>
                 </div>

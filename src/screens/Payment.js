@@ -15,7 +15,7 @@ import Comp_for_home from '../components/Comp_for_home';
 import TransLoader from '../components/TransLoader';
 import Loading from './Loading';
  
-
+import '../css/PaymentApplication.css'
 
 
 function Payment(props) {
@@ -350,8 +350,11 @@ const [cashondelivery,setcashondelivery]=useState(false);
             :null
 
         }
+        <div className='row'>
+
+        <button className='btn btn-success col-5 mx-3 my-2' onClick={()=>setField(!Field)}>Add New Address</button>
+        </div>
     
-        <button onClick={()=>setField(!Field)}>Add New Address</button>
      
 
 
@@ -363,7 +366,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                           <label for="fname">Village Name:- </label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="fname" name="firstname" placeholder="Village Name" value={village} onChange={(e)=>setvillage(e.target.value)}/>
+                          <input type="text" className='payment_page_address' id="fname" name="firstname" placeholder="Village Name" value={village} onChange={(e)=>setvillage(e.target.value)}/>
                         </div>
                       </div>
                       <div class="row">
@@ -371,7 +374,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                           <label for="lname">Door no:- </label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="lname" name="Door no" placeholder="Door no" value={doorno} onChange={(e)=>setdoorno(e.target.value)}/>
+                          <input type="text" className='payment_page_address' id="lname" name="Door no" placeholder="Door no" value={doorno} onChange={(e)=>setdoorno(e.target.value)}/>
                         </div>
                         
                       </div>
@@ -380,7 +383,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                           <label for="lname">Street:- </label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="lname" name="Street no" placeholder="Street no" value={street} onChange={(e)=>setstreet(e.target.value)}/>
+                          <input type="text" className='payment_page_address' id="lname" name="Street no" placeholder="Street no" value={street} onChange={(e)=>setstreet(e.target.value)}/>
                         </div>
                         
                       </div>
@@ -389,7 +392,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                           <label for="lname">Landmark:- </label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="lname" name="Landmark no" placeholder="Landmark no" value={landmark} onChange={(e)=>setlandmark(e.target.value)}/>
+                          <input type="text" className='payment_page_address' id="lname" name="Landmark no" placeholder="Landmark no" value={landmark} onChange={(e)=>setlandmark(e.target.value)}/>
                         </div>
                         
                       </div>
@@ -398,7 +401,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                           <label for="lname">Pin code:- </label>
                         </div>
                         <div class="col-75">
-                          <input type="text" id="lname" name="Pin no" placeholder="Pin no" value={pincode} onChange={(e)=>setpincode(e.target.value)}/>
+                          <input type="text" className='payment_page_address' id="lname" name="Pin no" placeholder="Pin no" value={pincode} onChange={(e)=>setpincode(e.target.value)}/>
                         </div>
                         
                       </div>
@@ -406,7 +409,7 @@ const [cashondelivery,setcashondelivery]=useState(false);
                       
                      
                     </form>
-                    <button onClick={AddAddress}>Submit</button>
+                    <button className='btn btn-success my-2' onClick={AddAddress}>Submit</button>
                   </div>
           </>:null
 

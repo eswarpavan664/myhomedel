@@ -111,8 +111,8 @@ const [se,setse] =useState(0);
                                       
                                       
                                       >
-                                      <div className='row align-items-center justify-content-center pb-2 my-2 mx-1' style={{backgroundColor:"pink",borderRadius:"15px"}}>
-                                     <div className='col-md-2  col-3 py-3 m-0 '>
+                                      <div className='row align-items-center justify-content-center pb-2 my-2 mx-1' style={{backgroundColor:"white",borderRadius:"15px"}}>
+                                     <div className='col-md-2  col-3 py-4 m-0 '>
                                          <img className='img-fluid rounded' src='https://b.zmtcdn.com/data/dish_photos/8d1/6df584834e5252fa5663c4e4d86618d1.jpg?fit=around|130:130&crop=130:130;*,*' />
                                      </div>
                                      
@@ -122,14 +122,16 @@ const [se,setse] =useState(0);
                                             :null
                                           }
                                           {item.OrderStatus==="Pending"?
-                                          <>   <p style={{color:'black'}}>Waiting </p><button className='col-5 offset-1 btn btn-secondary m-0' onClick={()=>CancelOrder(item._id)}>Cancel</button></>
+                                          <>   <p style={{color:'black'}}>Waiting </p>
+                                               <button className=' btn btn-secondary m-0' onClick={()=>CancelOrder(item._id)}>Cancel</button>
+                                          </>
                                           :null
     
                                           }
                                           {item.OrderStatus==="Accepted"?
                                             <>
                                             <p style={{color:'black'}}>Order Accepted</p>
-                                            <button className='col-5 offset-1 btn btn-secondary m-0' onClick={()=>CancelOrder(item._id)}>Cancel</button>
+                                            <button className='btn btn-secondary m-0' onClick={()=>CancelOrder(item._id)}>Cancel</button>
                                             </>
                                               :null
     
@@ -151,7 +153,7 @@ const [se,setse] =useState(0);
                                               DeliveryManId:item.DeliveryManId,
                                               }}
                               
-                                             > <button className='col-5 offset-1 btn btn-secondary m-0'>Track</button></NavLink>
+                                             > <button className=' btn btn-secondary m-0'>Track</button></NavLink>
                                              
                                          </div>:null
     

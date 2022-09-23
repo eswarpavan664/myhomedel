@@ -13,7 +13,7 @@ function Nav(props) {
   const {local_variable,DeAction,RemoveAll,QuantityAdd} =props;
   return (
     <div style={{borderBottom:"3px solid gray",position:"sticky",top:"0",width:"100%",backgroundColor:"white",zIndex:"2",height:"auto"}}>
-        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between">
+        <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between m-0 p-0">
             <div>
               <NavLink
               to="/MainPage"
@@ -24,11 +24,11 @@ function Nav(props) {
             <div>
             <h4 class="" href="#">My Homedel</h4>
             </div>
-            <div>
-            <ul class=" ml-md-auto mt-2" style={{courser:'pointer'}}>
+            <div >
+            <ul class="mt-2" style={{courser:'pointer'}}>
           
               <img src={cart} className='img-fluid' width={"30"} />
-              <i class="fa badge fa-lg" value={local_variable.length}>&#xf290;</i>
+              <i class="fa badge fa-lg m-0 p-0" value={local_variable.length}>&#xf290;</i>
             </ul>
             </div>
         </nav>
