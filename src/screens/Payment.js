@@ -237,7 +237,7 @@ const [Temp,setTemp]= useState(false);
  }
 
 
-
+const charge = localStorage.getItem('deliverycharges')
 const [cashondelivery,setcashondelivery]=useState(false);
  
   return (
@@ -276,8 +276,12 @@ const [cashondelivery,setcashondelivery]=useState(false);
         <p>₹{local_variable?tax:0}</p>
       </div>
       <div className='d-flex justify-content-between'>
+        <p>Delivery changes: </p>
+        <p>₹{charge?charge:0}</p>
+      </div>
+      <div className='d-flex justify-content-between'>
         <p>Total Amount: </p>
-        <p className='text-danger'>₹{sum+tax}</p>
+        <p className='text-danger'>₹{sum+tax+charge}</p>
       </div>
        </div>
 

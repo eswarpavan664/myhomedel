@@ -53,7 +53,7 @@ useEffect(()=>{
  }
 },[])
 
- 
+ localStorage.setItem('deliverycharges',Deliverycharges)
      
 const [done,setdone] =useState(false);
   //console.log(local_variable)
@@ -76,6 +76,7 @@ console.log("Item == ",local_variable);
   return (
     <div>
     <Nav/>
+    
         <div className='container mt-2'>
             <img src={ShopPhoto?Ip+"/"+ShopPhoto:'https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2927%2Ftrend20200831092220.jpg'} style={{width:"100%",height:"60vh"}} />
 

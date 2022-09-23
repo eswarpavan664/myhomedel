@@ -7,6 +7,7 @@ import groceryicon from '../images/Groceries.png';
 import meaticon from '../images/Meat.png';
 import food from '../images/Food.png'
 import veg from '../images/fruits-and-vegetables.png'
+import fresh from '../images/fresh.png'
 function Cat(props) {
     const [Temp,setTemp] =useState("Food");
   return (
@@ -80,6 +81,25 @@ function Cat(props) {
                        <img className='img-fluidx' src={veg} width={"50"} />
                         <p className='m-0' style={{textDecoration:'none',color:'black'}}>Veggies</p>
                        </NavLink>
+                    </div>
+                </div>
+
+                <div className='col-md-3 col-4  mt-md-0 mt-5'>
+                    <div className='cat_card_hov' style={{boxShadow:"0 0 5px gray",display:"inline-block",padding:"15px",borderRadius:"8px",cursor:"pointer",backgroundColor:Temp==="Meat"?"orange":"white"}}
+                    
+                    onClick={()=>setTemp("Fresh")}
+                    >
+                        <NavLink
+                          to="/ShopType" 
+                         
+                         state={{
+                             shoptype:"Fresh"
+                        }}
+                        >
+                            
+                        <img className='img-fluidx' src={fresh} width={"50"} />
+                                                <p className='m-0' style={{textDecoration:'none',color:'black'}}>Fresh</p>
+                        </NavLink>
                     </div>
                 </div>
             </div>
