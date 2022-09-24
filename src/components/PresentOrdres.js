@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-keys */
 import React,{useState,useEffect} from 'react'
 import Nav from './Nav';
 import Comp_for_home from './Comp_for_home';
@@ -21,7 +22,7 @@ function PresentOrdres() {
         .then(data=>{ 
         
          
-          setMyordres(data);
+          setMyordres(data.reverse());
           
            if(data.length>0){
             setse(1);
@@ -100,7 +101,10 @@ const [se,setse] =useState(0);
                                           DeliveryManId:item.DeliveryManId,
                                           OrderOtp:item.OrderOtp,
                                           OrderStatus:item.OrderStatus,
+                                          OrderTime:item.OrderTime,
+                                          OrderId:item.OrderId,
                                           OrderTime:item.OrderTime
+
 
 
 

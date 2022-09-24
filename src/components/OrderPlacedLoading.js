@@ -33,12 +33,12 @@ function OrderPlacedLoading(props) {
                     autoplay
                     loop
                     src={Lodi}
-                    style={{ height: '300px', width: '300px' }}
+                    style={{ height: '490px', width: '490px' }}
                 >
                    
                 </Player>
 
-                <h1 style={{textAlign:'center'}}>Placing Your Order...</h1>
+                 
                </div>
 
 </div>

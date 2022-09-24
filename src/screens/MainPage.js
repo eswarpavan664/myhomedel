@@ -152,7 +152,7 @@ if(userid){
 
 </header>
 
-<section className='d-lg-none d-block ' style={{position:"sticky",top:"0",zIndex:"30",width:"100%",height:"auto",background:"#B9FFF8",borderBottomLeftRadius:"15px",borderBottomRightRadius:"15px"}}>
+<section className='d-lg-none d-block mb-3'  style={{position:"sticky",top:"0",zIndex:"30",width:"100%",height:"auto",borderBottomLeftRadius:"15px",borderBottomRightRadius:"15px",backgroundColor:"white"}}>
             <div className='d-flex justify-content-between align-items-center mx-3 mb-3 pt-3'>
               <div>
                 <p className='m-0'>Delivery to,</p>
@@ -167,7 +167,7 @@ if(userid){
                 <input className='p-1' style={{width:"95%",border:"1px solid lightgray",borderRadius:"25px"}} placeholder="Search reastaruents" />
               </div>
             </div>
-        </section>
+</section>
  
  
    {/* <OrderByItem/>*/}

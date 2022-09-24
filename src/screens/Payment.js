@@ -60,7 +60,7 @@ function Payment(props) {
       var quantity=1;
 
       let itemnames = local_variable.reduce(function(prev, current) {
-        return prev +current.ItemName+"_"+current.ItemPrice+"_"+current.Quantity+"-";
+        return prev +current.ItemName+"_"+current.ItemPrice+"_"+current.Quantity+"_"+current.ProductImage+"*";
       }, "");
 
 
@@ -75,7 +75,7 @@ function Payment(props) {
       const [CouponCode,setCouponCode]=useState("");
       var address = Data?Data.Address.split("_"):"";
       const PlaceOrder =()=>{
-      
+        var id = Math.floor(1000 + Math.random() * 900000);
         if(Data){
           fetch(Ip+"/Orders",{
             method:"POST",
@@ -94,7 +94,7 @@ function Payment(props) {
             "CustomerId": Data._id,
             "DeliveryManId":"",
             "OrderOtp":val,
-            "OrderId":AdminId+val,
+            "OrderId":id,
             "ShopName":ShopName,
             "OrderTime":new Date().toLocaleString(),
             "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
@@ -102,7 +102,7 @@ function Payment(props) {
           })
           .then(res=> setorderstatus(true))
         }
-      
+        console.log(itemnames);
       }
 
 
@@ -191,10 +191,10 @@ function Payment(props) {
       var val = Math.floor(1000 + Math.random() * 9000);
 
       var tax=29;
+     
 
    
-
-  
+ 
 
       const [Field,setField] =useState(false);
 
@@ -469,6 +469,8 @@ function MyCart(props){
  
 const [Value,setValue] =useState(props.data.Quantity);
  
+
+
 const QuantityUpdate=(e)=>{
    setValue(e.target.value)
    QuantityAdd(props.data,e.target.value)
