@@ -86,7 +86,7 @@ function Payment(props) {
             "CustomerName": Data.Name,
             "ContactNo": Data.PhoneNumber,
             "orderList":itemnames,
-            "Amount":total+tax,
+            "Amount":total+tax+parseInt(charge),
             "CustomerAddress":AddressData,
             "CurrentLocation":"16.66-81.464",
             "OrderStatus":"Pending",

@@ -130,6 +130,7 @@ const [se,setse] =useState(0);
                                           }
                                           {item.OrderStatus==="Accepted"?
                                             <>
+                                           
                                             <p style={{color:'black'}}>Order Accepted</p>
                                             <button className='btn btn-secondary m-0' onClick={()=>CancelOrder(item._id)}>Cancel</button>
                                             </>
@@ -153,7 +154,9 @@ const [se,setse] =useState(0);
                                               DeliveryManId:item.DeliveryManId,
                                               }}
                               
-                                             > <button className=' btn btn-secondary m-0'>Track</button></NavLink>
+                                             > 
+                                              <p style={{color:'black'}}>{item.OrderOtp}</p>
+                                             <button className=' btn btn-secondary m-0'>Track</button></NavLink>
                                              
                                          </div>:null
     
