@@ -148,43 +148,72 @@ function Cards(props){
     <> 
     {props.item.OrderStatus!=="Delivered"  && props.item.OrderStatus!=="CanceledByCustomer"?
 
-                <NavLink to="/OrderStatusDetails"
-
-                state={{
-
-                ShopName:props.item.ShopName,
-                orderList:props.item.orderList,
-                Amount:props.item.Amount,
-                DeliveryManId:props.item.DeliveryManId,
-                OrderOtp:props.item.OrderOtp,
-                OrderStatus:props.item.OrderStatus,
-                OrderTime:props.item.OrderTime,
-                OrderId:props.item.OrderId,
-                OrderTime:props.item.OrderTime
-
-
-
-
-
-
-                }}
-
-
-
-                >
+                
           <div className='container-fluid row px-1 mt-1 align-items-center m-0 border'>
                 
                     <div className='col-3'>
+                    <NavLink to="/OrderStatusDetails"
+
+                                state={{
+
+                                ShopName:props.item.ShopName,
+                                orderList:props.item.orderList,
+                                Amount:props.item.Amount,
+                                DeliveryManId:props.item.DeliveryManId,
+                                OrderOtp:props.item.OrderOtp,
+                                OrderStatus:props.item.OrderStatus,
+                                OrderTime:props.item.OrderTime,
+                                OrderId:props.item.OrderId,
+                                OrderTime:props.item.OrderTime
+
+
+
+
+
+
+                                }}
+
+
+
+                                >
                         <img src='https://b.zmtcdn.com/data/dish_photos/8d1/6df584834e5252fa5663c4e4d86618d1.jpg?fit=around|130:130&crop=130:130;*,*' className='img-fluid rounded'  />
+                    </NavLink>
                     </div>
-                    <div className='col-6'  style={{color:'black'}}>
+
+                    <NavLink to="/OrderStatusDetails"
+
+                            state={{
+
+                            ShopName:props.item.ShopName,
+                            orderList:props.item.orderList,
+                            Amount:props.item.Amount,
+                            DeliveryManId:props.item.DeliveryManId,
+                            OrderOtp:props.item.OrderOtp,
+                            OrderStatus:props.item.OrderStatus,
+                            OrderTime:props.item.OrderTime,
+                            OrderId:props.item.OrderId,
+                            OrderTime:props.item.OrderTime
+
+
+
+
+
+
+                            }}
+
+
+                            className='col-6' 
+                            >
+                    <div  style={{color:'black'}}>
+                    
                         <p className='m-0 font-weight-bold' style={{fontSize:"14px"}}>{props.item.ShopName}</p>
                         <p className='m-0 font-weight-lighter' style={{fontSize:"10px"}}>Landmark, City</p>
                         <p className='m-0 font-weight-bold text-success' style={{fontSize:"10px"}}>Opens tomorrow at 10:5Am</p>
                     </div>
+                    </NavLink>
                     <div className='col-3'>
-                        <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px"}}>Track</p>
-                        <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px"}} onClick={CancelOrder}>Cancle</p>
+                        <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px",cursor:'pointer'}} onClick={()=>alert("Under Construction....!")}>Track</p>
+                        <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px",cursor:'pointer'}} onClick={CancelOrder}>Cancle</p>
                     </div>
                       <hr style={{width:"100%"}} />
                       {ite.length>0?
@@ -214,10 +243,19 @@ function Cards(props){
                         <p className='m-0 font-weight-bold' style={{fontSize:"12px",color:'black'}}>₹{props.item.Amount}</p>
                     </div>
             </div>
-            </NavLink>:null}
+            :null}
             </>
   )
 }
+
+
+
+
+
+
+
+
+
 
 function Lode(){
   return(
