@@ -114,7 +114,7 @@ console.log("sdhsad = ",props.item.OrderStatus)
 
   return(
     <> 
-    {props.item.OrderStatus==="Delivered" || props.item.OrderStatus==="CanceledByCustomer"?
+    {props.item.OrderStatus==="Delivered" || props.item.OrderStatus==="CanceledByCustomer" || props.item.OrderStatus==="Declain"?
 
                 
           <div className='container-fluid row px-1 mt-1 align-items-center m-0 border'>

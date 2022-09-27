@@ -2,13 +2,30 @@ import { Steps } from 'antd';
 import React from 'react';
 const { Step } = Steps;
 
-const StatusBar = (props) => (
-  <Steps direction="vertical" current={props.status} status={props.status===5 ||props.status===6?"error":"process"}> 
-    <Step title="Order Placed" description="Pending" />
-    {props.status===5 ||props.status===6? <Step title={props.status===5?"Canceled By Customer":"Canceled By Restaurant"} description="Canceled" />: <Step title="Accepted By Restaurant" description="waiting Delivery boy" />}
-    {props.status===5 ||props.status===6? <Step title={props.status===5?"Canceled By Customer":"Canceled By Restaurant"} description="Canceled" />:    <Step title="Accepted By Delivery Boy " description="waiting Delivery boy" />}
-    {props.status===5 ||props.status===6? <Step title={props.status===5?"Canceled By Customer":"Canceled By Restaurant"} description="Canceled" />:<Step title="Delivered" description="Done" />}       
-  </Steps>
-);
+function StatusBar(props){
+console.log(props.step)
+  if(props.step!==6 && props.step!==5){
+    return(
+      <Steps direction="vertical" current={props.step} > 
+  
+      <Step title="Order Placed" description="Pending" />
+      <Step title="Accepted By Restaurant" description="waiting Delivery boy" />
+      <Step title="Accepted By Delivery Boy " description="waiting Delivery boy" />
+      <Step title="Delivered" description="Done" />
+       
+    </Steps>
+    )
+  }
+  else{
+    return(
+      <Steps direction="vertical" current={props.step-5} status="error"> 
+  
+      <Step title="Order Placed" description="Pending" />
+      <Step title="Order Canceled" description={props.status} />
+      
+    </Steps>
+    )
+  }
+};
 
 export default StatusBar;

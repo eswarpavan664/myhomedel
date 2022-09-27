@@ -91,7 +91,7 @@ function OrderStatusDetails(props) {
         <hr style={{borderTop:"1px solid lightgray",width:"100%"}} />
 
         <div class="ml-2">
-        <StatusBar status={OrderStatus==="Pending"? 1:OrderStatus==="AcceptedByDeliveryBoy"?2:OrderStatus==="AcceptedByRestorent"?3:OrderStatus==="Delivered"?4:OrderStatus==="declin"?5:OrderStatus==="CanceledByCustomer"?6:0}/>
+        <StatusBar step={OrderStatus==="Pending"?1:OrderStatus==="AcceptedByDeliveryBoy"?3:OrderStatus==="Accepted"?2:OrderStatus==="Delivered"?4:OrderStatus==="Declain"?6:OrderStatus==="CanceledByCustomer"?6:0}  status={OrderStatus}/>
         </div>
         <div className='col-12'>
             <p className='m-0 font-weight-bold'>Track Your Order</p>
