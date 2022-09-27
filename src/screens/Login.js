@@ -33,7 +33,7 @@ function Mainscreen() {
   const [Name,setName] =useState("");
   const [LastName,setLastName] =useState("");
   const [Email,setEmail] =useState("");
-
+    const [Timer,setTimer] =useState(30);
   const generateRecaptcha = ()=>{
     window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
       'size': 'invisible',
@@ -48,8 +48,11 @@ function Mainscreen() {
 const requestOtp=(e)=>{
     e.preventDefault();
 
+    
+      fun(30);
+   
 
-            
+    //setTimeout(() =>setTimer(Timer-1), 2000);    
       fetch(Ip+'/GetUserNewOrOld?id='+Number,{
         headers:new Headers({
           Authorization:"Bearer " 
@@ -78,6 +81,7 @@ const requestOtp=(e)=>{
                       }).catch((error) => {
                        console.log(error)
                       });
+                  
                 }
               }
               else{
@@ -92,12 +96,30 @@ const requestOtp=(e)=>{
   
 }
 
+const [Start,setStart] =useState();
 
 
+
+const Sms=()=>{
+  fetch('https://textbelt.com/text', {
+  method: 'post',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    phone: '7993031882',
+    message: 'Hello world',
+    key: 'f9d6547b8dc726a086037da4d84c5e8fe22daba4PePGfgDjvNmUV2OiueVqMBgP3',
+  }),
+}).then(response => {
+  return response.json();
+}).then(data => {
+  console.log(data);
+});
+}
+  
 
 const SignuprequestOtp=(e)=>{
   e.preventDefault();
-
+  fun(30)
 
           
     fetch(Ip+'/GetUserNewOrOld?id='+Number,{
@@ -127,7 +149,7 @@ const SignuprequestOtp=(e)=>{
                       // ...
                     }).catch((error) => {
                      console.log(error)
-                    });
+                    });  
               }
            
       }
@@ -185,7 +207,7 @@ const SignuprequestOtp=(e)=>{
   }
   const [Screen,setScreen] =useState(0);
   const [ChangeForm,setForm]=useState(true);
-  console.log("+91")
+  //console.log("+91")
 
 
 
@@ -230,6 +252,30 @@ signInWithPopup(auth, provider)
   });
 }
 
+
+
+const [count, setCount] = useState(30);
+var k =count;
+ 
+const fun=(e) => {
+  var timesRun = e;
+  
+  var interval = setInterval(function(){
+      timesRun -= 1;
+      setTimer(timesRun)
+      if(timesRun ===0){
+          clearInterval(interval);
+          console.log("stoped")
+      }
+      //do whatever here..
+      console.log(timesRun)
+  }, 1000); 
+     
+  
+ }
+   
+   
+ 
   return (
     <div className='login_page_back_'>
         <div className='login_header_ row m-0'>
@@ -282,7 +328,7 @@ signInWithPopup(auth, provider)
              
                               {ExpandForm===false?
                         
-                                      <button class="btn btn-success">request OTP</button>
+                                      <button class="btn btn-success" style={{width:'50%'}}>request OTP</button>
                                   :
                                     <>
 
@@ -292,14 +338,18 @@ signInWithPopup(auth, provider)
                                     </div>
                                                       
                                     <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                    <button class="btn btn-success">request OTP</button>  
+                                    <div className='d-flex justify-content-between align-items-center ' >
+                                          <p className='m-0'>00:{Timer}</p>
+                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Timer===0?SignuprequestOtp:console.log("error")}>Resend OTP</p>
+
+                                      </div> 
                                     </>
                                 }
               <div id="sign-in-button"></div>
                
       </form>
       <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5'   >Login</button>
+                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5' style={{fontSize:20}}  >Login</button>
             </div>
       </div>
       
@@ -338,8 +388,9 @@ signInWithPopup(auth, provider)
                                                         
                                       <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
                                       <div className='d-flex justify-content-between align-items-center ' >
-                                          <p className='m-0'>00:30</p>
-                                          <p className='m-0  text-secondary fs-6 btn-success'>Resend OTP</p>
+                                          <p className='m-0'>00:{Timer}</p>
+                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={requestOtp}>Resend OTP</p>
+
                                       </div>  
                                     </>
                                 }
@@ -347,7 +398,7 @@ signInWithPopup(auth, provider)
                
       </form>
       <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5'>Login</button>
+                <button onClick={verifyotp} style={{fontSize:20}} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5'>Login</button>
             </div>
       </div>
       }
@@ -357,7 +408,8 @@ signInWithPopup(auth, provider)
 
              
         </div>
-         
+         <button onClick={Sms}>Send msg</button>
+        
     </div>
    
  
@@ -366,7 +418,7 @@ signInWithPopup(auth, provider)
 }
 
 
-
+ 
 
 
 

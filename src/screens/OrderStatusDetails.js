@@ -4,6 +4,7 @@ import Comp_for_home from '../components/Comp_for_home';
 import Nav from '../components/Nav';
 import { useLocation } from 'react-router-dom';
 import { Ip } from './../constants/Ip';
+import StatusBar from './../components/StatusBar';
 
 function OrderStatusDetails(props) {
     const location = useLocation()
@@ -41,11 +42,11 @@ function OrderStatusDetails(props) {
     <div className='container'>
     <div className='row mt-3'  >
         <div className='col-12 d-flex justify-content-between align-items-center'>
-            <p className='m-0' style={{fontSize:"14px"}}>Order ID: {OrderId}</p>
-            <p className='m-0' style={{fontSize:"14px"}}>OTP : {OrderOtp}</p>
+            <p className='m-0' style={{fontSize:"12px"}}>Order ID: {OrderId}</p>
+            <p className='m-0' style={{fontSize:"12px"}}>OTP : {OrderOtp}</p>
             <p className='m-0 d-flex align-items-center' style={{fontSize:"14px"}}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-fill" viewBox="0 0 16 16">
-<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
-</svg> <span className='ml-1'>{OrderTime}</span></p>
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+            </svg> <span className='ml-1'>{OrderTime}</span></p>
         </div>
 
         <div className='col-12 mt-3 m-0 d-flex justify-content-between align-items-center'>
@@ -88,6 +89,10 @@ function OrderStatusDetails(props) {
            }
         </div>
         <hr style={{borderTop:"1px solid lightgray",width:"100%"}} />
+
+        <div class="ml-2">
+        <StatusBar status={OrderStatus==="Pending"? 1:OrderStatus==="AcceptedByDeliveryBoy"?2:OrderStatus==="AcceptedByRestorent"?3:OrderStatus==="Delivered"?4:OrderStatus==="declin"?5:OrderStatus==="CanceledByCustomer"?6:0}/>
+        </div>
         <div className='col-12'>
             <p className='m-0 font-weight-bold'>Track Your Order</p>
            

@@ -14,7 +14,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 import Load from '../lotties/112087-empty.json'
 import Comp_for_home from '../components/Comp_for_home';
 import Nav from './../components/Nav';
-
+import '../css/Restorent.css'
 function Restorent(props) {
     const {local_variable} =props;
     const location = useLocation()
@@ -47,11 +47,19 @@ useEffect(()=>{
  
   GetData();
  //console.log(check("Adminchandrika@gmail.comFired Rice"))
- if(!done){
-    console.log("done")
-    
- }
-},[])
+  
+},[itemname])
+
+
+useEffect(()=>{
+ 
+    GetData();
+   //console.log(check("Adminchandrika@gmail.comFired Rice"))
+   if(!done){
+      console.log("done")
+      
+   }
+  },[])
 
  localStorage.setItem('deliverycharges',Deliverycharges)
      
@@ -133,7 +141,7 @@ console.log("Item == ",local_variable);
                            
                         </div>
                         <div className='col-md-6 ml-auto d-none d-md-block'>
-                            <input className='form-group' value={itemname} onChange={(e)=>setitemname(e.target.value)} placeholder='Search' style={{border:"none",boxShadow:"0 0 10px 0 lightgray"}} />
+                           {/* <input className='form-group' value={itemname} onChange={(e)=>setitemname(e.target.value)} placeholder='Search' style={{border:"none",boxShadow:"0 0 10px 0 lightgray"}} />*/}
                         </div>
                     </div>
                     <input type={"checkbox"} className="form-group mr-2 mt-4" /><label>Veg</label>
@@ -222,6 +230,23 @@ console.log("Item == ",local_variable);
                     null
             
            }
+           <div className='text-center' style={{position:"fixed",bottom:'65px',width:"100%"}}>
+        <div class="btn-group dropup ">
+    <button type="button" class=" dropdown-toggle" id='pop_btn' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"lightgreen",border:"none",color:"white",borderRadius:"10px"}}> 
+      Menu
+    </button>
+    <div class="dropdown-menu" style={{background:"#cdffcd"}} >
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
+      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
+    </div>
+  </div>
+  </div>
          </div> 
          <Comp_for_home/>
     </div>

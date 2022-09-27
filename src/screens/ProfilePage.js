@@ -135,7 +135,7 @@ let user =[]
  const [Number,setNumber] = useState();
    
   const [Setter,setSetter] =useState(0)
-  const [rw,setrw] = useState([1])
+  const [rw,setrw] = useState([1,1])
   const [setter,Setsetter] =useState(false);
    if(userid){
     return (
@@ -249,53 +249,51 @@ let user =[]
       <Comp_for_home/>
       </div>
       */
-     
-      <div >
-       <Nav/>
-      <div className='container ' style={{paddingBottom:"100px"}} >
-            <div>
-            <div className='container mt-2'>
-                    <div className='row      align-items-center justify-content-center text-center'>
-                        <div className='col-12 text-center'>
-                            <img className='img-fluid' width={"100"} src='https://cdn-icons-png.flaticon.com/512/3311/3311746.png' /> 
-                        </div>
-                        <div className='col-12 m-0 p-0'>
-                        {Data.length>0?<p   className='text-truncate m-0 fs-6'>{Data[0].Name} </p>:null} 
-                         
-                        </div>
-                    </div>
-                </div>
-                <div className='parent'>
-                    <div className='img'>
+     <> 
+      <Nav/>
+      <div className=' bg-info' style={{paddingTop:"100px"}} >
+      <div className='container-fluid bg-light pt-5' style={{borderTopLeftRadius:"25px",borderTopRightRadius:"25px"}}>
 
-                    </div>
-                </div>
-            </div>
+      
+      <div className='container '>
+          <div className='row text-center'>
+              <div className='col-12'>
+                  <img src='https://cdn-icons-png.flaticon.com/512/428/428933.png' className='img-fluid' width={"100"} />
+              </div>
+              <div className='col-12 mt-1'>
+              {Data.length>0?<h4    >{Data[0].Name} </h4>:null} 
+              </div>
+              <div className='col-12 text-center'>
+              {Data.length>0?<p  className='text-secondary m-0'>{Data[0].email} </p>:null} 
+                  
+              </div>
+              <div className='col-12 text-center'>
+              {Data.length>0?<p   className='text-secondary m-0'>{Data[0].PhoneNumber} </p>:null} 
                  
-          
-          
-          
-          
-          <div onClick={()=>Setsetter(!setter)}>
-            <div className='row mt-3 align-items-center'>
-                <div className='col-6'>
-                    <div className='row'>
-                        <div className='col-12 hover_names' >
-                            <p className='font-weight-bold m-0'>Update Details</p>
-                            <p className='m-0 font-weight-light'>You Can Update User Details </p>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div className='col-6 text-right'>
-                    <div className='col-12'>
-                        <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
-                    </div>
-                </div>
-            </div>
-        </div>
+              </div>
+          </div>
 
-         {setter?
+
+          <div  onClick={()=>Setsetter(!setter)}>
+          <div className='row mt-3 align-items-center'>
+                  <div className='col-6'>
+                      <div className='row'>
+                          <div className='col-12 hover_names' >
+                              <p className='font-weight-bold m-0'>Invite Friends</p>
+                              <p className='m-0 font-weight-light'>Get them sclised</p>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div className='col-6 text-right'>
+                      <div className='col-12'>
+                          <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                      </div>
+                  </div>
+              </div><hr />
+      </div>
+
+      {setter?
             <div className='pt-md-4 pt-3 m_' style={{backgroundColor:"rgb(255,255,2555)"}}>
                             <div className='container text-center mt-md-5 mt-4' style={{width:"80%"}}>
                                 <input placeholder='Enter new name' class="profile_edit_"        value={Name}  onChange={(e)=>setName(e.target.value)}/><br />
@@ -321,27 +319,48 @@ let user =[]
                         </div>:null
 
          }
-   
-            <div className='row'>
-                <div className='col-12 d-flex align-items-center justify-content-between' style={{width:"80%"}}>
-                    <p className='m-0 my-1 me-2'>About Us</p>
-                    <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+      <div>
+          <div className='row mt-3 align-items-center'>
+                  <div className='col-6'>
+                      <div className='row'>
+                          <div className='col-12 hover_names' >
+                              <p className='font-weight-bold m-0'>Invite Friends</p>
+                              <p className='m-0 font-weight-light'>Get them sclised</p>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div className='col-6 text-right'>
+                      <div className='col-12'>
+                          <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                      </div>
+                  </div>
+              </div><hr />
+      </div>
 
-                </div>
-            </div>
-          <div className='row mt-1 align-items-center' onClick={Logout}>
-              <div className='col-12 d-flex align-items-center justify-content-between mt-0'>
-                  <p>Logout</p>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
-  <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
-</svg>
+ 
+          
+          <div className='row mt-3 align-items-center'>
+              <div className='col-6'>
+                  <div className='row'>
+                      <div className='col-12 hover_names'>
+                          <p className='font-weight-bold m-0 text-danger'>Logout</p>
+                      </div>
+                      
+                  </div>
               </div>
-              
+              <div className='col-6 text-right'>
+                  <div className='col-12'>
+                      <img src='https://cdn-icons-png.flaticon.com/512/1286/1286853.png' className='img-fluid hover_names' width={"15"} />
+                  </div>
+              </div>
           </div>
       </div>
-      <Comp_for_home/>
+      </div>
+   
   </div>
+  <Comp_for_home/>
+  </>
     )
    }
     
@@ -350,6 +369,31 @@ let user =[]
 }
 
 
+
+
+function Comp_mp_2() {
+    return (
+      <div>
+          <div className='row mt-3 align-items-center'>
+                  <div className='col-6'>
+                      <div className='row'>
+                          <div className='col-12 hover_names' >
+                              <p className='font-weight-bold m-0'>Invite Friends</p>
+                              <p className='m-0 font-weight-light'>Get them sclised</p>
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div className='col-6 text-right'>
+                      <div className='col-12'>
+                          <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                      </div>
+                  </div>
+              </div><hr />
+      </div>
+    )
+  }
+  
 function Temp(){
 
   return(

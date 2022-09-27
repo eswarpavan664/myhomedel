@@ -113,7 +113,7 @@ const [se,setse] =useState(0);
         }
         </>
         <div className='mb-5'>
-     <Footer/>
+ 
     </div>
   <Comp_for_home/>
       </div>
