@@ -16,6 +16,7 @@ import TransLoader from '../components/TransLoader';
 import Loading from './Loading';
  
 import '../css/PaymentApplication.css'
+import { onValue } from 'firebase/database';
 
 
 function Payment(props) {
@@ -479,6 +480,19 @@ const QuantityUpdate=(e)=>{
 useEffect(()=>{
 
 },[Value])
+
+
+const incrementCount = () => {  
+  // Update state with incremented value  
+  setValue(Value+1)
+  QuantityAdd(props.data,Value)
+};  
+const decrementCount = () => {  
+  // Update state with incremented value  
+  setValue((Value) => Math.max(Value - 1, 0));  
+  QuantityAdd(props.data,Value)
+}; 
+
 
   return(
     <div className='row align-items-center mb-4 pb-2' style={{borderBottom:"1px solid gray"}}>

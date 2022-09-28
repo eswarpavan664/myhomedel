@@ -21,10 +21,9 @@ import Cat from './../components/Cat';
 import '../css/Cat.css'
 import Comp_for_home from './../components/Comp_for_home';
 import Loader from './../components/Loader';
-import TransLoader from './../components/TransLoader';
-
+import TransLoader from './../components/TransLoader'
 import {Helmet} from "react-helmet";
-
+import Text from '../components/Text'
 import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
@@ -169,6 +168,7 @@ if(userid){
             </div>
 </section>
  
+ <Text/>
  
    {/* <OrderByItem/>*/}
     <Baners/>
@@ -180,8 +180,7 @@ if(userid){
      
     
     
-    
-   
+     
     <Comp_for_home/>
 </div>
   )
