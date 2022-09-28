@@ -54,7 +54,7 @@ function MyOrders(props) {
         <>
         {se===1?
 
-          <div>
+          <div style={{paddingBottom:"100px"}}>
           {Myorders.map((item)=>(
 
            <Cards item={item}  />

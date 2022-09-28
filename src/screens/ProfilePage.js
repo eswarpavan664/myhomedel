@@ -17,6 +17,21 @@ import Restorent from './Restorent';
 import { async } from '@firebase/util';
 import Comp_for_home from '../components/Comp_for_home';
 import Nav from '../components/Nav';
+import { update } from 'firebase/database';
+import { RWebShare } from "react-web-share";
+import ShareButton from './../components/ShareButton';
+import {
+ 
+    EmailShareButton,
+    FacebookShareButton,
+ 
+    TelegramShareButton,
+    
+    TwitterShareButton,
+     
+    WhatsappShareButton,
+ 
+  } from "react-share";
 
 
 function ProfilePage(props) {
@@ -251,8 +266,9 @@ let user =[]
       */
      <> 
       <Nav/>
-      <div className=' bg-info' style={{paddingTop:"100px"}} >
-      <div className='container-fluid bg-light pt-5' style={{borderTopLeftRadius:"25px",borderTopRightRadius:"25px"}}>
+       
+      <div className=' bg-info' style={{padding:"70px 0 65px 0"}} >
+      <div className='container-fluid bg-light pt-4' style={{borderTopLeftRadius:"25px",borderTopRightRadius:"25px"}}>
 
       
       <div className='container '>
@@ -279,8 +295,8 @@ let user =[]
                   <div className='col-6'>
                       <div className='row'>
                           <div className='col-12 hover_names' >
-                              <p className='font-weight-bold m-0'>Invite Friends</p>
-                              <p className='m-0 font-weight-light'>Get them sclised</p>
+                              <p className='font-weight-bold m-0'>update Details</p>
+                              <p className='m-0 font-weight-light'></p>phone number,email,address
                           </div>
                           
                       </div>
@@ -320,19 +336,29 @@ let user =[]
 
          }
       <div>
+      
           <div className='row mt-3 align-items-center'>
                   <div className='col-6'>
                       <div className='row'>
                           <div className='col-12 hover_names' >
                               <p className='font-weight-bold m-0'>Invite Friends</p>
-                              <p className='m-0 font-weight-light'>Get them sclised</p>
+                              <p className='m-0 font-weight-light'>Share link </p>
                           </div>
                           
                       </div>
                   </div>
                   <div className='col-6 text-right'>
                       <div className='col-12'>
-                          <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                      <RWebShare
+                            data={{
+                            text: "Web Share - GfG",
+                            url: "https:/www.myhomedel.com/ ",
+                            title: "GfG",
+                            }}
+                            onClick={() => console.log("shared successfully!")}
+                        >
+                         <button style={{background:'white',border:"none",padding:"0",margin:"0"}}>  <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} /></button>
+                     </RWebShare>
                       </div>
                   </div>
               </div><hr />
@@ -340,7 +366,7 @@ let user =[]
 
  
           
-          <div className='row mt-3 align-items-center'>
+          <div className='row mt-3 align-items-center pb-5'>
               <div className='col-6'>
                   <div className='row'>
                       <div className='col-12 hover_names'>
@@ -350,7 +376,7 @@ let user =[]
                   </div>
               </div>
               <div className='col-6 text-right'>
-                  <div className='col-12'>
+                  <div className='col-12' onClick={Logout}>
                       <img src='https://cdn-icons-png.flaticon.com/512/1286/1286853.png' className='img-fluid hover_names' width={"15"} />
                   </div>
               </div>

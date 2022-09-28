@@ -37,7 +37,7 @@ function OrderStatusDetails(props) {
      const [Items,setItem] =useState(item)
      console.log(item)   
   return (
-    <> 
+    <div style={{paddingBottom:"100px"}}> 
     <Nav/>
     <div className='container'>
     <div className='row mt-3'  >
@@ -135,7 +135,7 @@ function OrderStatusDetails(props) {
     </div>
 </div>
 <Comp_for_home/>
-</>
+</div>
   )
 }
 

@@ -10,11 +10,45 @@ import { NavLink } from 'react-router-dom';
 import { InAction,DeAction } from './redux/actions';
 import { connect, Connect } from 'react-redux';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
+import { Button, Dropdown, Menu } from 'antd';
 import Load from '../lotties/112087-empty.json'
 import Comp_for_home from '../components/Comp_for_home';
 import Nav from './../components/Nav';
 import '../css/Restorent.css'
+
+const menu = (
+  <Menu
+    items={[
+      {
+        key: '1',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+            1st menu item
+          </a>
+        ),
+      },
+      {
+        key: '2',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+            2nd menu item
+          </a>
+        ),
+      },
+      {
+        key: '3',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+            3rd menu item
+          </a>
+        ),
+      },
+    ]}
+  />
+);
+
+
+
 function Restorent(props) {
     const {local_variable} =props;
     const location = useLocation()
@@ -84,9 +118,11 @@ console.log("Item == ",local_variable);
   return (
     <div>
     <Nav/>
-    
-        <div className='container mt-2'>
+        <div className='container-fluid m-0 p-0'>
+
             <img src={ShopPhoto?Ip+"/"+ShopPhoto:'https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2927%2Ftrend20200831092220.jpg'} style={{width:"100%",height:"60vh"}} />
+        </div>
+        <div className='container mt-2'>
 
             <div className='row mt-5'>
                 <div className='col-6 col-md-3'>
@@ -230,23 +266,11 @@ console.log("Item == ",local_variable);
                     null
             
            }
-           <div className='text-center' style={{position:"fixed",bottom:'65px',width:"100%"}}>
-        <div class="btn-group dropup ">
-    <button type="button" class=" dropdown-toggle" id='pop_btn' data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style={{background:"lightgreen",border:"none",color:"white",borderRadius:"10px"}}> 
-      Menu
-    </button>
-    <div class="dropdown-menu" style={{background:"#cdffcd"}} >
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hii</p>
-      <p className=' text-center mx-2 my-1'  style={{borderRadius:"15px",cursor:"pointer",background:"#e6ffe6"}}>Hlo</p>
-    </div>
-  </div>
-  </div>
+           <div className='text-center' style={{position:"fixed",bottom:local_variable.length>0?'120px':'75px',width:"100%"}}>
+           <Dropdown overlay={menu} placement="top" arrow={{ pointAtCenter: true }}>
+      <Button>top</Button>
+    </Dropdown>
+          </div>
          </div> 
          <Comp_for_home/>
     </div>

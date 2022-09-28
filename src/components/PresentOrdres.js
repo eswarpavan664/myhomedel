@@ -47,8 +47,11 @@ function PresentOrdres() {
     
   
     useEffect(()=>{
-      GetItems();
-    })
+      setInterval(() => {
+        GetItems();
+          }, 2000)
+     
+    },[])
     //console.log("present Orders  of ",userid,"= ",Myorders)
 
 
@@ -87,7 +90,7 @@ const [se,setse] =useState(0);
       <>
         {se===1?
 
-          <div>
+          <div style={{paddingBottom:"100px"}}>
           {Myorders.map((item)=>(
 
            <Cards item={item}  />
