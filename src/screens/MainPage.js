@@ -168,7 +168,7 @@ if(userid){
             </div>
 </section>
  
- <Text/>
+ 
  
    {/* <OrderByItem/>*/}
     <Baners/>

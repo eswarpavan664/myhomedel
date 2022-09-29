@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable no-undef */
@@ -16,36 +17,7 @@ import Comp_for_home from '../components/Comp_for_home';
 import Nav from './../components/Nav';
 import '../css/Restorent.css'
 
-const menu = (
-  <Menu
-    items={[
-      {
-        key: '1',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-            1st menu item
-          </a>
-        ),
-      },
-      {
-        key: '2',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-            2nd menu item
-          </a>
-        ),
-      },
-      {
-        key: '3',
-        label: (
-          <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-            3rd menu item
-          </a>
-        ),
-      },
-    ]}
-  />
-);
+ 
 
 
 
@@ -94,6 +66,39 @@ useEffect(()=>{
       
    }
   },[])
+
+
+  const menu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <a  onClick={()=>setitemname("Juice")}>
+               Biryani
+            </a>
+          ),
+        },
+        {
+          key: '2',
+          label: (
+            <a  onClick={()=>setitemname("Juice")}>
+               Rice
+            </a>
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Juice")}>
+               Juice
+            </a>
+            
+          ),
+        },
+      ]}
+    />
+  );
 
  localStorage.setItem('deliverycharges',Deliverycharges)
      
