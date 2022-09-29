@@ -74,7 +74,7 @@ useEffect(()=>{
         {
           key: '1',
           label: (
-            <a  onClick={()=>setitemname("Juice")}>
+            <a  onClick={()=>setitemname("Biryani")}>
                Biryani
             </a>
           ),
@@ -82,7 +82,7 @@ useEffect(()=>{
         {
           key: '2',
           label: (
-            <a  onClick={()=>setitemname("Juice")}>
+            <a  onClick={()=>setitemname("Rice")}>
                Rice
             </a>
           ),
@@ -273,7 +273,7 @@ console.log("Item == ",local_variable);
            }
            <div className='text-center' style={{position:"fixed",bottom:local_variable.length>0?'120px':'75px',width:"100%"}}>
            <Dropdown overlay={menu} placement="top" arrow={{ pointAtCenter: true }}>
-      <Button>top</Button>
+      <Button style={{backgroundColor:'orange',borderRadius:8,color:'white',fontSize:15}}>Menu</Button>
     </Dropdown>
           </div>
          </div> 
