@@ -16,8 +16,10 @@ import Load from '../lotties/112087-empty.json'
 import Comp_for_home from '../components/Comp_for_home';
 import Nav from './../components/Nav';
 import '../css/Restorent.css'
+import Recom from './../components/Recom';
 
  
+
 
 
 
@@ -96,9 +98,137 @@ useEffect(()=>{
             
           ),
         },
+        {
+          key: '4',
+          label: (
+            <a  onClick={()=>setitemname("Starters")}>
+               Starters
+            </a>
+            
+          ),
+        },
+ 
       ]}
     />
   );
+
+
+
+
+
+  const GroceryMenu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <a  onClick={()=>setitemname("Soaps")}>
+               Soaps
+            </a>
+          ),
+        },
+        {
+          key: '2',
+          label: (
+            <a  onClick={()=>setitemname("Rice")}>
+               Rice
+            </a>
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Oils")}>
+               Oils
+            </a>
+            
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Books")}>
+               Books
+            </a>
+            
+          ),
+        },
+ 
+      ]}
+    />
+  );
+
+
+
+  const VeggiesMenu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <a  onClick={()=>setitemname("Leafy Veggies")}>
+               Leafy Veggies
+            </a>
+          ),
+        },
+        {
+          key: '2',
+          label: (
+            <a  onClick={()=>setitemname("Veggies")}>
+               Veggies
+            </a>
+          ),
+        },
+        
+ 
+      ]}
+    />
+  );
+
+
+  const MeatMenu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <a  onClick={()=>setitemname("Fishes")}>
+               Fishes
+            </a>
+          ),
+        },
+        {
+          key: '2',
+          label: (
+            <a  onClick={()=>setitemname("Chicken")}>
+               Chicken
+            </a>
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Prawns")}>
+               Prawns
+            </a>
+            
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Crabs")}>
+               Crabs
+            </a>
+            
+          ),
+        },
+ 
+      ]}
+    />
+  );
+
+
 
  localStorage.setItem('deliverycharges',Deliverycharges)
      
@@ -272,9 +402,10 @@ console.log("Item == ",local_variable);
             
            }
            <div className='text-center' style={{position:"fixed",bottom:local_variable.length>0?'120px':'75px',width:"100%"}}>
-           <Dropdown overlay={menu} placement="top" arrow={{ pointAtCenter: true }}>
-      <Button style={{backgroundColor:'orange',borderRadius:8,color:'white',fontSize:15}}>Menu</Button>
-    </Dropdown>
+
+           <Dropdown overlay={ShopType==="Restaurant"?menu:ShopType==="Meet Shop"?MeatMenu:ShopType==="Grocery"?GroceryMenu:ShopType==="Vegetable Shop"?VeggiesMenu:null} placement="top" arrow={{ pointAtCenter: true }}>
+                <Button style={{backgroundColor:'orange',borderRadius:8,color:'white',fontSize:15}}>Menu</Button>
+          </Dropdown>
           </div>
          </div> 
          <Comp_for_home/>

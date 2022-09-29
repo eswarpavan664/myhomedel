@@ -4,7 +4,7 @@ import baner2 from '../images/food-banner-design-template-2a1a5a8354fdd52ce97926
 import baner3 from '../images/food-delivery-app-1.webp'
 function Baners() {
   return (
-    <div>
+    <div className='mt-4'>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

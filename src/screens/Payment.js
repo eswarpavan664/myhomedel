@@ -504,7 +504,7 @@ const decrementCount = () => {
       <p className='d-none d-md-block'>{props.data.ItemDiscription}</p>
     </div>
     <div className='col-4 col-md-3'>
-            <label>Quant</label><br />
+            <label>Quantity</label><br />
             <input
                 type='number'
                 step="1"
