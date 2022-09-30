@@ -216,7 +216,7 @@ function Cards(props){
                     </NavLink>
                     <div className='col-3'>
                         <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px",cursor:'pointer'}} onClick={()=>alert("Under Construction....!")}>Track</p>
-                        <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px",cursor:'pointer'}} onClick={CancelOrder}>Cancle</p>
+                        <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px",cursor:'pointer'}} onClick={CancelOrder}>Cancel</p>
                     </div>
                       <hr style={{width:"100%"}} />
                       {ite.length>0?

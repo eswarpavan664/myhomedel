@@ -5,7 +5,7 @@ import Logo from '../images/logo.jpeg'
 import { NavLink } from 'react-router-dom';
 import cart from '../images/shopping-cart.png'
 import '../css/Navstyle.css'
-
+import logo from '../images/LOGO TEXT copy.png'
 import { InAction,DeAction ,RemoveAll,QuantityAdd} from './../screens/redux/actions';
 import { connect, Connect } from 'react-redux';
 function Nav(props) {
@@ -22,7 +22,7 @@ function Nav(props) {
               </NavLink>
             </div>
             <div>
-            <h4 class="" href="#">My Homedel</h4>
+             <img src={logo} width="150px" height={"80px"}/>
             </div>
             <div >
             <ul class="mt-2" style={{courser:'pointer'}}>
