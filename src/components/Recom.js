@@ -4,54 +4,54 @@ import Comp_for_recom from './Comp_for_recom';
 
 function Recom() {
   return (
-    <div className='container mt-3'>
+    <div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <div className='row'>
-              <div className='col-md-3 col-4'>
+            <div className='row mx-1 py-2'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4 d-md-block d-none'>
+              <div className='col-md-3 col-4 m-0 px-1 d-md-block d-none'>
                 <Comp_for_recom />
               </div>
             
             </div>
           </div>
           <div class="carousel-item">
-          <div className='row'>
-          <div className='col-md-3 col-4'>
+          <div className='row mx-1 py-2'>
+          <div className='col-md-3 col-4 m-0 px-1 '>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4 d-md-block d-none'>
+              <div className='col-md-3 col-4 m-0 px-1 d-md-block d-none'>
                 <Comp_for_recom />
               </div>
             </div>
           </div>
           <div class="carousel-item">
-          <div className='row'>
-          <div className='col-md-3 col-4'>
+          <div className='row mx-1 py-2'>
+          <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4'>
+              <div className='col-md-3 col-4 m-0 px-1'>
                 <Comp_for_recom />
               </div>
-              <div className='col-md-3 col-4 d-md-block d-none'>
+              <div className='col-md-3 col-4 m-0 px-1 d-md-block d-none'>
                 <Comp_for_recom />
               </div>
             </div>

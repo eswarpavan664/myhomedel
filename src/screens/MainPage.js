@@ -30,6 +30,7 @@ import {Helmet} from "react-helmet";
 import Text from '../components/Text'
 import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 import Recom from './../components/Recom';
+import Restorent from './Restorent';
 
 
 
@@ -190,8 +191,14 @@ if(userid){
    {/* <OrderByItem/>*/}
     <Baners/>
     
-     <Recom/>
+      <div className='col mt-4'>
+      <h2>Must Try </h2>
+      <Recom/>
+      </div>
+  <div className='col'>
+  <h2 className='mt-5'>Restaurants Near Palakolu</h2>
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
+  </div>
      
     
     
@@ -214,3 +221,5 @@ const mapStateToProps = state =>({
   local_variable :state.item
 })
 export default connect(mapStateToProps,{InAction,DeAction,RemoveAll})(MainPage);
+
+//Palakolu

@@ -31,6 +31,8 @@ function Restorent(props) {
   const [Items,setItems] = useState([]);
 
    const [itemname,setitemname] = useState("All");
+
+   const [VegOrNonveg,setVegOrNonveg]  =useState("All")
  
   const  GetData = async ()=>{
    //  const token = await  localStorage.getItem("token")
@@ -250,6 +252,21 @@ function check(name) {
  
 console.log("Item == ",local_variable);
 
+
+
+//STATE
+const [isRadio, setIsRadio] = useState(5);
+
+// HANDLE THE ONCHANGE HERE
+
+const handleChange = (e) => {
+  // string passed in
+  // a string returned by default
+  console.log(e.currentTarget.value);
+  // add + to the event to make the value a number
+  setIsRadio(+e.currentTarget.value);
+};
+
   return (
     <div>
     <Nav/>
@@ -315,7 +332,23 @@ console.log("Item == ",local_variable);
                            {/* <input className='form-group' value={itemname} onChange={(e)=>setitemname(e.target.value)} placeholder='Search' style={{border:"none",boxShadow:"0 0 10px 0 lightgray"}} />*/}
                         </div>
                     </div>
-                    <input type={"checkbox"} className="form-group mr-2 mt-4" /><label>Veg</label>
+                    <div className='col'>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio" />All
+                        </label>
+                      </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio" />Veg
+                        </label>
+                      </div>
+                      <div class="form-check-inline">
+                        <label class="form-check-label">
+                          <input type="radio" class="form-check-input" name="optradio" />Non-Veg
+                        </label>
+                      </div>
+                    </div>
                     <h3>Recommended</h3>
                      {Items.length===0?
 
