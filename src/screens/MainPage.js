@@ -183,13 +183,13 @@ if(userid){
             </div>
 </section>
  
- 
- <div className='container'>
+ <Baners/>
+ <div className='container mt-4'>
      <h1>Category</h1>
      <Cat/>
      </div>
    {/* <OrderByItem/>*/}
-    <Baners/>
+    
     
       <div className='col mt-4'>
       <h2>Must Try </h2>

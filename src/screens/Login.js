@@ -15,7 +15,7 @@ import { RecaptchaVerifier , signInWithPhoneNumber, getAuth, signInWithPopup, Go
 
 import {getDatabase, ref, set , onValue, child, get, push, update  } from "firebase/database";
 
-import Chef from '../images/WhatsApp Image 2022-08-26 at 3.18.28 PM (1).jpeg'
+import Chef from '../images/H LOGO copy.png'
 import { provider } from './../firebase';
 import { Button } from 'antd';
  
@@ -274,7 +274,11 @@ const fun=(e) => {
   
  }
    
-   
+
+ const Resendotp=()=>{
+  alert("page Will be Refreshed still you don't get OTP report to our Team")
+  window.location.reload(false);
+ }
  
   return (
     <div className='login_page_back_'>
@@ -340,7 +344,7 @@ const fun=(e) => {
                                     <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
                                     <div className='d-flex justify-content-between align-items-center ' >
                                           <p className='m-0'>00:{Timer}</p>
-                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Timer===0?SignuprequestOtp:console.log("error")}>Resend OTP</p>
+                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Timer===0?Resendotp:Resendotp}>Resend OTP</p>
 
                                       </div> 
                                     </>
@@ -389,7 +393,7 @@ const fun=(e) => {
                                       <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
                                       <div className='d-flex justify-content-between align-items-center ' >
                                           <p className='m-0'>00:{Timer}</p>
-                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={requestOtp}>Resend OTP</p>
+                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Resendotp}>Resend OTP</p>
 
                                       </div>  
                                     </>

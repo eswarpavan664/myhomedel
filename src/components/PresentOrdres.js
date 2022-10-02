@@ -215,7 +215,27 @@ function Cards(props){
                     </div>
                     </NavLink>
                     <div className='col-3'>
-                        <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px",cursor:'pointer'}} onClick={()=>alert("Under Construction....!")}>Track</p>
+                        <NavLink to="/OrderStatusDetails"
+
+                                  state={{
+
+                                  ShopName:props.item.ShopName,
+                                  orderList:props.item.orderList,
+                                  Amount:props.item.Amount,
+                                  DeliveryManId:props.item.DeliveryManId,
+                                  OrderOtp:props.item.OrderOtp,
+                                  OrderStatus:props.item.OrderStatus,
+                                  OrderTime:props.item.OrderTime,
+                                  OrderId:props.item.OrderId,
+                                  OrderTime:props.item.OrderTime
+
+
+
+
+
+
+                                  }}> 
+                        <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px",cursor:'pointer'}} >Track</p></NavLink>
                         <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px",cursor:'pointer'}} onClick={CancelOrder}>Cancel</p>
                     </div>
                       <hr style={{width:"100%"}} />

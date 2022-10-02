@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import Logo from '../images/logo.jpeg'
+import Logo from '../images/H LOGO copy.png'
 import { NavLink } from 'react-router-dom';
 import cart from '../images/shopping-cart.png'
 import '../css/Navstyle.css'
@@ -21,8 +21,8 @@ function Nav(props) {
                 <img src={Logo} className="img-fluid" width={"50"}  />
               </NavLink>
             </div>
-            <div>
-             <img src={logo} width="150px" height={"80px"}/>
+            <div className='ml-5 text-center'>
+             <img src={logo} width="150px" height={"80px"} />
             </div>
             <div >
             <ul class="mt-2" style={{courser:'pointer'}}>

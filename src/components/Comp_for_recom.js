@@ -10,8 +10,8 @@ function Comp_for_recom() {
         <p class="card-title text-wrap m-0 font-weight-bold text-truncate" style={{fontSize:"12px"}}>Spicy Chicken Pizza</p>
         <p className='text-secondary m-0 p-0'>Chandrika</p>
         <div className='d-flex justify-content-between align-items-center mt-1  mb-1'>
-        <p className='m-0 p-0 text-danger'>₹220</p>
-        <buttom className="bg-success text-light m-0 p-0 px-2 pb-1 rounded">≡</buttom>
+        <p className='m-0 p-0 text-danger'> </p>
+        
     </div>
     </div>
 </div>
