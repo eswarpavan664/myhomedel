@@ -44,7 +44,11 @@ function ItemCard(props) {
             <h5>{props.ItemName}</h5>
               
             <p className='mt-1 m-0' style={{color:"gold"}}><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half"></i> <span style={{color:"black"}} className="font-weight-light">3626 votes</span> </p>
-            <p className='m-0'>₹{props.ItemPrice}</p>
+            <div className='row col-12  '>
+
+            <p className='m-0 col-md-2 col-6'><s>₹{props.DiscountPrice}</s></p>
+            <p className='m-0 col-md-3 col-4'>₹{props.ItemPrice}</p>
+            </div>
             <p>{props.ItemDiscription}</p>
             
         </div>
@@ -54,7 +58,7 @@ function ItemCard(props) {
            
         
 
-     
+        
         
    
           
