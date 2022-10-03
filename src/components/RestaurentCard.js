@@ -74,7 +74,7 @@ const [se,setse] =useState(0);
           null
         }
        {se===1?
-          <div className='row'>
+          <div className='row text-decoration-none'>
                 {Restaurents.map((item)=>(
                    <>
                     {item.Role==="Admin"?<div className='col-md-4 mb-4'>
@@ -93,12 +93,13 @@ const [se,setse] =useState(0);
                           DeliveryTime:item.DeliveryTime
 
                          }}
+                         style={{textDecoration:'none'}}
                     >
                          
                         <div class="card sec_one_card">
-                          <img class="card-img-top img-fluid" src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
+                          <img class="card-img-top img-fluid " src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
                           <div class="card-body">
-                            <h5 class="card-title text-success">{item.ShopName}</h5>
+                            <h5 style={{textDecoration:'none'}} class="card-title text-success text-decoration-none">{item.ShopName}</h5>
                             {item.ShopType==="Restaurant"?<p className='font-weight-light m-0'>Biryani, Fast Food, Pizza,Curry,Chicken</p>:null}
                  {item.ShopType==="Meet Shop"?<p className='font-weight-light m-0'>Chicken, Fish, Prawns, Crabs</p>:null}
                  {item.ShopType==="Medical"?<p className='font-weight-light m-0'>All Medical Tablets</p>:null}
