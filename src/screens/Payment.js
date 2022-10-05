@@ -75,6 +75,8 @@ function Payment(props) {
       //console.log("dsjdskj",User)
       const [CouponCode,setCouponCode]=useState("");
       var address = Data?Data.Address.split("_"):"";
+
+
       const PlaceOrder =()=>{
         var id = Math.floor(1000 + Math.random() * 900000);
         if(Data){
@@ -101,12 +103,32 @@ function Payment(props) {
             "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
            })
           })
-          .then(res=> setorderstatus(true))
+          .then(res=>{
+            SendOrderToAdmin(id);
+            setorderstatus(true)
+          
+          })
         }
         console.log(itemnames);
       }
 
+    const SendOrderToAdmin=(id)=>{
 
+
+      fetch(Ip+'/sendOrderAsSms?CustomerName='+Data.Name+"&PhoneNumber="+Data.PhoneNumber+"&OrderId="+id,{
+        headers:new Headers({
+          Authorization:"Bearer " 
+        })
+        }).then(res=>res.json())
+        
+        .then(data=>{ 
+        
+          console.log("done");
+         
+        }
+        )
+
+    }
 
 //console.log(AddressData)
 //Id,VillageName,PinCode,DoorNo,Landmark,Street

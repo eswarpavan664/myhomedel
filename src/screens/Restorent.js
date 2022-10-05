@@ -53,11 +53,34 @@ function Restorent(props) {
    }
    )
   }
+
+const [AdminData,setAdminData]=useState();
+  const GetResDetails=()=>{
+    fetch(Ip+'/GetAdminForRes?id='+AdminId,{
+      headers:new Headers({
+        Authorization:"Bearer " 
+      })
+      }).then(res=>res.json())
+      
+      .then(data=>{ 
+      
+         
+        setAdminData(data[0])
+        
+        console.log("Admin = ",data[0]);     
+       
+      }
+      )
+  }
+
+  useEffect(()=>{
+    GetResDetails();
+  })
 useEffect(()=>{
  
   GetData();
  //console.log(check("Adminchandrika@gmail.comFired Rice"))
-  
+ 
 },[itemname])
 
 
@@ -349,6 +372,7 @@ const handleChange = (e) => {
                         </label>
                       </div>
                     </div>
+              {AdminData?<h1>{AdminData.AdminId}</h1>:null}
                     <h3>Recommended</h3>
                      {Items.length===0?
 

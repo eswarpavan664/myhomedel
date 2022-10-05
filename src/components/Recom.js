@@ -1,8 +1,38 @@
 /* eslint-disable react/jsx-pascal-case */
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Comp_for_recom from './Comp_for_recom';
+import { Ip } from './../constants/Ip';
 
-function Recom() {
+function Recom(props) {
+  const [Restaurents,setRestaurents] = useState([]);
+
+   
+  const place = "bhimavaram";
+  const  GetData = async ()=>{
+   //  const token = await  localStorage.getItem("token")
+    // console.log("Dashboard = "+token)
+   fetch(Ip+'/GetRestorents?id='+props.Place,{
+   headers:new Headers({
+     Authorization:"Bearer " 
+   })
+   }).then(res=>res.json())
+   
+   .then(data=>{ 
+   
+      
+    setRestaurents(data);
+     
+    console.log("data = ",data);
+    
+    
+   }
+   )
+}
+
+useEffect(()=>{
+   GetData();
+   
+},[])
   return (
     <div>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -24,6 +54,7 @@ function Recom() {
             
             </div>
           </div>
+
           <div class="carousel-item">
           <div className='row mx-1 py-2'>
           <div className='col-md-3 col-4 m-0 px-1 '>
@@ -40,6 +71,7 @@ function Recom() {
               </div>
             </div>
           </div>
+          
           <div class="carousel-item">
           <div className='row mx-1 py-2'>
           <div className='col-md-3 col-4 m-0 px-1'>
