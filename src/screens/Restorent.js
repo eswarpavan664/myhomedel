@@ -372,7 +372,7 @@ const handleChange = (e) => {
                         </label>
                       </div>
                     </div>
-              {AdminData?<h1>{AdminData.AdminId}</h1>:null}
+          
                     <h3>Recommended</h3>
                      {Items.length===0?
 
