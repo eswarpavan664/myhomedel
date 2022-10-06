@@ -8,7 +8,7 @@ import StatusBar from './../components/StatusBar';
 
 function OrderStatusDetails(props) {
     const location = useLocation()
-    const {ShopName,orderList,Amount,DeliveryManId,OrderOtp,OrderStatus,OrderTime,OrderId} = location.state
+    const {ShopName,orderList,Amount,DeliveryManId,OrderOtp,OrderStatus,OrderTime,OrderId,Photo} = location.state
     const [Data,setData] =useState([]);
 
     const GetData=()=>{
@@ -100,7 +100,7 @@ function OrderStatusDetails(props) {
         <p className='m-0 col-12'>Restaurant Details</p>
         <div className='row mt-2'>
             <div className='col-3 text-center'>
-                <img className='img-fluid' src='https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/1200px-KFC_logo.svg.png' width={"80%"} />
+                <img className='img-fluid' src={Photo} width={"80%"} />
             </div>
             <div className='col-9'>
                 <p style={{fontSize:"14px"}} className='m-0 font-weight-bold m-0'>{ShopName}</p>

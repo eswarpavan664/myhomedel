@@ -5,6 +5,7 @@ import { Ip } from './../constants/Ip';
 import { NavLink } from 'react-router-dom';
 import Loader from './Loader';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import res from '../images/dining_banner.jpg'
 import Load from '../lotties/20779-skeleton-loading-card.json'
 import Load2 from '../lotties/93483-order.json'
 function MyOrders(props) {
@@ -107,6 +108,32 @@ function Cards(props){
     .then(res=>res.json())
   }
 
+
+
+  const [AdminData,setAdminData] =useState();
+  const GetRestorent=()=>{
+
+    fetch(Ip+'/GetAdminForRes?id='+props.item.AdminId,{
+      headers:new Headers({
+        Authorization:"Bearer " 
+      })
+      }).then(res=>res.json())
+      .then(data=>{ 
+      
+       console.log("Admin  = ",data)
+      
+        
+        setAdminData(data);
+     
+        
+      }
+      )
+
+  }
+  useEffect(()=>{
+    GetRestorent();
+  })
+
 console.log("sdhsad = ",props.item.OrderStatus)
    const ite = props.item.orderList.split("*");
    ite.pop(-1);
@@ -132,8 +159,8 @@ console.log("sdhsad = ",props.item.OrderStatus)
                                 OrderStatus:props.item.OrderStatus,
                                 OrderTime:props.item.OrderTime,
                                 OrderId:props.item.OrderId,
-                                OrderTime:props.item.OrderTime
-
+                                OrderTime:props.item.OrderTime,
+                                Photo:AdminData?AdminData[0].ShopPhoto:res
 
 
 
@@ -144,7 +171,7 @@ console.log("sdhsad = ",props.item.OrderStatus)
 
 
                                 >
-                        <img src='https://b.zmtcdn.com/data/dish_photos/8d1/6df584834e5252fa5663c4e4d86618d1.jpg?fit=around|130:130&crop=130:130;*,*' className='img-fluid rounded'  />
+                        {AdminData?<img src={AdminData[0].ShopPhoto} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
                     </NavLink>
                     </div>
 
@@ -160,8 +187,8 @@ console.log("sdhsad = ",props.item.OrderStatus)
                             OrderStatus:props.item.OrderStatus,
                             OrderTime:props.item.OrderTime,
                             OrderId:props.item.OrderId,
-                            OrderTime:props.item.OrderTime
-
+                            OrderTime:props.item.OrderTime,
+                            Photo:AdminData?AdminData[0].ShopPhoto:res
 
 
 
