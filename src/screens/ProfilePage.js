@@ -367,7 +367,7 @@ let user =[]
       </div>
 
  
-       <NavLink to="/Privacy" style={{textDecoration:'none'}}>
+       <NavLink to="/Privacy"   style={{textDecoration:'none'}}>
        <div className='row mt-3 align-items-center'>
                   <div className='col-6'>
                       <div className='row'>

@@ -1,7 +1,9 @@
 import React from 'react'
-import baner1 from '../images/Screenshot.png'
+import baner1 from '../images/WEB DESIGN 01 (PALAKOL) copy.jpg'
 import baner2 from '../images/food-banner-design-template-2a1a5a8354fdd52ce97926689e55a1fa_screen.jpg'
 import baner3 from '../images/food-delivery-app-1.webp'
+
+
 function Baners() {
   return (
     <div className='mt-4'>
