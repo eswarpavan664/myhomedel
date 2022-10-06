@@ -412,8 +412,7 @@ const fun=(e) => {
 
              
         </div>
-         <button onClick={Sms}>Send msg</button>
-        
+         
     </div>
    
  

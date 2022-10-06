@@ -25,6 +25,7 @@ import MyOrders from './components/MyOrders';
 import PresentOrdres from './components/PresentOrdres';
 import MapScreen from './MapScreen';
 import OrderStatusDetails from './screens/OrderStatusDetails';
+import Privacy_PolicyScreen from './screens/Privacy_PolicyScreen';
 
 function App() {
  
@@ -48,6 +49,7 @@ function App() {
           <Route path="/PresentOrders" element={<PresentOrdres />} />
           <Route path="/Tracking" element={<MapScreen />} />
           <Route path="/OrderStatusDetails" element={<OrderStatusDetails />} />
+          <Route path="/Privacy" element={<Privacy_PolicyScreen />} />
     </Routes>
     
   </BrowserRouter>

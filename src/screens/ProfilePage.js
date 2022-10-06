@@ -20,7 +20,9 @@ import Nav from '../components/Nav';
 import { update } from 'firebase/database';
 import { RWebShare } from "react-web-share";
 import ShareButton from './../components/ShareButton';
+import { NavLink } from 'react-router-dom';
 import {
+ 
  
     EmailShareButton,
     FacebookShareButton,
@@ -365,7 +367,25 @@ let user =[]
       </div>
 
  
-          
+       <NavLink to="/Privacy" style={{textDecoration:'none'}}>
+       <div className='row mt-3 align-items-center'>
+                  <div className='col-6'>
+                      <div className='row'>
+                          <div className='col-12 hover_names' >
+                              <p className='font-weight-bold m-0'>Privacy & Policy</p>
+                              <p className='m-0 font-weight-light'></p> 
+                          </div>
+                          
+                      </div>
+                  </div>
+                  <div className='col-6 text-right'>
+                      <div className='col-12'>
+                          <img src='https://cdn-icons-png.flaticon.com/512/271/271228.png' className='img-fluid hover_names' width={"15"} />
+                      </div>
+                  </div>
+              </div><hr />
+       </NavLink>
+
           <div className='row mt-3 align-items-center pb-5'>
               <div className='col-6'>
                   <div className='row'>
