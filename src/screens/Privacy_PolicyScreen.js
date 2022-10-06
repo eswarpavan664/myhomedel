@@ -6,12 +6,12 @@ function Privacy_PolicyScreen() {
   return (
      <div>
         <Nav/>
-        <div className='container mt-3 mb-5' >
+        <div className='container mt-3 mb-5' style={{padding:"70px 0 64px 0"}} >
             <h5 className='text-center'>PRIVACY POLICY</h5>
-            <p className='mt-4'>Effective date: October 5, 2022,</p>
-            <p>Last updated on: October 5, 2022</p>
-            <dl>
-                <dt >1.GENERAL</dt>
+            <p className='mt-4 ml-3 mb-0'>Effective date: October 5, 2022,</p>
+            <p className='mt-4 ml-3'>Last updated on: October 5, 2022</p>
+            <dl className='ml-3'>
+                <dt  >1.GENERAL</dt>
                 <dd>
 
                     <ol type='a'>
@@ -122,7 +122,90 @@ function Privacy_PolicyScreen() {
                  </ol>
                 </dd>
 
+
+
+                <dt>7.LINKS TO THIRD-PARTY SITE/APPS</dt>
+                <dd>
+
+                     <p className='ml-3'>
+                     Our App may, from time to time, contain links to and from other Apps/Websites of third parties. 
+                        Please note that if you follow a link to any of these Apps/Websites, Such Apps/Websites will apply different terms to the collection and privacy of your personal data, and we do not accept any responsibility or liability for these policies. when you leave our App, We encourage you to read the privacy policy of every App/Website you visit.
+
+
+                     </p>
+                </dd>
+
+
+
+
+
+                <dt >8.SOCIAL NETWORK PLUGINS</dt>
+                <dd>
+
+                    <ol type='a'>
+                    <p className='mt-3'>
+                    This App incorporates plugins and/or buttons for social networks, in order to allow easy sharing on your favourite social networks. These plugins are programmed so as not to set any cookies when assessing the page to safeguard the privacy of users. Cookies may be set, if you make voluntary use of the plugin. The collection and use of information obtained by means of the plugin are governed by the respective privacy policies of the social networks.
+                    </p>
+                   </ol>
+                </dd>
+
+
+                <dt >9.SHARING OF PERSONAL INFORMATION</dt>
+                <dd>
+
+                    <ol type='a'>
+                        <li>We do not share your personal data with third parties without your prior consent other than:</li>
+                   </ol>
+                   <ol type="I">
+                    <li>With third parties who work on our behalf provided such third parties as here to the data protection principles set out in the IT Act,2000(21 of 2000) and other applicable legislation, or enter into a written agreement with us requiring that the third party provide at least the same level of privacy protection as it required by such principles;</li>
+                    <li>To comply with laws or to respond to lawful requests and legal process;</li>
+                    <li>To protect the rights and property of Us, our agents, customers, and others including to enforce our agreements, policies and terms of use;</li>
+                    <li>In an emergency, including to protect the personal safety of any person; and</li>
+                    <li>For the purpose of a business deal(or negotiation of a business deal) involving the sale or transfer of all or a part of our business or assets(business deals may include, for example, any merger, financing, acquisition, divestiture or bankruptcy transaction or proceeding).</li>
+                   </ol>
+                </dd>
+
+
+
+                <dt >10.CHILDREN</dt>
+                <dd className='ml-3'>
+
+                     <p>
+                     If you are under the age 18 or the age of majority in the jurisdiction in which you reside, you may only use Our App with the consentof your parent or legal guardian. In any case, we will not be liable for any cause of action that arose due to non-compliance with this section
+                     </p>
+                </dd>
+
+                 
+                 
+                    <dt>11.CHANGES TO THIS POLICY</dt>
+                    <dd  className='ml-3'>
+
+
+                    <p >
+                      We many change this policy from time to time. If we make any changes to this policy, we will change the “Last Updates” date above. You agree that your continued use of our services after such changes have been published to our services will constitute your acceptance of such revised policy.
+                If you have any concern about privacy or grievances with us, please contact us with a thorough description and we will try to resolve the issue for you.
+
+                      </p>
+                    </dd>
+                      
+               
+
             </dl>
+
+
+            <div className='container mt-3 ml-0'>
+                <p style={{fontWeight:'bold'}}>Contact Details:</p>
+                <p>Name: P V L M Pavan Kumar</p>
+                <p>Ph:7013325735</p>
+                <p>Email: myhomedel2022@gmail.com</p>
+                <p>Address: Near Old Age Home, </p>
+                <p>Dno-4-44 near sub register office </p>
+                <p>c/o pavan communications palakollu  </p>
+                <p>West Godvari, </p>
+                <p>Andhra Pradesh,</p>
+                <p>534260</p>
+                 
+            </div>
         </div>
         <Comp_for_home/>
      </div>
