@@ -121,7 +121,7 @@ let user =[]
      
 
    }
-   GetItems()
+   
   },[Data])
  
   const Address= Data.length>0?Data[0].Address.split("_") : "k";
@@ -297,7 +297,7 @@ let user =[]
                   <div className='col-6'>
                       <div className='row'>
                           <div className='col-12 hover_names' >
-                              <p className='font-weight-bold m-0'>update Details</p>
+                              <p className='font-weight-bold m-0'>Update Details</p>
                               <p className='m-0 font-weight-light'></p>phone number,email,address
                           </div>
                           
@@ -416,7 +416,7 @@ let user =[]
 
 
 
-
+/*
 function Comp_mp_2() {
     return (
       <div>
@@ -464,6 +464,7 @@ function Temp(){
 
   )
 }
+*/
 const mapStateToProps = state =>({
   local_variable :state
 })

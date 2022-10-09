@@ -26,6 +26,7 @@ import PresentOrdres from './components/PresentOrdres';
 import MapScreen from './MapScreen';
 import OrderStatusDetails from './screens/OrderStatusDetails';
 import Privacy_PolicyScreen from './screens/Privacy_PolicyScreen';
+import Mainscreen from './screens/Login';
 
 function App() {
  
@@ -38,7 +39,7 @@ function App() {
  
           
           <Route path="/" element={<Loading />} />
-          <Route path="/Login" element={<PhoneLogin />} />
+          <Route path="/Login" element={<Mainscreen />} />
           <Route path="/MainPage" element={<MainPage />} />
           <Route path="/Restaurants" element={<Restorent />} />
           <Route path="/Payment" element={<Payment />} />

@@ -19,6 +19,7 @@ import Chef from '../images/H LOGO copy.png'
 import { provider } from './../firebase';
 import { Button } from 'antd';
  
+ 
 
 
 
@@ -26,6 +27,256 @@ import { Button } from 'antd';
 
 function Mainscreen() {
 
+  const contrycode = "+91";
+  const [Number,setNumber] =useState('');
+  const [ExpandForm,setExpandForm] = useState(false);
+  const [Otp,setOtp] = useState("");
+  const [Name,setName] =useState("");
+  const [LastName,setLastName] =useState("");
+  const [Email,setEmail] =useState("");
+  const [Timer,setTimer] =useState(30);
+  const [Password,setPassword] =useState("");
+       
+  const [Start,setStart] =useState();
+
+
+  const [Screen,setScreen] =useState(0);
+  const [ChangeForm,setForm]=useState(2);
+ 
+  
+  const [count, setCount] = useState(30);
+  var k =count;
+ 
+      
+ 
+  let navigate = useNavigate();
+
+  const detectLogin= async ()=>{
+    const token =   localStorage.getItem('user')
+     
+        if(token){
+          navigate('/MainPage');
+        }
+        else{
+          setScreen(1);
+        }
+        
+        
+  }
+  useEffect(()=>{
+  
+    detectLogin();
+},[])
+
+
+ 
+
+
+const sendCred = async (em)=>{
+ 
+  const Email ='"'+em+'"';
+fetch(Ip+"/UserSigin",{
+  method:"POST",
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ body:JSON.stringify({
+  
+    "PhonNumber":'+91'+Number,
+    "Password":Password,
+    
+    
+ })
+})
+.then(res=>res.json())
+.then(async (data)=>{
+       try {
+        //localStorage.setItem('user', '+91'+Number);
+        if(data.Status==="Wrong"){
+          alert("Invalid password/mobile no")
+
+        }
+        else if(data.Status==="NO"){
+          alert("First Register")
+          setForm(2);
+        }
+        else{
+          console.log("Logged done");
+          localStorage.setItem('user', '+91'+Number);
+          navigate('/MainPage')
+        }
+       } catch (e) {
+         console.log("error hai",e)
+          
+       }
+})
+}
+
+ 
+
+const signup = async (em)=>{
+ 
+  
+fetch(Ip+"/UserSignup",{
+  method:"POST",
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ body:JSON.stringify({
+  
+    "PhoneNumber":'+91'+Number,
+    "Password":Password,
+    "email":Email,
+    "Name":Name,
+    "Role":"Customer",
+    "Address":"",
+    "Id":'+91'+Number
+    
+ })
+})
+.then(res=>res.json())
+.then(async (data)=>{
+       try {
+        //localStorage.setItem('user', '+91'+Number);
+        if(data.Status==="Already"){
+          alert("you have Already account Please Login with that credentials")
+          setForm(1);
+        }
+        else{
+          console.log("Logged done");
+          localStorage.setItem('user', '+91'+Number);
+          navigate('/MainPage')
+        }
+       } catch (e) {
+         console.log("error hai",e)
+          
+       }
+})
+}
+        
+ 
+  
+ 
+ 
+ 
+  return (
+    <div className='login_page_back_'>
+        <div className='login_header_ row m-0'>
+            <div className='text-center col-12'>
+                <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
+            </div>
+             <p  style={{fontSize:25,fontWeight:'bold',textAlign:'center'}}>My HomeDel</p>
+        </div>
+
+        <div className='row'>
+            <div className='container col-12 text-center mb-2 mt-5 d-flex justify-content-evenly'>
+                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(2)}>Signup</p>
+                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(1)}>Login</p>
+
+                </div>
+        </div>
+
+        <div className='container text-center login_form_cont_ mt-3'>
+            {ChangeForm===2?
+            
+              <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
+              
+
+
+
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Signup</h4>
+                            </div>
+            <form >
+      
+            <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Name</label>
+                    </div>
+                    <input type={"text"} placeholder="Enter Name" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} value={Name} onChange={(e)=>setName(e.target.value)}/><br />
+                  
+
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Email Address</label>
+                    </div>
+                    <input type={"text"} placeholder="Enter your email" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Email} onChange={(e)=>setEmail(e.target.value)} /><br />
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Create Password</label>
+                    </div>
+                    <input type={"password"} placeholder="Enter password" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Password} onChange={(e)=>setPassword(e.target.value)}/><br />
+                    
+
+
+              
+                 
+              
+              
+               
+      </form>
+            <Button onClick={signup} className='col-md-2 col-6 offset-2 offset-md-5 login_button_ mt-3' style={{fontSize:17,backgroundColor:'green',color:'white',fontWeight:'bold',borderRadius:15}}   >Login</Button>
+     
+      </div>
+      
+      :null}
+      {ChangeForm===1?
+      <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",background:"white",boxShadow:'0 0 10px lightgray'}}>
+              
+ 
+
+              <div className='row'>
+  
+                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray",color:'#65A765'}} >Login</h4>
+                            </div>
+            <form >
+      
+           
+                    
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+                    </div>
+                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+                    <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>Password</label>
+                    </div>
+                    <input type={"password"} placeholder="Enter password" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Password} onChange={(e)=>setPassword(e.target.value)}/><br />
+                    
+              
+      </form>
+      <p className='text-center' onClick={()=>setForm(3)} style={{cursor:'pointer'}}>forget Password</p>
+      <div className='row'>
+              <Button onClick={sendCred} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-3' style={{fontSize:17,backgroundColor:'green',color:'white',fontWeight:'bold',borderRadius:15}}  >Login</Button>
+            </div>
+      </div>:null
+      }
+      {ChangeForm===3?<PhoneLogin setter={setForm}/>:null
+
+      }
+
+             
+
+             
+        </div>
+         
+    </div>
+   
+ 
+  );
+
+}
+
+
+ 
+
+
+  
+
+
+
+const  PhoneLogin=(props)=>{
   const contrycode = "+91";
   const [Number,setNumber] =useState('');
   const [ExpandForm,setExpandForm] = useState(false);
@@ -45,28 +296,61 @@ function Mainscreen() {
 
   }
 
+  let navigate = useNavigate();
+
+
+
+
+  const Signinwithphone = async (em)=>{
+ 
+   
+  fetch(Ip+"/UserSiginWithOTP",{
+    method:"POST",
+    headers: {
+     'Content-Type': 'application/json'
+   },
+   body:JSON.stringify({
+    
+      "PhonNumber":'+91'+Number,
+   
+      
+      
+   })
+  })
+  .then(res=>res.json())
+  .then(async (data)=>{
+         try {
+          //localStorage.setItem('user', '+91'+Number);
+          if(data.Status==="Wrong"){
+            alert("Invalid password/mobile no")
+  
+          }
+          else if(data.Status==="NO"){
+            alert("First Register")
+           props.setter(2);
+          }
+          else{
+            /*console.log("Logged done");
+            localStorage.setItem('user', '+91'+Number);
+            navigate('/MainPage')*/
+
+            requestOtp();
+          }
+         } catch (e) {
+           console.log("error hai",e)
+            
+         }
+  })
+  }
+  
+
+
 const requestOtp=(e)=>{
-    e.preventDefault();
+    
 
     
       fun(30);
-   
-
-    //setTimeout(() =>setTimer(Timer-1), 2000);    
-      fetch(Ip+'/GetUserNewOrOld?id='+Number,{
-        headers:new Headers({
-          Authorization:"Bearer " 
-        })
-        }).then(res=>res.json())
-        
-        .then(data=>{ 
-        
-          
-     
-        console.log("Data = ",data.Status);
-          
-              if(data.Status==="Yes"){
-                
+               
                 if(Number.length>=10){
                   setExpandForm(true);
                   generateRecaptcha()
@@ -81,88 +365,15 @@ const requestOtp=(e)=>{
                       }).catch((error) => {
                        console.log(error)
                       });
+                    }
                   
-                }
-              }
-              else{
-                alert("Register first....!");
-                setForm(false);
-              }
-        
-        }
-        )
-
-
-  
-}
+ }
+             
 
 const [Start,setStart] =useState();
 
 
-
-const Sms=()=>{
-  fetch('https://textbelt.com/text', {
-  method: 'post',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    phone: '7993031882',
-    message: 'Hello world',
-    key: 'f9d6547b8dc726a086037da4d84c5e8fe22daba4PePGfgDjvNmUV2OiueVqMBgP3',
-  }),
-}).then(response => {
-  return response.json();
-}).then(data => {
-  console.log(data);
-});
-}
-  
-
-const SignuprequestOtp=(e)=>{
-  e.preventDefault();
-  fun(30)
-
-          
-    fetch(Ip+'/GetUserNewOrOld?id='+Number,{
-      headers:new Headers({
-        Authorization:"Bearer " 
-      })
-      }).then(res=>res.json())
-      
-      .then(data=>{ 
-      
-        
-   
-      console.log("Data = ",data.Status);
-        
-             
-              
-              if(Number.length>=10){
-                setExpandForm(true);
-                generateRecaptcha()
-                let appVerifier = window.recaptchaVerifier;
-           
-                signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
-                    .then((confirmationResult) => {
-                  
-                      window.confirmationResult = confirmationResult;
-                      console.log("")
-                      // ...
-                    }).catch((error) => {
-                     console.log(error)
-                    });  
-              }
-           
-      }
-      )
-
-
-
-}
-
-
-
-
-  const verifyotp=(e)=>{
+const verifyotp=(e)=>{
     
 
     if(Otp.length===6){
@@ -172,26 +383,19 @@ const SignuprequestOtp=(e)=>{
       confirmationResult.confirm(Otp).then((result) => {
         // User signed in successfully.
         const user = result.user;
-        console.log(user)
+          if(user){
+            console.log("Logged done");
+            localStorage.setItem('user', '+91'+Number);
+            navigate('/Profile')
+
+            
+          }
+          else{
+            alert("Invalid OTP")
+          }
 
         
-        fetch(Ip+"/UserSignuporSigin",{
-          method:"POST",
-          headers: {
-           'Content-Type': 'application/json'
-         },
-         body:JSON.stringify({
-          "PhoneNumber":"+91"+Number,
-          "email":Email,
-          "Name":Name,
-          "Role":"Customer",
-          "Address":"",
-          "Id":"+91"+Number
-  
-         })
-        })
-        .then(res=>res.json())
-       
+        
          
         
           
@@ -200,6 +404,7 @@ const SignuprequestOtp=(e)=>{
         // User couldn't sign in (bad verification code?)
         // ...
         console.log(error);
+        alert("Invalid OTP/Login Error")
       });
 
     }
@@ -207,53 +412,7 @@ const SignuprequestOtp=(e)=>{
   }
   const [Screen,setScreen] =useState(0);
   const [ChangeForm,setForm]=useState(true);
-  //console.log("+91")
-
-
-
-const sign =()=>{
-  const auth = getAuth();
-signInWithPopup(auth, provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-
-
-    fetch(Ip+"/UserSignuporSigin",{
-      method:"POST",
-      headers: {
-       'Content-Type': 'application/json'
-     },
-     body:JSON.stringify({
-      "PhoneNumber":user.phoneNumber?user.phoneNumber:"1234567890",
-      "email":user.email,
-      "Name":user.displayName,
-      "Role":"Customer",
-      "Address":"",
-      "Id":user.email
-
-     })
-    })
-    .then(res=>res.json())
-
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    // ...
-  });
-}
-
-
-
+  
 const [count, setCount] = useState(30);
 var k =count;
  
@@ -274,278 +433,141 @@ const fun=(e) => {
   
  }
    
-
+ 
  const Resendotp=()=>{
   alert("page Will be Refreshed still you don't get OTP report to our Team")
   window.location.reload(false);
  }
  
-  return (
-    <div className='login_page_back_'>
-        <div className='login_header_ row m-0'>
-            <div className='text-center col-12'>
-                <img className='img-fluid' src={Chef} style={{overflow:"hidden"}} width="220" />
-            </div>
-             <p  style={{fontSize:25,fontWeight:'bold'}}>My HomeDel</p>
-        </div>
-
-        <div className='row'>
-            <div className='container col-12 text-center mb-2 mt-5 d-flex justify-content-evenly'>
-                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(false)}>Signup</p>
-                    <p className='  font-weight-bold login_signup_text px-5' style={{textDecoration:"none",cursor:"pointer"}} onClick={(e)=>setForm(true)}>Login</p>
-
-                </div>
-        </div>
-
-        <div className='container text-center login_form_cont_ mt-3'>
-            {!ChangeForm?
-            
-              <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",boxShadow:"0 0 10px lightgray"}}>
-              
-
-
-
-              <div className='row'>
-  
-                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray"}} >Signup</h4>
-                            </div>
-            <form onSubmit={SignuprequestOtp}>
-      
-            <div className='row'>
-                        <label className='col-12' style={{textAlign:"left"}}>Name</label>
-                    </div>
-                    <input type={"text"} placeholder="Enter Name" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} value={Name} onChange={(e)=>setName(e.target.value)}/><br />
-                  
-
-                    <div className='row'>
-                        <label className='col-12' style={{textAlign:"left"}}>Email Address</label>
-                    </div>
-                    <input type={"text"} placeholder="Enter your email" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Email} onChange={(e)=>setEmail(e.target.value)} /><br />
-                    <div className='row'>
-                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
-                    </div>
-                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
-                    
-
-              
-                 
-             
-                              {ExpandForm===false?
-                        
-                                      <button class="btn btn-success" style={{width:'50%'}}>request OTP</button>
-                                  :
-                                    <>
-
-                      
-                                    <div className='row'>
-                                            <label className='col-12' style={{textAlign:"left"}}>OTP</label>
-                                    </div>
-                                                      
-                                    <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                    <div className='d-flex justify-content-between align-items-center ' >
-                                          <p className='m-0'>00:{Timer}</p>
-                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Timer===0?Resendotp:Resendotp}>Resend OTP</p>
-
-                                      </div> 
-                                    </>
-                                }
-              <div id="sign-in-button"></div>
-               
-      </form>
-      <div className='row'>
-                <button onClick={verifyotp} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-5' style={{fontSize:20}}  >Login</button>
-            </div>
-      </div>
-      
-      :
+    return (
       <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",background:"white",boxShadow:'0 0 10px lightgray'}}>
               
  
 
-              <div className='row'>
-  
-                                <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray",color:'#65A765'}} >Login</h4>
-                            </div>
-            <form onSubmit={requestOtp}>
-      
-           
-                    
-                    <div className='row'>
-                        <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
-                    </div>
-                    <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
-                    
-
-              
-                 
-             
-                              {ExpandForm===false?
-                        
-                                      <button class="btn btn-success">request OTP</button>
-                                  :
-                                    <>
-
-                      
-                                    <div className='row'>
-                                              <label className='col-12' style={{textAlign:"left"}}>OTP</label>
-                                      </div>
-                                                        
-                                      <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"50px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
-                                      <div className='d-flex justify-content-between align-items-center ' >
-                                          <p className='m-0'>00:{Timer}</p>
-                                          <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:90,cursor:Timer===0?'pointer':'none'}} onClick={Resendotp}>Resend OTP</p>
-
-                                      </div>  
-                                    </>
-                                }
-              <div id="sign-in-button"></div>
-               
-      </form>
       <div className='row'>
-                <button onClick={verifyotp} style={{fontSize:20}} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5'>Login</button>
-            </div>
-      </div>
-      }
 
+                        <h4 className='col-12 text-left pb-4' style={{borderBottom:"1px solid gray",color:'#65A765'}} >Login</h4>
+                    </div>
+    <form onSubmit={Signinwithphone}>
 
-             
-
-             
-        </div>
-         
-    </div>
    
- 
-  );
+            
+            <div className='row'>
+                <label className='col-12' style={{textAlign:"left"}}>Phone Number</label>
+            </div>
+            <input type={"number"} placeholder="Enter your phone.no" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",marginBottom:"10px",width:"100%"}} required value={Number} onChange={(e)=>setNumber(e.target.value)}/><br />
+            
 
-}
-
-
- 
-
-
-
-
-
-function Signin(props) {
-
-  const contrycode = "+91";
-  const [Number,setNumber] =useState('+917993031882');
-  const [ExpandForm,setExpandForm] = useState(false);
-  const [Otp,setOtp] = useState("");
-  
- 
-  const generateRecaptcha = ()=>{
-    window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
-      'size': 'invisible',
-      'callback': (response) => {
-        console.log("prepared phone auth process",response);
-      }
-    }, authentication);
-    
-
-  }
-
-const requestOtp=(e)=>{
-    e.preventDefault();
-    if(Number.length>=10){
-      setExpandForm(true);
-      generateRecaptcha()
-      let appVerifier = window.recaptchaVerifier;
- 
-      signInWithPhoneNumber(authentication, "+91"+Number, appVerifier)
-          .then((confirmationResult) => {
-        
-            window.confirmationResult = confirmationResult;
-            // ...
-          }).catch((error) => {
-           console.log(error)
-          });
-    }
-}
-
-  const verifyotp=(e)=>{
-    
-
-    if(Otp.length===6){
-
-      let confirmationResult = window.confirmationResult;
-
-      confirmationResult.confirm(Otp).then((result) => {
-        // User signed in successfully.
-        const user = result.user;
-        console.log(user)
-
-        
-          
-          
-        // ...
-      }).catch((error) => {
-        // User couldn't sign in (bad verification code?)
-        // ...
-        console.log(error);
-      });
-
-    }
-
-  }
-console.log("number = ",Number)
-  return(
-    <div class="form_div">
-    <form onSubmit={requestOtp}>
-      <input type="text" placeholder="Phone Number" required value={Number} onChange={(e)=>setNumber(e.target.value)}/>
-    
-    
-    {ExpandForm===false?
-    
-               <button class="btn btn-success">request OTP</button>
-           : <>
-
-             <input type="number" placeholder="Enter OTP" required value={Otp} onChange={(e)=>setOtp(e.target.value)}/>
-              
+      
          
-             </>
      
- }
-<div id="sign-in-button"></div>
+                      
+      <div id="sign-in-button"></div>
+       
 </form>
-   <button class="btn btn-success" onClick={verifyotp}>submit</button>
- </div>
-  )
+ {ExpandForm===false?
+                
+                <button class="btn btn-success" style={{width:120}} onClick={Signinwithphone}>request OTP</button>
+            :
+              <>
+
+
+              <div className='row'>
+                        <label className='col-12' style={{textAlign:"left"}}>OTP</label>
+                </div>
+                                  
+                <input type={"text"} placeholder="Enter OTP" style={{border:"1px solid gray",borderRadius:"15px",backgroundColor:"white",padding:"8px",width:"100%"}}  required value={Otp} onChange={(e)=>setOtp(e.target.value)} /><br /><br />
+                <div className='d-flex justify-content-between align-items-center ' >
+                    <p className='m-0'>00:{Timer}</p>
+                    <p className='m-0 fs-6' style={{backgroundColor:Timer===0?'orange':'none',borderRadius:5,width:50,cursor:Timer===0?'pointer':'none'}} onClick={Resendotp}>Resend OTP</p>
+
+                </div>  
+              </>
+          }
+<div className='row'>
+      
+        <button onClick={verifyotp} style={{fontSize:20}} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5'>Login</button>
+    </div>
+</div>
+    )
+}
+
+
+/*
+
+function LoginPage(props) {
+
+  let navigate = useNavigate();
+
+  const detectLogin= async ()=>{
+    const token =   localStorage.getItem('token')
+     
+        if(token){
+          navigate('/DashBoard');
+        }
+        else{
+          setScreen(0);
+        }
+        
+        
+  }
+  useEffect(()=>{
   
+    detectLogin();
+},[])
+
+
+
+  const [email,setEmail] = useState('');
+const [password,setPassword]=useState('')
+
+const [Screen,setScreen] = useState(1);
+
+
+const sendCred = async (em)=>{
+
+  var id = Math.floor(1000 + Math.random() * 900000);
+  const Email ='"'+em+'"';
+fetch(Ip+"/StudentUserSignupOrSignin",{
+  method:"POST",
+  headers: {
+   'Content-Type': 'application/json'
+ },
+ body:JSON.stringify({
+  
+    "email":Email,
+    "Role":"Student",
+    "UserId":id
+ })
+})
+.then(res=>res.json())
+.then(async (data)=>{
+       try {
+          localStorage.setItem('token',Email)
+          localStorage.setItem('Role',"Student")
+          
+          navigate('/Dashboard');
+       } catch (e) {
+         console.log("error hai",e)
+          
+       }
+})
 }
 
 
 
+ 
 
-const  PhoneLogin=()=>{
-    const [presentUser,setPresentUser] = useState(null);
-    const navigate = useNavigate();
-    var us=false;
-    useEffect(()=>{
-      authentication.onAuthStateChanged(user =>{
-        if(user){
-        setPresentUser( 
-         user
-    )
-    us=true;
-    localStorage.setItem('user', user.phoneNumber );
-  
-      }
-      else{
-        setPresentUser(null);
-      }
-      })
-    },[])
 
-     console.log(presentUser)
-    return (
-      <div>
-        <center>
-          {presentUser?  navigate('/MainPage') : <Mainscreen  /> }
-        </center>
-      </div>
-    )
-  }
+
+return (
+  <>
+   
+  </>
   
-export default PhoneLogin;
+
+  
+)
+}*/
+  
+export default Mainscreen;

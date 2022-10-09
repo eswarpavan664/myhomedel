@@ -52,11 +52,11 @@ function PresentOrdres() {
     
   
     useEffect(()=>{
-      setInterval(() => {
-        GetItems();
-          }, 2000)
      
-    },[])
+        GetItems();
+         
+     
+    },)
     //console.log("present Orders  of ",userid,"= ",Myorders)
 
 
@@ -147,7 +147,7 @@ function Cards(props){
     .then(res=>res.json())
   }
 
- const [AdminData,setAdminData] =useState();
+ const [AdminData,setAdminData] =useState([]);
   const GetRestorent=()=>{
 
     fetch(Ip+'/GetAdminForRes?id='+props.item.AdminId,{
@@ -157,7 +157,7 @@ function Cards(props){
       }).then(res=>res.json())
       .then(data=>{ 
       
-       console.log("Admin  = ",data)
+       console.log("Adminhgfhyg  = ",data)
       
         
         setAdminData(data);
@@ -169,7 +169,7 @@ function Cards(props){
   }
   useEffect(()=>{
     GetRestorent();
-  })
+  },[])
 
    const ite = props.item.orderList.split("*");
    ite.pop(-1);
@@ -196,7 +196,7 @@ function Cards(props){
                                 OrderTime:props.item.OrderTime,
                                 OrderId:props.item.OrderId,
                                 OrderTime:props.item.OrderTime,
-                                Photo:AdminData?AdminData[0].ShopPhoto:res
+                                Photo:AdminData.length>0?AdminData[0].ShopPhoto:res
 
 
 
@@ -207,7 +207,7 @@ function Cards(props){
 
 
                                 >
-                       {AdminData?<img src={AdminData[0].ShopPhoto} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
+                       {AdminData.length>0?<img src={AdminData[0].ShopPhoto} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
                     </NavLink>
                     </div>
 
@@ -224,7 +224,7 @@ function Cards(props){
                             OrderTime:props.item.OrderTime,
                             OrderId:props.item.OrderId,
                             OrderTime:props.item.OrderTime,
-                            Photo:AdminData?AdminData[0].ShopPhoto:res
+                            Photo:AdminData.length>0?AdminData[0].ShopPhoto:res
 
 
 
@@ -256,7 +256,7 @@ function Cards(props){
                                   OrderTime:props.item.OrderTime,
                                   OrderId:props.item.OrderId,
                                   OrderTime:props.item.OrderTime,
-                                  Photo:AdminData?AdminData[0].ShopPhoto:res
+                                  Photo:AdminData.length>0?AdminData[0].ShopPhoto:res
 
 
 
