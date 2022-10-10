@@ -57,9 +57,7 @@ const  GetData = async ()=>{
  
     
   setData(data)
-  
-   
-  RemoveAll() 
+ 
   
  }
  )

@@ -27,8 +27,10 @@ function Nav(props) {
             <div >
             <ul class="mt-2" style={{courser:'pointer'}}>
           
-              <img src={cart} className='img-fluid' width={"30"} />
+               <NavLink to="/Payment">
+               <img src={cart} className='img-fluid' width={"30"} />
               <i class="fa badge fa-lg m-0 p-0" value={local_variable.length}>&#xf290;</i>
+               </NavLink>
             </ul>
             </div>
         </nav>

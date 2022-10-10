@@ -4,11 +4,11 @@ import React,{ useState,useEffect }  from 'react'
 import { NavLink } from 'react-router-dom';
 import '../css/Res.css'
 import { Ip } from './../constants/Ip';
-import { InAction,DeAction } from './../screens/redux/actions';
+import { InAction,DeAction,RemoveAll } from './../screens/redux/actions';
 import { connect, Connect } from 'react-redux';
 
 function ItemCard(props) {
-  const {local_variable,InAction,DeAction} =props;
+  const {local_variable,InAction,DeAction,RemoveAll} =props;
     var a =[]
     const Add=(name,price,Image,shopid,shopname,id,discription)=>{
       a.push(JSON.parse(localStorage.getItem('session')));
@@ -26,12 +26,29 @@ function ItemCard(props) {
         "id":props.id,
         "ItemDiscription":props.ItemDiscription,
         "ItemId":props.ItemId,
-        "Quantity":1
+        "Quantity":1,
+        "AdminId":props.adminId
        }
      
       
 
-
+    const AddItem=()=>{
+       if(local_variable.length===0){
+         InAction(ob)
+       }
+       else{
+            if(local_variable[0].ShopName===props.ShopName){
+              InAction(ob);
+            }
+            else{
+              RemoveAll();
+              InAction(ob);
+            }
+       }
+    }
+    const RemoveItem=()=>{
+      DeAction(ob)
+    }
         
 // https://myhomedel.herokuapp.com/items/1663830338725--53096628.webp
   return (
@@ -53,7 +70,7 @@ function ItemCard(props) {
             
         </div>
         <div className='col-md-2 col-2 text-right mt-3'>
-         {props.Cart?<div className='btn btn-outline-success remove' onClick={()=>DeAction(ob)}>Remove</div>: <div className='btn btn-outline-success add' onClick={()=>InAction(ob)}>Add</div> } 
+         {props.Cart?<div className='btn btn-outline-success remove' onClick={RemoveItem}>Remove</div>: <div className='btn btn-outline-success add' onClick={AddItem}>Add</div> } 
         </div>
            
         
@@ -70,4 +87,4 @@ const mapStateToProps = state =>({
   local_variable :state.item
 })
 
-export default connect(mapStateToProps,{InAction,DeAction})(ItemCard);
+export default connect(mapStateToProps,{InAction,DeAction,RemoveAll})(ItemCard);

@@ -402,6 +402,7 @@ const handleChange = (e) => {
                                          ItemDiscription={item.ItemDiscription}
                                          ItemId={item.ItemId}  
                                          DiscountPrice={item.DiscountPrice}
+                                         adminId={AdminId}
                                          Cart={check(item.ItemId)}
                                          /> 
                          ))
@@ -431,11 +432,7 @@ const handleChange = (e) => {
            
                     <NavLink to="/Payment"
                 
-                        state={{
-                            AdminId:AdminId,
-                            User:User,
-                            ShopName:ShopName
-                        }}
+                        
                         >
                               <div style={{borderTop:"1px solid lightgreen",position:"fixed",bottom:"55px",left:"0",width:"100%",height:"auto",backgroundColor:"white",zIndex:"10"}} className="p-2">
                                 <div className='container-fluid m-0 p-0'>

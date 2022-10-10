@@ -66,7 +66,7 @@ function Payment(props) {
 
 
       const location = useLocation()
-      const {AdminId,ShopName} = location.state
+      //const {AdminId,ShopName} = location.state
 
        
 
@@ -93,12 +93,12 @@ function Payment(props) {
             "CustomerAddress":AddressData,
             "CurrentLocation":"16.66-81.464",
             "OrderStatus":"Pending",
-            "AdminId":AdminId,
+            "AdminId":local_variable[0].AdminId,
             "CustomerId": Data._id,
             "DeliveryManId":"",
             "OrderOtp":val,
             "OrderId":id,
-            "ShopName":ShopName,
+            "ShopName":local_variable[0].ShopName,
             "OrderTime":new Date().toLocaleString(),
             "CouponCode":CouponGot.length>0?CouponGot[0].CouponCode:""
            })
@@ -225,7 +225,7 @@ function Payment(props) {
 
     const CheckCoupon=()=>{ 
       console.log("hii")
-      fetch(Ip+'/CheckCouponCode?id='+Data._id+"&coupon="+coupon+"&shopid="+ShopName,{
+      fetch(Ip+'/CheckCouponCode?id='+Data._id+"&coupon="+coupon+"&shopid="+local_variable[0].ShopName,{
         headers:new Headers({
           Authorization:"Bearer " 
         })
@@ -262,7 +262,7 @@ const [Temp,setTemp]= useState(false);
 
 const charge = localStorage.getItem('deliverycharges')
 const [cashondelivery,setcashondelivery]=useState(false);
- 
+ console.log("items in cart = ",local_variable)
   return (
     <div>
         {!orderstatus?
