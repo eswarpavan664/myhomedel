@@ -4,7 +4,7 @@ import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
 import {useNavigate} from "react-router-dom";
 
-import Lodi from '../lotties/Starting Page (1).json'
+import Lodi from '../lotties/112469-fast-delivery (1).json'
  
 import logo from '../images/logo.jpeg'
 function Loading() {
@@ -13,7 +13,7 @@ function Loading() {
     useEffect(() => {
         const timer = setTimeout(() => {
           navigate('Login');
-        }, 9000);
+        }, 5000);
         return () => clearTimeout(timer);
       }, []);
 
@@ -27,7 +27,7 @@ function Loading() {
                     autoplay
                     loop
                     src={Lodi}
-                    style={{ height: '380px', width: '380px' }}
+                    style={{ height: '580px', width: '480px' }}
                 >
                    
                 </Player>

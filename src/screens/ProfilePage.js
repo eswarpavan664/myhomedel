@@ -269,7 +269,7 @@ let user =[]
      <> 
       <Nav/>
        
-      <div className=' bg-info' style={{padding:"70px 0 65px 0"}} >
+      <div   style={{padding:"70px 0 65px 0"}} >
       <div className='container-fluid bg-light pt-4' style={{borderTopLeftRadius:"25px",borderTopRightRadius:"25px"}}>
 
       
@@ -278,6 +278,7 @@ let user =[]
               <div className='col-12'>
                   <img src='https://cdn-icons-png.flaticon.com/512/428/428933.png' className='img-fluid' width={"100"} />
               </div>
+              
               <div className='col-12 mt-1'>
               {Data.length>0?<h4    >{Data[0].Name} </h4>:null} 
               </div>
@@ -289,6 +290,7 @@ let user =[]
               {Data.length>0?<p   className='text-secondary m-0'>{Data[0].PhoneNumber} </p>:null} 
                  
               </div>
+        
           </div>
 
 
@@ -365,9 +367,32 @@ let user =[]
                   </div>
               </div><hr />
       </div>
-
  
-       <NavLink to="/Privacy"   style={{textDecoration:'none'}}>
+     <div className='row mt-3 align-items-center pb-2'>
+              <div className='col-6'>
+                  <div className='row'>
+                      <div className='col-12 hover_names'>
+                          <p className='font-weight-bold m-0'>Share </p>
+                      </div>
+                      
+                  </div>
+              </div>
+              <div className='col-6 text-right'>
+                  <div className='col-12' >
+                  <a
+        href="https://wa.me/7993031882"
+        class="whatsapp_float"
+        target="_blank"
+        rel="noopener noreferrer"
+        
+      >
+        <i class="fa fa-whatsapp whatsapp-icon" style={{color:'green'}}></i>
+      </a>
+                  </div>
+              </div>
+          </div>
+
+       <NavLink to="/Privacy"   style={{textDecoration:'none',color:'black'}}>
        <div className='row mt-3 align-items-center'>
                   <div className='col-6'>
                       <div className='row'>

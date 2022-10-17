@@ -17,7 +17,7 @@ function Cat(props) {
           <div class=" text-center align-items-center border py-2"       onClick={()=>setTemp("Food")}>
 <NavLink 
                      to="/ShopType" 
-                     
+                     style={{textDecoration:'none',color:'black'}}
                      state={{
                          shoptype:"Restaurant"
                     }}
@@ -35,7 +35,7 @@ function Cat(props) {
           <div class=" align-items-center border py-2"  onClick={()=>setTemp("Grocery")}>
             <NavLink
                      to="/ShopType" 
-                     
+                     style={{textDecoration:'none',color:'black'}}
                      state={{
                          shoptype:"Grocery"
                     }}
@@ -54,7 +54,7 @@ function Cat(props) {
           <div class=" align-items-center border py-2"  onClick={()=>setTemp("Meat")}>
             <NavLink
                       to="/ShopType" 
-                     
+                      style={{textDecoration:'none',color:'black'}}
                      state={{
                          shoptype:"Meet Shop"
                     }}
@@ -74,7 +74,7 @@ function Cat(props) {
 <NavLink
                    
                    to="/ShopType" 
-                     
+                   style={{textDecoration:'none',color:'black'}}  
                      state={{
                          shoptype:"Vegetable Shop"
                     }}
@@ -91,7 +91,7 @@ function Cat(props) {
           <div class=" align-items-center border py-2"  onClick={()=>setTemp("Fresh")}>
          <NavLink
                       to="/ShopType" 
-                     
+                      style={{textDecoration:'none',color:'black'}}
                      state={{
                          shoptype:"Fresh"
                     }}

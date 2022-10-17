@@ -217,7 +217,7 @@ fetch(Ip+"/UserSignup",{
               
                
       </form>
-            <Button onClick={signup} className='col-md-2 col-6 offset-2 offset-md-5 login_button_ mt-3' style={{fontSize:17,backgroundColor:'green',color:'white',fontWeight:'bold',borderRadius:15}}   >Login</Button>
+            <button onClick={signup} className='col-md-2 col-8 offset-2 offset-md-5 login_button_ mt-5' style={{fontSize:17,color:'white',fontWeight:'bold',borderRadius:15}}   >Signup</button>
      
       </div>
       
@@ -248,7 +248,7 @@ fetch(Ip+"/UserSignup",{
       </form>
       <p className='text-center' onClick={()=>setForm(3)} style={{cursor:'pointer'}}>forget Password</p>
       <div className='row'>
-              <Button onClick={sendCred} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-3' style={{fontSize:17,backgroundColor:'green',color:'white',fontWeight:'bold',borderRadius:15}}  >Login</Button>
+              <button onClick={sendCred} className='col-md-2 col-6 offset-3 offset-md-5 login_button_ mt-3' style={{fontSize:17,color:'white',fontWeight:'bold',borderRadius:15}}  >Login</button>
             </div>
       </div>:null
       }
@@ -467,7 +467,7 @@ const fun=(e) => {
 </form>
  {ExpandForm===false?
                 
-                <button class="btn btn-success" style={{width:120}} onClick={Signinwithphone}>request OTP</button>
+                <button class="btn btn-success" style={{width:120}} onClick={Signinwithphone}>Request OTP</button>
             :
               <>
 

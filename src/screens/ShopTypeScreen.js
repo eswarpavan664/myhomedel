@@ -73,13 +73,14 @@ const [se,setse] =useState(0);
                     <NavLink to="/Restaurants"
                        state={{
                         
-                         ShopId: item.AdminId,
-                         ShopName:item.ShopName,
-                         Address:item.Address,
-                         ShopPhoto:item.ShopPhoto,
-                         PhoneNumber:item.PhoneNumber,
-                         AdminId:item.AdminId,
+                        ShopId: item.AdminId,
+                          ShopName:item.ShopName,
+                          Address:item.Address,
+                          ShopPhoto:item.ShopPhoto,
+                          PhoneNumber:item.PhoneNumber,
+                          AdminId:item.AdminId,
                           User:props.user,
+                          ShopType:item.ShopType,
                           Deliverycharges:item.Deliverycharges,
                           DeliveryTime:item.DeliveryTime
                          }}
