@@ -504,15 +504,15 @@ useEffect(()=>{
 },[Value])
 
 
-const incrementCount = () => {  
+const incrementCount = (e) => {  
   // Update state with incremented value  
   setValue(Value+1)
-  QuantityAdd(props.data,Value)
+  QuantityAdd(props.data,parseInt(props.data.Quantity)+1)
 };  
-const decrementCount = () => {  
+const decrementCount = (e) => {  
   // Update state with incremented value  
   setValue((Value) => Math.max(Value - 1, 0));  
-  QuantityAdd(props.data,Value)
+  QuantityAdd(props.data,parseInt(props.data.Quantity)-1)
 }; 
 
 
@@ -527,7 +527,10 @@ const decrementCount = () => {
     </div>
     <div className='col-4 col-md-3'>
             <label>Quantity</label><br />
-            <input
+
+             <div className='row md-12'>
+              <button className='md-6' onClick={incrementCount}>+</button>
+              <input
                 type='number'
                 step="1"
                 min='1'
@@ -535,6 +538,8 @@ const decrementCount = () => {
                 value={Value}
                 onChange= {(e) => QuantityUpdate(e)}
               />
+              <button onClick={decrementCount}>-</button>
+             </div>
       
     </div>
     <div className='col-md-3 col-12 mt-md-0  mt-2  text-right'>

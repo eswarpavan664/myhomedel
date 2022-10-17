@@ -32,7 +32,11 @@ import DeviceOrientation, { Orientation } from 'react-screen-orientation'
 import Recom from './../components/Recom';
 import Restorent from './Restorent';
 
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
+ 
+
+import Lodi from '../lotties/1786-profile.json'
 
 
 function MainPage(props) {
@@ -171,8 +175,14 @@ if(userid){
                  {Data.length>0?<p className='m-0 font-weight-bold font-size-large'>{Data[0].Name}</p>:null}
               </div>
                <NavLink to="/Profile"><div>
-                <img src='https://cdn-icons-png.flaticon.com/512/236/236831.png' className='img-fluid' width={"45"}/>
-              </div></NavLink>
+               <Player
+                    autoplay
+                    loop
+                    src={Lodi}
+                    style={{ height: '80px', width: '80px' }}
+                >
+                   
+                </Player>    </div></NavLink>
             </div>
             <div className='row pb-4 m-0'>
               <div className='col-12 text-center m-0'>
