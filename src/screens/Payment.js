@@ -511,8 +511,11 @@ const incrementCount = (e) => {
 };  
 const decrementCount = (e) => {  
   // Update state with incremented value  
-  setValue((Value) => Math.max(Value - 1, 0));  
+  if(parseInt(props.data.Quantity)>1)
+  {
+     setValue((Value) => Math.max(Value - 1, 0));  
   QuantityAdd(props.data,parseInt(props.data.Quantity)-1)
+  }
 }; 
 
 
@@ -528,17 +531,11 @@ const decrementCount = (e) => {
     <div className='col-4 col-md-3'>
             <label>Quantity</label><br />
 
-             <div className='row md-12'>
-              <button className='md-6' onClick={incrementCount}>+</button>
-              <input
-                type='number'
-                step="1"
-                min='1'
-                max='5'
-                value={Value}
-                onChange= {(e) => QuantityUpdate(e)}
-              />
-              <button onClick={decrementCount}>-</button>
+             <div className='row col-12'>
+              <p  className='col-4 text-center' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={incrementCount}>+</p>
+              <p className='col-4'  >{props.data.Quantity}</p>
+              <p className='col-4 text-center' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={decrementCount}>-</p>
+             
              </div>
       
     </div>

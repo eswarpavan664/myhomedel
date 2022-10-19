@@ -170,7 +170,7 @@ useEffect(()=>{
           ),
         },
         {
-          key: '3',
+          key: '4',
           label: (
             <a  onClick={()=>setitemname("Books")}>
                Books
@@ -273,9 +273,9 @@ function check(name) {
     } 
   }
  
-console.log("Item == ",local_variable);
+//console.log("Item == ",local_variable);
 
-
+console.log(ShopType)
 
 //STATE
 const [isRadio, setIsRadio] = useState(5);
@@ -359,7 +359,8 @@ const handleChange = (e) => {
                            {/* <input className='form-group' value={itemname} onChange={(e)=>setitemname(e.target.value)} placeholder='Search' style={{border:"none",boxShadow:"0 0 10px 0 lightgray"}} />*/}
                         </div>
                     </div>
-                    <div className='col'>
+                   {ShopType==="Restaurant"?
+                   <div className='col'>
                     <div class="form-check-inline">
                         <label class="form-check-label">
                           <input type="radio" class="form-check-input" name="optradio" value={VegOrNonveg} onChange={(e)=>setVegOrNonveg("All")} />All
@@ -375,7 +376,9 @@ const handleChange = (e) => {
                           <input type="radio" class="form-check-input" name="optradio" value={VegOrNonveg} onChange={(e)=>setVegOrNonveg("Non Veg")}/>Non-Veg
                         </label>
                       </div>
-                    </div>
+                    </div>:null
+
+                   }
           
                     <h3>Recommended</h3>
                      {Items.length===0?
