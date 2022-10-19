@@ -37,7 +37,7 @@ function Restorent(props) {
   const  GetData = async ()=>{
    //  const token = await  localStorage.getItem("token")
     // console.log("Dashboard = "+token)
-   fetch(Ip+'/GetItems?id='+AdminId+"&itemname="+itemname,{
+   fetch(Ip+'/GetItems?id='+AdminId+"&itemname="+itemname+"&veg="+VegOrNonveg,{
    headers:new Headers({
      Authorization:"Bearer " 
    })
@@ -81,7 +81,7 @@ useEffect(()=>{
   GetData();
  //console.log(check("Adminchandrika@gmail.comFired Rice"))
  
-},[itemname])
+},[itemname,VegOrNonveg])
 
 
 useEffect(()=>{
@@ -281,6 +281,7 @@ console.log("Item == ",local_variable);
 const [isRadio, setIsRadio] = useState(5);
 
 // HANDLE THE ONCHANGE HERE
+ 
 
 const handleChange = (e) => {
   // string passed in
@@ -289,6 +290,9 @@ const handleChange = (e) => {
   // add + to the event to make the value a number
   setIsRadio(+e.currentTarget.value);
 };
+
+
+
 
   return (
     <div>
@@ -358,17 +362,17 @@ const handleChange = (e) => {
                     <div className='col'>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="optradio" />All
+                          <input type="radio" class="form-check-input" name="optradio" value={VegOrNonveg} onChange={(e)=>setVegOrNonveg("All")} />All
                         </label>
                       </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="optradio" />Veg
+                          <input type="radio" class="form-check-input" name="optradio"  value={VegOrNonveg} onChange={(e)=>setVegOrNonveg("Veg")}/>Veg
                         </label>
                       </div>
                       <div class="form-check-inline">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="optradio" />Non-Veg
+                          <input type="radio" class="form-check-input" name="optradio" value={VegOrNonveg} onChange={(e)=>setVegOrNonveg("Non Veg")}/>Non-Veg
                         </label>
                       </div>
                     </div>
