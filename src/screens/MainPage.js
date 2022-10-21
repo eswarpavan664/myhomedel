@@ -34,7 +34,7 @@ import Restorent from './Restorent';
 
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
 
- 
+import OneSignal from 'react-onesignal';
 
 import Lodi from '../lotties/1786-profile.json'
 
@@ -42,6 +42,9 @@ import Lodi from '../lotties/1786-profile.json'
 function MainPage(props) {
   const {local_variable,RemoveAll} =props;
 
+
+
+  
   //let user = authentication.currentUser;
  const [Place,setPlace] = useState("All");
  
@@ -66,8 +69,14 @@ const  GetData = async ()=>{
  }
  )
 }
+
 useEffect(()=>{
- 
+  OneSignal.init({
+    appId: "64434c51-c9b5-4822-bd12-54553da923c5"
+  });
+})
+useEffect(()=>{
+   
   
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))

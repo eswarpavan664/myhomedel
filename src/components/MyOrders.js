@@ -110,7 +110,7 @@ function Cards(props){
 
 
 
-  const [AdminData,setAdminData] =useState();
+  const [AdminData,setAdminData] =useState([]);
   const GetRestorent=()=>{
 
     fetch(Ip+'/GetAdminForRes?id='+props.item.AdminId,{
@@ -160,7 +160,7 @@ console.log("sdhsad = ",props.item.OrderStatus)
                                 OrderTime:props.item.OrderTime,
                                 OrderId:props.item.OrderId,
                                 OrderTime:props.item.OrderTime,
-                                Photo:AdminData?AdminData[0].ShopPhoto:res
+                                Photo:AdminData.length>0?AdminData[0].ShopPhoto:res
 
 
 
@@ -171,7 +171,7 @@ console.log("sdhsad = ",props.item.OrderStatus)
 
 
                                 >
-                        {AdminData?<img src={AdminData[0].ShopPhoto} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
+                        {AdminData?<img src={AdminData.length>0?AdminData[0].ShopPhoto:res} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
                     </NavLink>
                     </div>
 
@@ -188,7 +188,7 @@ console.log("sdhsad = ",props.item.OrderStatus)
                             OrderTime:props.item.OrderTime,
                             OrderId:props.item.OrderId,
                             OrderTime:props.item.OrderTime,
-                            Photo:AdminData?AdminData[0].ShopPhoto:res
+                            Photo:AdminData.length>0?AdminData[0].ShopPhoto:res
 
 
 
