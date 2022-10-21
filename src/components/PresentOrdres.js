@@ -207,7 +207,7 @@ function Cards(props){
 
 
                                 >
-                       {AdminData.length>0?<img src={AdminData[0].ShopPhoto} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
+                       {AdminData.length>0?<img src={AdminData.length>0?AdminData[0].ShopPhoto:res} className='img-fluid rounded'  />: <img src={res} className='img-fluid rounded'  />}
                     </NavLink>
                     </div>
 
@@ -239,7 +239,7 @@ function Cards(props){
                     
                         <p className='m-0 font-weight-bold' style={{fontSize:"14px"}}>{props.item.ShopName}</p>
                         <p className='m-0 font-weight-lighter' style={{fontSize:"10px"}}>Landmark, City</p>
-                        <p className='m-0 font-weight-bold text-success' style={{fontSize:"10px"}}>Opens tomorrow at 10:5Am</p>
+                       {/* <p className='m-0 font-weight-bold text-success' style={{fontSize:"10px"}}>Opens tomorrow at 10:5Am</p>*/}
                     </div>
                     </NavLink>
                     <div className='col-3'>
@@ -263,7 +263,7 @@ function Cards(props){
 
 
                                   }}> 
-                        <p className='m-0 text-center rounded' style={{color:"gray",background:"lightgray",fontSize:"12px",cursor:'pointer'}} >Track</p></NavLink>
+                        <p className='m-0 text-center rounded' style={{color:"black",background:"#53E3B0FE",fontSize:"12px",cursor:'pointer'}} >Track</p></NavLink>
                         <p className='m-0 text-center rounded mt-2' style={{color:"white",background:"coral",fontSize:"12px",cursor:'pointer'}} onClick={CancelOrder}>Cancel</p>
                     </div>
                       <hr style={{width:"100%"}} />

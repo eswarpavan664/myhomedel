@@ -9,8 +9,8 @@ console.log(props.step)
       <Steps direction="vertical" current={props.step} > 
   
       <Step title="Order Placed" description="Pending" />
-      <Step title="Accepted By Restaurant" description="waiting Delivery boy" />
-      <Step title="Accepted By Delivery Boy " description="waiting Delivery boy" />
+      <Step title="Accepted By Restaurant" description=" " />
+      <Step title="Accepted By Delivery Boy " description=""  />
       <Step title="Delivered" description="Done" />
        
     </Steps>

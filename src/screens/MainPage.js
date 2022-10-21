@@ -180,7 +180,7 @@ if(userid){
 <section className='d-lg-none d-block mb-3'  style={{position:"sticky",top:"0",zIndex:"30",width:"100%",height:"auto",borderBottomLeftRadius:"15px",borderBottomRightRadius:"15px",backgroundColor:"white"}}>
             <div className='d-flex justify-content-between align-items-center mx-3 mb-3 pt-3'>
               <div>
-                <p className='m-0'>Delivery to,</p>
+                <p className='m-0' style={{fontFamily:'Lora  serif'}}>Delivery to,</p>
                  {Data.length>0?<p className='m-0 font-weight-bold font-size-large'>{Data[0].Name}</p>:null}
               </div>
                <NavLink to="/Profile"><div>

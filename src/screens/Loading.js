@@ -27,7 +27,7 @@ function Loading() {
                     autoplay
                     loop
                     src={Lodi}
-                    style={{ height: '580px', width: '480px' }}
+                    style={{ height: '880px', width: '780px' }}
                 >
                    
                 </Player>
