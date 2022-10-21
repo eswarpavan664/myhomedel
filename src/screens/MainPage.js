@@ -80,7 +80,7 @@ useEffect(()=>{
   
 GetData();
 //console.log(check("Adminchandrika@gmail.comFired Rice"))
-console.log("ca = ",local_variable)
+//console.log("ca = ",local_variable)
 },[Place])
  
 
@@ -89,7 +89,7 @@ useEffect(()=>{
   
   GetData();
   //console.log(check("Adminchandrika@gmail.comFired Rice"))
-  console.log("ca = ",local_variable)
+ // console.log("ca = ",local_variable)
 },[])
    
   
@@ -202,15 +202,18 @@ if(userid){
  
  <Baners/>
  <div className='container mt-4'>
-     <h1>Category</h1>
+     <h2>Category</h2>
      <Cat/>
      </div>
-   {/* <OrderByItem/>*/}
+    <div className='container mt-4'>
+    <h2>Top Items</h2>
+    <OrderByItem/> 
+    </div>
     
     
       <div className='col mt-4'>
       <h2>Must Try </h2>
-      <Recom/>
+      <Recom Place={Place}/>
       </div>
   <div className='col'>
   <h2 className='mt-5'>Restaurants Near Palakolu</h2>

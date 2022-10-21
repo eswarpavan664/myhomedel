@@ -294,12 +294,9 @@ const [cashondelivery,setcashondelivery]=useState(false);
         <p>Item Amount: </p>
         <p>₹{total}</p>
       </div>
+     
       <div className='d-flex justify-content-between'>
-        <p>Tax: </p>
-        <p>₹{local_variable?tax:0}</p>
-      </div>
-      <div className='d-flex justify-content-between'>
-        <p>Delivery changes: </p>
+        <p>Delivery charges: </p>
         <p>₹{charge?charge:0}</p>
       </div>
       <div className='d-flex justify-content-between'>

@@ -1,6 +1,6 @@
-export const Ip = "https://myhomedel.herokuapp.com";
+export const Ip = "http://192.168.150.237:5000";
 
 //https://myhomedel.herokuapp.com
-//http://192.168.28.237:5000
+//http://192.168.150.237:5000
 
  

@@ -16,33 +16,33 @@ function OrderByItem() {
 
 
                 <div className='col-3 col-md-3 text-center'>
-                    <NavLink to="/DisplayByItem">
+                    <NavLink to="/DisplayByItem" style={{textDecoration:'none',color:'black'}}>
                     <img className='img-fluid' style={{borderRadius:"50%"}} src={biryaniimg} width={"150"} />
                     <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Biryani</p>
                     </NavLink>
                 </div>
                 <div className='col-3 col-md-2 text-center'>
-                <NavLink to="/DisplayByItem">
+                <NavLink to="/DisplayByItem" style={{textDecoration:'none',color:'black'}}>
                     <img className='img-fluid' style={{borderRadius:"50%"}} src={idle} width={"150"} />
-                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Shake</p>
+                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Idly</p>
                     </NavLink>
                 </div>
                 <div className='col-3 col-md-2 text-center'>
-                <NavLink to="/DisplayByItem">
+                <NavLink to="/DisplayByItem" style={{textDecoration:'none',color:'black'}}>
                     <img className='img-fluid' style={{borderRadius:"50%"}} src='https://b.zmtcdn.com/data/dish_images/8187d3223ac2cc42cc24f723c92877511634805403.png' width={"150"} />
                     <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Shake</p>
                     </NavLink>
                 </div>
                 <div className='col-3 col-md-2 text-center'>
-                <NavLink to="/DisplayByItem">
+                <NavLink to="/DisplayByItem" style={{textDecoration:'none',color:'black'}}>
                     <img className='img-fluid' style={{borderRadius:"50%"}} src={fridriceimmg} width={"150"} />
-                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Shake</p>
+                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Fried Rice</p>
                     </NavLink>
                 </div>
                 <div className='col-3 col-md-2 text-center'>
-                <NavLink to="/DisplayByItem">
+                <NavLink to="/DisplayByItem" style={{textDecoration:'none',color:'black'}}>
                     <img className='img-fluid' style={{borderRadius:"50%"}} src={chicken} width={"150"} />
-                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Shake</p>
+                    <p style={{fontSize:16,fontWeight:'bold',textDecoration:'none',color:'black'}}>Chicken</p>
                     </NavLink>
                 </div>
                  
