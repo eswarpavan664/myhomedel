@@ -215,12 +215,20 @@ if(userid){
   <div className='col'>
   <h2 className='mt-5'>Restaurants Near Palakolu</h2>
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
+
+
+  
   </div>
      
     
     
-     
+  <p className='text-center ' style={{paddingBottom:"80px"}}>
+    ©️ Copyright 2023 Trigovex Technologies Pvt. Ltd. All Rights Reserved
+    </p>
     <Comp_for_home/>
+
+
+    
 </div>
   )
 }

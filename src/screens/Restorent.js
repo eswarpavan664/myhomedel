@@ -240,7 +240,7 @@ useEffect(()=>{
           ),
         },
         {
-          key: '3',
+          key: '4',
           label: (
             <a  onClick={()=>setitemname("Crabs")}>
                Crabs
@@ -253,6 +253,50 @@ useEffect(()=>{
     />
   );
 
+
+
+  
+  const FreshMenu = (
+    <Menu
+      items={[
+        {
+          key: '1',
+          label: (
+            <a  onClick={()=>setitemname("Milk")}>
+               Milk
+            </a>
+          ),
+        },
+        {
+          key: '2',
+          label: (
+            <a  onClick={()=>setitemname("Tea")}>
+               Tea
+            </a>
+          ),
+        },
+        {
+          key: '3',
+          label: (
+            <a  onClick={()=>setitemname("Coffee")}>
+               Coffee
+            </a>
+            
+          ),
+        },
+        {
+          key: '4',
+          label: (
+            <a  onClick={()=>setitemname("Ice Cream")}>
+               Ice Creams
+            </a>
+            
+          ),
+        },
+ 
+      ]}
+    />
+  );
 
 
  localStorage.setItem('deliverycharges',Deliverycharges)
@@ -464,7 +508,7 @@ const handleChange = (e) => {
            }
            <div className='text-center' style={{position:"fixed",bottom:local_variable.length>0?'120px':'75px',width:"100%"}}>
 
-           <Dropdown overlay={ShopType==="Restaurant"?menu:ShopType==="Meet Shop"?MeatMenu:ShopType==="Grocery"?GroceryMenu:ShopType==="Vegetable Shop"?VeggiesMenu:null} placement="top" arrow={{ pointAtCenter: true }}>
+           <Dropdown overlay={ShopType==="Restaurant"?menu:ShopType==="Meet Shop"?MeatMenu:ShopType==="Grocery"?GroceryMenu:ShopType==="Vegetable Shop"?VeggiesMenu:ShopType==="Fresh"?FreshMenu:null} placement="top" arrow={{ pointAtCenter: true }}>
                 <Button style={{backgroundColor:'green',borderRadius:8,color:'white',fontSize:15}}>Menu</Button>
           </Dropdown>
           </div>

@@ -440,6 +440,10 @@ let user =[]
       </div>
    
   </div>
+      
+  <p className='text-center ' style={{paddingBottom:"80px"}}>
+    ©️ Copyright 2023 Trigovex Technologies Pvt. Ltd. All Rights Reserved
+    </p>
   <Comp_for_home/>
   </>
     )
