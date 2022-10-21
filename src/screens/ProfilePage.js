@@ -11,7 +11,10 @@ import { InAction,DeAction } from './redux/actions';
 import '../css/Profilestyle.css'
 import {useLocation} from 'react-router-dom'
 import { Ip } from './../constants/Ip';
- 
+import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import cart from '../lotties/lf30_editor_3rxawcps.json';
+import his from '../lotties/lf30_editor_ob0pijbv.json'
+import pro from '../lotties/1606-profile.json'
 import Orders from './../components/Orders';
 import Restorent from './Restorent';
 import { async } from '@firebase/util';
@@ -276,7 +279,14 @@ let user =[]
       <div className='container '>
           <div className='row text-center'>
               <div className='col-12'>
-                  <img src='https://cdn-icons-png.flaticon.com/512/428/428933.png' className='img-fluid' width={"100"} />
+              <Player
+                    autoplay
+                    loop
+                    src={pro}
+                    style={{ height: '200px', width: '150px' }}
+                >
+                   
+                </Player>
               </div>
               
               <div className='col-12 mt-1'>
@@ -372,7 +382,7 @@ let user =[]
               <div className='col-6'>
                   <div className='row'>
                       <div className='col-12 hover_names'>
-                          <p className='font-weight-bold m-0'>Share </p>
+                          <p className='font-weight-bold m-0'>Chat us on Whatsapp  </p>
                       </div>
                       
                   </div>
@@ -380,7 +390,7 @@ let user =[]
               <div className='col-6 text-right'>
                   <div className='col-12' >
                   <a
-        href="https://wa.me/7993031882"
+        href="https://wa.me/7013325735"
         class="whatsapp_float"
         target="_blank"
         rel="noopener noreferrer"
