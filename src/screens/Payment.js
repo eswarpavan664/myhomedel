@@ -521,17 +521,17 @@ const decrementCount = (e) => {
     <div className='col-3 col-md-2'>
       <img className='img-fluid' src={props.data.ProductImage?props.data.ProductImage:'https://www.holidify.com/images/cmsuploads/compressed/Mutton_Biryani_with_egg_and_salad_20170829120133.JPG'} style={{borderRadius:"8px"}} />
     </div>
-    <div className='col-5 col-md-4'>
+    <div className='col-4 col-md-4'>
       <h5>{props.data.ItemName}</h5>
       <p className='d-none d-md-block'>{props.data.ItemDiscription}</p>
     </div>
-    <div className='col-4 col-md-3'>
+    <div className='col-5 col-md-3'>
             <label>Quantity</label><br />
 
              <div className='row col-12'>
-              <p  className='col-4 text-center' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={incrementCount}>+</p>
-              <p className='col-4'  >{props.data.Quantity}</p>
-              <p className='col-4 text-center' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={decrementCount}>-</p>
+              <p  className='col-4 text-center px-0' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={incrementCount}>+</p>
+              <p className='col-4 px-0 text-center'  >{props.data.Quantity}</p>
+              <p className='col-4 text-center px-0  ' style={{backgroundColor:'green',color:'white',cursor:'pointer',fontSize:15,fontWeight:'bold',borderRadius:5}} onClick={decrementCount}>-</p>
              
              </div>
       
