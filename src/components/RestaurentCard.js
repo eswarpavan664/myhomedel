@@ -105,6 +105,7 @@ const [se,setse] =useState(0);
                  {item.ShopType==="Medical"?<p className='font-weight-light m-0'>All Medical Tablets</p>:null}
                  {item.ShopType==="Vegetable Shop"?<p className='font-weight-light m-0'>All Vegetables</p>:null}
                  {item.ShopType==="Grocery"?<p className='font-weight-light m-0'>Oils,Soaps,and etc</p>:null}
+                 {item.ShopType==="Fresh"?<p className='font-weight-light m-0'>Milk,Eggs,Ghee,and etc</p>:null}
            
                             <div className='row text-center text-success'>
                               <div className='col-4'>
