@@ -20,7 +20,7 @@ import { provider } from './../firebase';
 import { Button } from 'antd';
  
  
-
+import {Helmet} from "react-helmet";
 
 
 
@@ -160,6 +160,13 @@ fetch(Ip+"/UserSignup",{
  
  
   return (
+    <>
+       <Helmet>
+              <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+              <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+              
+      </Helmet>
+
     <div className='login_page_back_'>
         <div className='login_header_ row m-0'>
             <div className='text-center col-12'>
@@ -262,7 +269,7 @@ fetch(Ip+"/UserSignup",{
         </div>
          
     </div>
-   
+    </>
  
   );
 
