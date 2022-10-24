@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React,{useState,useEffect} from 'react'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
+import closedlogo from '../lotties/96375-dineout-temp-closed.json'
 import {
  
  
@@ -78,7 +78,7 @@ const [se,setse] =useState(0);
                 {Restaurents.map((item)=>(
                    <>
                     {item.Role==="Admin"?<div className='col-md-4 mb-4'>
-                    <NavLink to="/Restaurants"
+                    <NavLink to={item.ShopStatus==="true"?"/Restaurants":""}
                        state={{
                         
                           ShopId: item.AdminId,
@@ -96,8 +96,22 @@ const [se,setse] =useState(0);
                          style={{textDecoration:'none'}}
                     >
                          
-                        <div class="card sec_one_card">
-                          <img class="card-img-top img-fluid " src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
+                        <div class="card sec_one_card"  >
+                          
+                          
+                           {item.ShopStatus==="true"?
+                           <img class="card-img-top img-fluid " src={item.ShopPhoto?item.ShopPhoto:"https://d4t7t8y8xqo0t.cloudfront.net/resized/750X436/eazytrendz%2F2975%2Ftrend20201030124515.jpg"} style={{borderTopLeftRadius:"15px",borderTopRightRadius:"15px"}} alt={"Card image cap"} width="150" />
+                          :
+                          <Player
+                                    autoplay
+                                    loop
+                                    src={closedlogo}
+                                    style={{ height: '205px', width: '205px' }}
+                                    
+                                >
+                                </Player>
+
+                           }
                           <div class="card-body">
                             <h5 style={{textDecoration:'none'}} class="card-title text-success text-decoration-none">{item.ShopName}</h5>
                             {item.ShopType==="Restaurant"?<p className='font-weight-light m-0'>Biryani, Fast Food, Pizza,Curry,Chicken</p>:null}

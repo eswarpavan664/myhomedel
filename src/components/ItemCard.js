@@ -87,7 +87,20 @@ function ItemCard(props) {
             
         </div>
         <div className='col-md-2 col-2 text-right mt-3'>
+             
+       
+    
+         {props.ItemStatus==="true"?
+         <>
          {props.Cart?<div className='btn btn-outline-success remove' onClick={RemoveItem}>Remove</div>: <div className='btn btn-outline-success add' onClick={AddItem}>Add</div> } 
+      
+         </>: 
+
+         <>
+         {props.Cart?<div className='btn btn-outline-success remove' onClick={()=>alert("Item Not available")}>Remove</div>: <div className='btn btn-outline-success add' onClick={()=>alert("Item Not available")}>Add</div> } 
+      
+         </>
+         }
         </div>
            
         
