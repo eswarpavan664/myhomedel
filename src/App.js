@@ -27,6 +27,7 @@ import MapScreen from './MapScreen';
 import OrderStatusDetails from './screens/OrderStatusDetails';
 import Privacy_PolicyScreen from './screens/Privacy_PolicyScreen';
 import Mainscreen from './screens/Login';
+import MustTryRestorents from './screens/MustTryRestorents';
 
 function App() {
  
@@ -51,6 +52,7 @@ function App() {
           <Route path="/Tracking" element={<MapScreen />} />
           <Route path="/OrderStatusDetails" element={<OrderStatusDetails />} />
           <Route path="/Privacy" element={<Privacy_PolicyScreen />} />
+          <Route path="/MustTryPage" element={<MustTryRestorents />} />
     </Routes>
     
   </BrowserRouter>

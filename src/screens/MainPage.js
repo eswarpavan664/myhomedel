@@ -69,12 +69,12 @@ const  GetData = async ()=>{
  }
  )
 }
-
+/*
 useEffect(()=>{
   OneSignal.init({
     appId: "64434c51-c9b5-4822-bd12-54553da923c5"
   });
-})
+})*/
 useEffect(()=>{
    
   
