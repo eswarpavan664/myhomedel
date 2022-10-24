@@ -85,6 +85,12 @@ useEffect(()=>{
 
 
 useEffect(()=>{
+  setInterval(() => {
+    GetData();
+      }, 5000)
+ 
+})
+useEffect(()=>{
  
     GetData();
    //console.log(check("Adminchandrika@gmail.comFired Rice"))
