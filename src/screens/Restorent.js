@@ -454,6 +454,7 @@ const handleChange = (e) => {
                                          ItemId={item.ItemId}  
                                          DiscountPrice={item.DiscountPrice}
                                          adminId={AdminId}
+                                         ItemStatus={item.ItemStatus}
                                          Cart={check(item.ItemId)}
                                          /> 
                          ))
