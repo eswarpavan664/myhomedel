@@ -51,6 +51,8 @@ function Payment(props) {
 
 
 
+ 
+
 
 
 
@@ -194,9 +196,9 @@ function Payment(props) {
       GetAddress()
       setTotal(sum);
       console.log(Data)
-    
+      GetCharges();
 
-      },[local_variable])
+      },[local_variable,AddressData])
 
       useEffect(()=>{
         GetAddress()
@@ -263,6 +265,38 @@ const [Temp,setTemp]= useState(false);
 const charge = localStorage.getItem('deliverycharges')
 const [cashondelivery,setcashondelivery]=useState(false);
  console.log("items in cart = ",local_variable)
+
+
+const [ExtraCharges,setExtraCharges]=useState(0);
+ 
+ const GetCharges=()=>{
+  //GetAreaCharges
+  
+   
+  if(AddressData){
+    fetch(Ip+'/GetAreaCharges?id='+AddressData.split("_")[0],{
+      headers:new Headers({
+        Authorization:"Bearer " 
+      })
+      }).then(res=>res.json())
+      .then(data=>{ 
+      
+       
+       
+       console.log("dataaaa = ",data);
+        if(data.Status==="No"){
+          setExtraCharges(0)
+        }
+        else{
+           setExtraCharges(data[0].Price);
+        }
+         
+      }
+      )
+  }
+   }
+   
+
   return (
     <div>
         {!orderstatus?
@@ -300,9 +334,14 @@ const [cashondelivery,setcashondelivery]=useState(false);
         <p>₹{charge?charge:0}</p>
       </div>
       <div className='d-flex justify-content-between'>
-        <p>Total Amount: </p>
-        <p className='text-danger'>₹{sum+tax+parseInt(charge)}</p>
+        <p>Extra Delivery Charges: </p>
+        <p className='text-danger'>₹{ExtraCharges}</p>
       </div>
+      <div className='d-flex justify-content-between'>
+        <p>Total Amount: </p>
+        <p className='text-danger'>₹{sum+tax+parseInt(charge)+parseInt(ExtraCharges)}</p>
+      </div>
+      
        </div>
 
     <hr />

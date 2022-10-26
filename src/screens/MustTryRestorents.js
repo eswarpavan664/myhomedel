@@ -292,7 +292,7 @@ useEffect(()=>{
   );
 
 
- localStorage.setItem('deliverycharges',Data.Deliverycharges)
+ localStorage.setItem('deliverycharges',AdminData?AdminData.Deliverycharges:0)
      
 const [done,setdone] =useState(false);
   //console.log(local_variable)
@@ -429,12 +429,12 @@ function check(name) {
                          
                          
                             <ItemCard   
-                                     ItemName={item.ItemName}
-                                      ItemPrice={item.ItemPrice} 
-                                       ProductImage={item.ProductImage}
-                                        ShopId={item.ShopId} 
-                                        ShopName={item.ShopName} 
-                                        id={item._id}
+                                         ItemName={item.ItemName}
+                                         ItemPrice={item.ItemPrice} 
+                                         ProductImage={item.ProductImage}
+                                         ShopId={item.ShopId} 
+                                         ShopName={item.ShopName} 
+                                         id={item._id}
                                          ItemDiscription={item.ItemDiscription}
                                          ItemId={item.ItemId}  
                                          DiscountPrice={item.DiscountPrice}
@@ -446,7 +446,7 @@ function check(name) {
 
                          }
                     </div>
-:null
+                    :null
 
                         }
                       </>
