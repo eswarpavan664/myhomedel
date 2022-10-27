@@ -84,12 +84,7 @@ useEffect(()=>{
 },[itemname,VegOrNonveg])
 
 
-useEffect(()=>{
-  setInterval(() => {
-    GetData();
-      }, 5000)
  
-})
 useEffect(()=>{
  
     GetData();
