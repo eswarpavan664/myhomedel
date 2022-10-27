@@ -76,7 +76,7 @@ const sendCred = async (em)=>{
  
   const Email ='"'+em+'"';
 fetch(Ip+"/UserSigin",{
-  mode: 'no-cors',   
+   
   method:"POST",
   headers: {
    'Content-Type': 'application/json'
@@ -119,7 +119,7 @@ const signup = async (em)=>{
  
   
 fetch(Ip+"/UserSignup",{
-  mode: 'no-cors',   
+  
   method:"POST",
   headers: {
    'Content-Type': 'application/json'
