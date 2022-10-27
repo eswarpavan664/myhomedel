@@ -216,7 +216,7 @@ if(userid){
       <Recom Place={Place}/>
       </div>
   <div className='col'>
-  <h2 className='mt-5'>Restaurants Near Palakolu</h2>
+  <h2 className='mt-5'>Restaurants Near Palakollu</h2>
   <RestaurentCard User={Data} Place={Place} user={Data} /> 
 
 

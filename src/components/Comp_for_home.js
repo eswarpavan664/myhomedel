@@ -18,7 +18,7 @@ function Comp_for_home() {
     <div className='d-block d-md-none  rounded' style={{position:"fixed",bottom:0,width:"100%",backgroundColor:"white",borderTop:"1px solid black",zIndex:"2"}} >
         <div className=' container-fluid m-0'>
             <div className='row text-center align-items-center'>
-                <div className='col-3 m-0 p-2' style={{backgroundColor:window.location.pathname==="/MainPage"?"#E6FFE6":'white',borderTop:window.location.pathname==="/MainPage"?"3px solid #65A765":'white'}}
+                <div className='col-3 p-0 m-0 py-2' style={{backgroundColor:window.location.pathname==="/MainPage"?"#E6FFE6":'white',borderTop:window.location.pathname==="/MainPage"?"3px solid #65A765":'white'}}
                 onClick={()=>setSelected("Home")}
                 >
                     <NavLink to="/MainPage" style={{textDecoration:'none',color:'black'}}> 
@@ -26,7 +26,8 @@ function Comp_for_home() {
                     autoplay
                     loop
                     src={home}
-                    style={{ height: '35px', width: '90px' }}
+                    className='m-0 p-0'
+                    style={{ height: '35px', width: '90px'  }}
                 >
                    
                 </Player>
@@ -35,7 +36,7 @@ function Comp_for_home() {
                     </NavLink>
                 </div>
 
-                <div className='col-3 m-0 p-2'
+                <div className='col-3 p-0 m-0 py-2'
                  style={{backgroundColor:window.location.pathname==="/PresentOrders" || window.location.pathname==="/OrderStatusDetails" || window.location.pathname==="/PresentOrders"?"#E6FFE6":'white',borderTop:window.location.pathname==="/PresentOrders" || window.location.pathname==="/OrderStatusDetails" || window.location.pathname==="/PresentOrders"?"3px solid #65A765":'white'}}
                 onClick={()=>setSelected("Orders")}
                 >
@@ -53,7 +54,7 @@ function Comp_for_home() {
                 </div>
 
 
-                <div className='col-3 m-0 p-2'
+                <div className='col-3 p-0 m-0 py-2'
                 style={{backgroundColor:window.location.pathname==="/MyOrders" ?"#E6FFE6":'white' ,borderTop:window.location.pathname==="/MyOrders"?"3px solid #65A765":'white'}}
                 onClick={()=>setSelected("History")}
                 >
@@ -72,7 +73,7 @@ function Comp_for_home() {
 
 
 
-                <div className='col-3 m-0 p-2'
+                <div className='col-3 p-0 m-0 py-2'
                 
                 style={{backgroundColor:window.location.pathname==="/Profile"?"#E6FFE6":'white',borderTop:window.location.pathname==="/Profile"?"3px solid #65A765":'white'}}
                 onClick={()=>setSelected("Profile")}

@@ -25,14 +25,15 @@ function Loading() {
                       
       </Helmet>
     
-               <div style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center'}}>
+               <div  style={{height:'100vh',display:'flex',justifyContent:'center',alignItems:'center' }}>
 
 
                <Player
                     autoplay
                     loop
                     src={Lodi}
-                    style={{ height: '500px', width: '350px' }}
+                    style={{ height: '500px', width: '350px'  }}
+                    className='m-0 p-0'
                 >
                    
                 </Player>

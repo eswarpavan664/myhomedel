@@ -314,7 +314,7 @@ const  PhoneLogin=(props)=>{
  
    
   fetch(Ip+"/UserSiginWithOTP",{
-    mode: 'no-cors',   
+      
     method:"POST",
     headers: {
      'Content-Type': 'application/json'
