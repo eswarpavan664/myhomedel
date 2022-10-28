@@ -93,9 +93,12 @@ fetch(Ip+"/UserSigin",{
 .then(async (data)=>{
        try {
         //localStorage.setItem('user', '+91'+Number);
-        if(data.Status==="Wrong"){
+        if(data.Status==="PASS ERROR"){
           alert("Invalid password/mobile no")
 
+        }
+        else if(data.Status==="Wrong"){
+            alert("All Fields Are Required...");
         }
         else if(data.Status==="NO"){
           alert("First Register")
@@ -448,6 +451,9 @@ const fun=(e) => {
   alert("page Will be Refreshed still you don't get OTP report to our Team")
   window.location.reload(false);
  }
+
+
+
  
     return (
       <div className='bg-light p-4 px-5  mb-md-0 mb-5 ' style={{display:"inline-block",minWidth:"60%",maxWidth:"100%",borderRadius:"15px",background:"white",boxShadow:'0 0 10px lightgray'}}>
