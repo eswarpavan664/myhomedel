@@ -21,6 +21,7 @@ import { Button } from 'antd';
  
  
 import {Helmet} from "react-helmet";
+import TransLoader from './../components/TransLoader';
 
 
 
@@ -70,10 +71,10 @@ function Mainscreen() {
 
 
  
-
+const [Temp,setTemp] =useState(false);
 
 const sendCred = async (em)=>{
- 
+  setTemp(true);
   const Email ='"'+em+'"';
 fetch(Ip+"/UserSigin",{
    
@@ -109,6 +110,7 @@ fetch(Ip+"/UserSigin",{
           localStorage.setItem('user', '+91'+Number);
           navigate('/MainPage')
         }
+        setTemp(false)
        } catch (e) {
          console.log("error hai",e)
           
@@ -119,8 +121,7 @@ fetch(Ip+"/UserSigin",{
  
 
 const signup = async (em)=>{
- 
-  
+  setTemp(true);
 fetch(Ip+"/UserSignup",{
   
   method:"POST",
@@ -152,6 +153,7 @@ fetch(Ip+"/UserSignup",{
           localStorage.setItem('user', '+91'+Number);
           navigate('/MainPage')
         }
+        setTemp(false);
        } catch (e) {
          console.log("error hai",e)
           
@@ -264,7 +266,7 @@ fetch(Ip+"/UserSignup",{
             </div>
       </div>:null
       }
-      {ChangeForm===3?<PhoneLogin setter={setForm}/>:null
+      {ChangeForm===3?<PhoneLogin setter={setForm} setTemp={setTemp}/>:null
 
       }
 
@@ -272,8 +274,13 @@ fetch(Ip+"/UserSignup",{
 
              
         </div>
+        
          
     </div>
+    {Temp?
+    <TransLoader/>:null
+
+    }
     </>
  
   );
@@ -315,9 +322,9 @@ const  PhoneLogin=(props)=>{
 
   const Signinwithphone = async (em)=>{
  
-   
+    props.setTemp(true);
   fetch(Ip+"/UserSiginWithOTP",{
-      
+   
     method:"POST",
     headers: {
      'Content-Type': 'application/json'
@@ -349,6 +356,7 @@ const  PhoneLogin=(props)=>{
 
             requestOtp();
           }
+          props.setTemp(false);
          } catch (e) {
            console.log("error hai",e)
             
@@ -388,7 +396,7 @@ const [Start,setStart] =useState();
 
 const verifyotp=(e)=>{
     
-
+  props.setTemp(true);
     if(Otp.length===6){
 
       let confirmationResult = window.confirmationResult;
@@ -397,6 +405,7 @@ const verifyotp=(e)=>{
         // User signed in successfully.
         const user = result.user;
           if(user){
+            props.setTemp(false);
             console.log("Logged done");
             localStorage.setItem('user', '+91'+Number);
             navigate('/Profile')
@@ -404,6 +413,7 @@ const verifyotp=(e)=>{
             
           }
           else{
+            props.setTemp(false);
             alert("Invalid OTP")
           }
 
