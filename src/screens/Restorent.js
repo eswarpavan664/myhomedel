@@ -67,7 +67,7 @@ const [AdminData,setAdminData]=useState();
          
         setAdminData(data[0])
         
-        console.log("Admin = ",data[0]);     
+       // console.log("Admin = ",data[0]);     
        
       }
       )
