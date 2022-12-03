@@ -64,6 +64,7 @@ function Mainscreen() {
         
         
   }
+
   useEffect(()=>{
   
     detectLogin();
